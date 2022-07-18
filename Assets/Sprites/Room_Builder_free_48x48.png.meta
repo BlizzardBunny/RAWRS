@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -5255,20 +5255,20 @@ TextureImporter:
     nameFileIdTable:
       Room_Builder_free_48x48_78: 1932225738
       Room_Builder_free_48x48_52: 334488995
-      Room_Builder_free_48x48_32: -954413632
       Room_Builder_free_48x48_222: 649188066
       Room_Builder_free_48x48_181: -1459908716
-      Room_Builder_free_48x48_55: 750327880
+      Room_Builder_free_48x48_221: 1156979634
       Room_Builder_free_48x48_127: -1232916926
-      Room_Builder_free_48x48_220: 339219066
+      Room_Builder_free_48x48_211: 1184716775
       Room_Builder_free_48x48_106: 2036954310
       Room_Builder_free_48x48_46: 599718962
       Room_Builder_free_48x48_173: 431310836
       Room_Builder_free_48x48_103: -2114347062
-      Room_Builder_free_48x48_221: 1156979634
+      Room_Builder_free_48x48_32: -954413632
       Room_Builder_free_48x48_131: 946497536
       Room_Builder_free_48x48_0: -1942494276
       Room_Builder_free_48x48_136: 493965627
+      Room_Builder_free_48x48_72: 1080043292
       Room_Builder_free_48x48_71: 1250517086
       Room_Builder_free_48x48_241: -85377466
       Room_Builder_free_48x48_174: 184597654
@@ -5288,8 +5288,8 @@ TextureImporter:
       Room_Builder_free_48x48_73: 1789110742
       Room_Builder_free_48x48_205: -1605217923
       Room_Builder_free_48x48_117: -2081278034
-      Room_Builder_free_48x48_156: 697509731
       Room_Builder_free_48x48_160: -922671116
+      Room_Builder_free_48x48_156: 697509731
       Room_Builder_free_48x48_153: 1183372391
       Room_Builder_free_48x48_93: -908300428
       Room_Builder_free_48x48_203: -281692623
@@ -5305,15 +5305,18 @@ TextureImporter:
       Room_Builder_free_48x48_145: 256873400
       Room_Builder_free_48x48_24: -518636473
       Room_Builder_free_48x48_119: 260386209
-      Room_Builder_free_48x48_157: -1011639271
+      Room_Builder_free_48x48_185: -63615399
+      Room_Builder_free_48x48_228: 34755178
       Room_Builder_free_48x48_135: -402067539
+      Room_Builder_free_48x48_157: -1011639271
       Room_Builder_free_48x48_140: 949777478
-      Room_Builder_free_48x48_171: 1007980845
       Room_Builder_free_48x48_129: -641585220
-      Room_Builder_free_48x48_150: -1028896999
       Room_Builder_free_48x48_23: 1728097963
+      Room_Builder_free_48x48_171: 1007980845
       Room_Builder_free_48x48_121: -111642156
       Room_Builder_free_48x48_177: 297469208
+      Room_Builder_free_48x48_150: -1028896999
+      Room_Builder_free_48x48_236: -938130832
       Room_Builder_free_48x48_4: -478979996
       Room_Builder_free_48x48_200: 116786410
       Room_Builder_free_48x48_175: -331093467
@@ -5321,18 +5324,15 @@ TextureImporter:
       Room_Builder_free_48x48_148: -1711920109
       Room_Builder_free_48x48_27: 103914333
       Room_Builder_free_48x48_183: -2106703627
-      Room_Builder_free_48x48_185: -63615399
       Room_Builder_free_48x48_92: -1859580914
       Room_Builder_free_48x48_125: -1878572299
       Room_Builder_free_48x48_170: 744703894
-      Room_Builder_free_48x48_228: 34755178
       Room_Builder_free_48x48_137: 1492624070
       Room_Builder_free_48x48_226: 704233373
       Room_Builder_free_48x48_107: 1161971955
       Room_Builder_free_48x48_155: -187599654
       Room_Builder_free_48x48_10: -361960164
       Room_Builder_free_48x48_179: -704174914
-      Room_Builder_free_48x48_236: -938130832
       Room_Builder_free_48x48_138: -1433054592
       Room_Builder_free_48x48_60: 645297128
       Room_Builder_free_48x48_18: -830886397
@@ -5494,8 +5494,8 @@ TextureImporter:
       Room_Builder_free_48x48_130: -2140875183
       Room_Builder_free_48x48_62: 347005054
       Room_Builder_free_48x48_232: -964737225
-      Room_Builder_free_48x48_211: 1184716775
-      Room_Builder_free_48x48_72: 1080043292
+      Room_Builder_free_48x48_220: 339219066
+      Room_Builder_free_48x48_55: 750327880
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
