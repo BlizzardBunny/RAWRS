@@ -2,18 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameSettingsEngine : MonoBehaviour
+public class MainMenuEngine : MonoBehaviour
 {
     #region Object References
+    [Header("Panel Management")]
+    [SerializeField] private Canvas mainCanvas;
+    [SerializeField] private Canvas optionsCanvas;
+
+    [Header("Main Menu")]
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button optionsButton, exitButton;
+
+    [Header("Resolution")]
     [SerializeField] private Canvas confirmPanel;
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Button acceptChanges, cancelChanges;
     [SerializeField] private TMPro.TextMeshProUGUI countdown;
+
+    [Header("Return")]
+    [SerializeField] private Button returnButton;
     #endregion
 
     #region Variables
+    private Canvas currCanvas;
+
     private Vector2Int[] resolutions = { 
         new Vector2Int(720, 480), 
         new Vector2Int(1024, 720),
@@ -31,11 +46,19 @@ public class GameSettingsEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currCanvas = mainCanvas;
+
         #region Add Listeners
+
+        playButton.onClick.AddListener(PlayGame);
+        optionsButton.onClick.AddListener(OpenOptions);
+        exitButton.onClick.AddListener(ExitGame);
 
         resolutionDropdown.onValueChanged.AddListener((i) => UpdateResolution(ref i));
         acceptChanges.onClick.AddListener(AcceptChanges);
         cancelChanges.onClick.AddListener(CancelChanges);
+
+        returnButton.onClick.AddListener(ReturnToMainMenu);
 
         #endregion
 
@@ -121,12 +144,33 @@ public class GameSettingsEngine : MonoBehaviour
 
     #endregion
 
-    //(Li) Delete this when using in other scenes outside DBG
-    private void Update()
+    #region Panel Management
+
+    private void ReturnToMainMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+        currCanvas.enabled = !currCanvas.enabled;
+        mainCanvas.enabled = true;
+        currCanvas = mainCanvas;
     }
+
+    private void OpenOptions()
+    {
+        currCanvas.enabled = !currCanvas.enabled;
+        optionsCanvas.enabled = true;
+        currCanvas = optionsCanvas;
+    }
+
+    #endregion
+
+    private void PlayGame()
+    {
+        SceneManager.LoadScene("DBG_Movement");
+    }
+
+    private void ExitGame()
+    {
+        //(Li) TODO: Confirm exit before exiting.
+        Application.Quit();
+    }
+
 }
