@@ -30,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!playerAnim.GetBool("isRunning"))
+        {
+            playerAnim.SetBool("isRunning", true);
+        }
+
         if (Input.GetKey(KeyCode.W))
         {
             playerAnim.SetInteger("direction", 0);
@@ -50,13 +55,7 @@ public class PlayerMovement : MonoBehaviour
             playerAnim.SetInteger("direction", 3);
             Move(right);
         }
-
-        if (!playerAnim.GetBool("isRunning"))
-        {
-            playerAnim.SetBool("isRunning", true);
-        }
-
-        if (!Input.anyKey)
+        else
         {
             playerAnim.SetBool("isRunning", false);
         }
