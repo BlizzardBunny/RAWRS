@@ -46,7 +46,6 @@ public class ObjectInteractionEngine : MonoBehaviour
     {      
         if (hit)
         {
-            Debug.Log("Wa");
             obj = hit.transform.gameObject;
 
             if (hit.transform.tag == "NPC")
