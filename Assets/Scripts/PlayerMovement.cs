@@ -22,24 +22,26 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             playerAnim.SetInteger("direction", 0);
-            playerAnim.SetBool("isRunning", true);
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             playerAnim.SetInteger("direction", 1);
-            playerAnim.SetBool("isRunning", true);
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             playerAnim.SetInteger("direction", 2);
-            playerAnim.SetBool("isRunning", true);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             playerAnim.SetInteger("direction", 3);
+        }
+
+        if (!playerAnim.GetBool("isRunning"))
+        {
             playerAnim.SetBool("isRunning", true);
         }
-        else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
+
+        if (!Input.anyKey)
         {
             playerAnim.SetBool("isRunning", false);
         }
