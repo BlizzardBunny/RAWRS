@@ -65,8 +65,6 @@ public class PlayerMovement : MonoBehaviour
     void Move(Vector3 direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(direction), 0.5f);
-        Debug.Log((bool)hit);
-        Debug.DrawRay(transform.position, direction*0.5f, Color.red);
 
         if (!hit)
         {     
