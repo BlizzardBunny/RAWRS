@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class DirtSpot : MonoBehaviour
+public class DirtSpot : MonoBehaviour, IPointerEnterHandler
 {
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private CanvasGroup image;
 
-    private void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("boop");
+        image.alpha -= 0.05f;
+    }
+
+    private void Update()
+    {
+        if (image.alpha <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
