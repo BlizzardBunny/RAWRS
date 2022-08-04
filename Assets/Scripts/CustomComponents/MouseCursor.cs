@@ -6,14 +6,23 @@ using UnityEngine.EventSystems;
 
 public class MouseCursor : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] private int tool;
     [SerializeField] private Image image;
     private bool isActive = false;
+    private Vector2 startPos;
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        TaskEngine.tool = tool;
+
         isActive = true;
-        Cursor.visible = false;
         image.raycastTarget = false;
+        Cursor.visible = false;
+    }
+
+    private void Start()
+    {
+        startPos = transform.position;
     }
 
     // Update is called once per frame
@@ -25,6 +34,8 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
 
             if (Cursor.visible)
             {
+                transform.position = startPos;
+                image.raycastTarget = true;
                 isActive = false;
             }
         }
