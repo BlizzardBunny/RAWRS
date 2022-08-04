@@ -9,7 +9,10 @@ public class DirtSpot : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        image.alpha -= 0.05f;
+        if (TaskEngine.tool == 1)
+        {
+            image.alpha -= 0.1f;
+        }        
     }
 
     private void Update()
