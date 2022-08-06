@@ -4,21 +4,50 @@ using UnityEngine;
 
 public class TaskEngine : MonoBehaviour
 {
-    [SerializeField] private Canvas endPanel, dirtspots;
-    [SerializeField] private Transform states;
-    static public int tool;
+    [SerializeField] private int taskType;
+    [SerializeField] private Canvas endPanel, bathCanvas, bathDirtspots, feedCanvas, foodDirtspots;
+    [SerializeField] private Transform bathStates, feedStates;
+    public static int tool;
+
+    private void Start()
+    {
+        if (taskType == 0)
+        {
+            bathCanvas.enabled = true;
+        }
+        else if (taskType == 1)
+        {
+            feedCanvas.enabled = true;
+        }
+    }
 
     private void Update()
     {
-        if (states.childCount <= 0)
+        if (taskType == 0)
         {
-            Cursor.visible = true;
-            endPanel.enabled = true;
-        }
+            if (bathStates.childCount <= 0)
+            {
+                Cursor.visible = true;
+                endPanel.enabled = true;
+            }
 
-        if (dirtspots.transform.childCount <= 0)
+            if (bathDirtspots.transform.childCount <= 0)
+            {
+                bathDirtspots.enabled = false;
+            }
+        }
+        else if (taskType == 1)
         {
-            dirtspots.enabled = false;
+            if (foodDirtspots.transform.childCount <= 0)
+            {
+                foodDirtspots.enabled = false;
+            }
+
+            if (feedStates.childCount <= 0)
+            {
+                Cursor.visible = true;
+                endPanel.enabled = true;
+            }
         }
 
         if (Input.GetMouseButtonDown(1))

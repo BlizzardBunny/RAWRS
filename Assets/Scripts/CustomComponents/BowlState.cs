@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class AnimalState : MonoBehaviour, IPointerEnterHandler
+public class BowlState : MonoBehaviour, IPointerEnterHandler
 {    
     [SerializeField] private int neededTool;
-    [SerializeField] CanvasGroup canvas;
-    [SerializeField] Canvas dirtCanvas;
+    [SerializeField] private CanvasGroup canvas;
+    [SerializeField] private Canvas dirtCanvas;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (TaskEngine.tool == neededTool && !dirtCanvas.enabled)
-        {
-            canvas.alpha -= 0.05f;
+        {            
+            canvas.alpha -= 0.1f;
         }
     }
 
@@ -22,8 +23,6 @@ public class AnimalState : MonoBehaviour, IPointerEnterHandler
     {
         if (canvas.alpha <= 0)
         {
-            dirtCanvas.enabled = true;
-            Cursor.visible = true;
             Destroy(gameObject);
         }
     }
