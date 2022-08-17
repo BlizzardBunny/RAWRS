@@ -32,7 +32,7 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
         {
             transform.position = Input.mousePosition;
 
-            if (Cursor.visible)
+            if (Cursor.visible || TaskEngine.tool != tool)
             {
                 transform.position = startPos;
                 image.raycastTarget = true;
