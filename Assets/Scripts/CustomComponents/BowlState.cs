@@ -26,7 +26,7 @@ public class BowlState : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             }
             else
             {
-                canvas.alpha -= 0.3f;
+                canvas.alpha -= 0.2f;
             }
         }
     }
@@ -54,6 +54,11 @@ public class BowlState : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             if (waterAnim != null)
             {
                 waterAnim.SetBool("isPouring", false);
+            }
+
+            if (this.name == "FoodBowl (1)" || this.name == "WaterBowl (1)")
+            {
+                Cursor.visible = true;
             }
             Destroy(gameObject);
         }

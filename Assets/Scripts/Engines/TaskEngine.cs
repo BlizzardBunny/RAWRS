@@ -44,8 +44,12 @@ public class TaskEngine : MonoBehaviour
         {
             if (foodDirtspots.transform.childCount <= 0)
             {
-                foodDirtspots.enabled = false;
-                foodSparkles.enabled = false;
+                if (foodDirtspots.enabled)
+                {
+                    foodDirtspots.enabled = false;
+                    foodSparkles.enabled = false;
+                    Cursor.visible = true;
+                }
             }
 
             if (feedStates.childCount <= 0)
