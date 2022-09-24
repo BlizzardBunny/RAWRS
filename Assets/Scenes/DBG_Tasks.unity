@@ -1387,6 +1387,7 @@ GameObject:
   - component: {fileID: 757710771}
   - component: {fileID: 757710770}
   - component: {fileID: 757710769}
+  - component: {fileID: 757710773}
   m_Layer: 5
   m_Name: WaterCursor
   m_TagString: Untagged
@@ -1404,7 +1405,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2030895530}
   m_RootOrder: 8
@@ -1492,6 +1493,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757710767}
   m_CullTransparentMesh: 1
+--- !u!95 &757710773
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757710767}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 744338c71e48b0d46bde988df8e9491b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &825822265
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,6 +2354,7 @@ MonoBehaviour:
   neededTool: 3
   canvas: {fileID: 1164424717}
   dirtCanvas: {fileID: 1495406244}
+  waterAnim: {fileID: 0}
 --- !u!225 &1164424717
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2863,6 +2885,7 @@ MonoBehaviour:
   neededTool: 4
   canvas: {fileID: 1412467953}
   dirtCanvas: {fileID: 1495406244}
+  waterAnim: {fileID: 757710773}
 --- !u!225 &1412467953
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3770,6 +3793,7 @@ MonoBehaviour:
   neededTool: 3
   canvas: {fileID: 1709562274}
   dirtCanvas: {fileID: 1495406244}
+  waterAnim: {fileID: 0}
 --- !u!225 &1709562274
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4069,6 +4093,7 @@ MonoBehaviour:
   neededTool: 3
   canvas: {fileID: 1953913615}
   dirtCanvas: {fileID: 1495406244}
+  waterAnim: {fileID: 0}
 --- !u!225 &1953913615
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5218,7 +5243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597b517355c57af4d9177196adbdeaeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskType: 0
+  taskType: 1
   endPanel: {fileID: 2057018578}
   bathCanvas: {fileID: 1986815300}
   bathDirtspots: {fileID: 706758453}

@@ -9,6 +9,7 @@ public class BowlState : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] private int neededTool;
     [SerializeField] private CanvasGroup canvas;
     [SerializeField] private Canvas dirtCanvas;
+    [SerializeField] private Animator waterAnim;
     private bool isPouring;
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -18,15 +19,25 @@ public class BowlState : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             if (TaskEngine.tool == 4)
             {
                 isPouring = true;
+                if (waterAnim != null)
+                {
+                    waterAnim.SetBool("isPouring", true);
+                }
             }
-
-            canvas.alpha -= 0.1f;
+            else
+            {
+                canvas.alpha -= 0.3f;
+            }
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         isPouring = false;
+        if (waterAnim != null)
+        {
+            waterAnim.SetBool("isPouring", false);
+        }
     }
 
     // Update is called once per frame
@@ -39,6 +50,11 @@ public class BowlState : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
         if (canvas.alpha <= 0)
         {
+            isPouring = false;
+            if (waterAnim != null)
+            {
+                waterAnim.SetBool("isPouring", false);
+            }
             Destroy(gameObject);
         }
     }
