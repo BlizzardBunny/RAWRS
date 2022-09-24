@@ -5,7 +5,7 @@ using UnityEngine;
 public class TaskEngine : MonoBehaviour
 {
     [SerializeField] private int taskType;
-    [SerializeField] private Canvas endPanel, bathCanvas, bathDirtspots, feedCanvas, foodDirtspots;
+    [SerializeField] private Canvas endPanel, bathCanvas, bathDirtspots, feedCanvas, foodDirtspots, foodSparkles;
     [SerializeField] private Transform bathStates, feedStates;
     public static int tool;
 
@@ -33,7 +33,11 @@ public class TaskEngine : MonoBehaviour
 
             if (bathDirtspots.transform.childCount <= 0)
             {
-                bathDirtspots.enabled = false;
+                if (bathDirtspots.enabled)
+                {
+                    bathDirtspots.enabled = false;
+                    Cursor.visible = true;
+                }
             }
         }
         else if (taskType == 1)
@@ -41,6 +45,7 @@ public class TaskEngine : MonoBehaviour
             if (foodDirtspots.transform.childCount <= 0)
             {
                 foodDirtspots.enabled = false;
+                foodSparkles.enabled = false;
             }
 
             if (feedStates.childCount <= 0)
