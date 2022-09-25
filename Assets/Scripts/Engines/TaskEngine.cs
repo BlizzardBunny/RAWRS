@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class TaskEngine : MonoBehaviour
 {
-    [SerializeField] private int taskType;
+    //[SerializeField] private int taskType;
     [SerializeField] private Canvas endPanel, bathCanvas, bathDirtspots, feedCanvas, foodDirtspots;
     [SerializeField] private Transform bathStates, feedStates;
     public static int tool;
+    public static int taskType;
 
     private void Start()
     {
