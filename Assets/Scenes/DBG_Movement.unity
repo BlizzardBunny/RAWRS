@@ -13319,7 +13319,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 426863436}
-  - component: {fileID: 426863440}
   - component: {fileID: 426863439}
   - component: {fileID: 426863437}
   m_Layer: 0
@@ -13422,27 +13421,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &426863440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426863435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  names:
-  - Cat
-  - You
-  sprites:
-  - {fileID: 738651450, guid: ca9201205827ca64384c12241f594fc0, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  dialogue:
-  - Mrreow!
-  - It seems annoyed that I'm here.
 --- !u!1 &436771927
 GameObject:
   m_ObjectHideFlags: 0
@@ -16999,7 +16977,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2045441103}
-  - component: {fileID: 2045441107}
   - component: {fileID: 2045441106}
   - component: {fileID: 2045441104}
   m_Layer: 0
@@ -17102,24 +17079,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2045441107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045441102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  names:
-  - Cat
-  - You
-  sprites:
-  - {fileID: 738651450, guid: ca9201205827ca64384c12241f594fc0, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  dialogue:
-  - Mrreow!
-  - It seems annoyed that I'm here.
