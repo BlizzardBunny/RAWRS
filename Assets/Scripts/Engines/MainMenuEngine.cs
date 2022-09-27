@@ -164,6 +164,7 @@ public class MainMenuEngine : MonoBehaviour
 
     private void PlayGame()
     {
+        StaticItems.isPaused = false;
         SceneManager.LoadScene("DBG_Movement");
     }
 
