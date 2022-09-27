@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         StaticItems.isPaused = !StaticItems.isPaused;
-        pauseMenuCanvas.enabled = !pauseMenuCanvas.enabled;
+        pauseMenuCanvas.enabled = StaticItems.isPaused;
     }
 
     void ReturnToMain()

@@ -32,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (this.transform.position != StaticItems.plrPos)
+        {
+            this.transform.position = StaticItems.plrPos;
+        }
+
         if (!StaticItems.isPaused)
         {
             if (!oie.dialogueCanvas.enabled)
@@ -65,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     playerAnim.SetBool("isRunning", false);
                 }
+
+                StaticItems.plrPos = this.transform.position;
             }
 
             if (Input.GetKeyUp(KeyCode.E))

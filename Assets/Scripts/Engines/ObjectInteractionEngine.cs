@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ObjectInteractionEngine : MonoBehaviour
@@ -19,6 +20,7 @@ public class ObjectInteractionEngine : MonoBehaviour
 
     #region Variables
     private GameObject obj;
+    private TaskEngine taskEngine;
     private NPCDialogueInfo dialogueInfo;
     private int dialogueIndex = 1;
 
@@ -54,6 +56,18 @@ public class ObjectInteractionEngine : MonoBehaviour
                 {
                     StartDialogue();
                 }
+            }
+            else if (hit.transform.tag == "TaskStation")
+            {
+                if (obj.gameObject.name == "BathingTaskStation")
+                {
+                    TaskEngine.taskType = 0;
+                }
+                else if (obj.gameObject.name == "FeedingTaskStation")
+                {
+                    TaskEngine.taskType = 1;
+                }
+                SceneManager.LoadScene("DBG_Tasks");
             }
         }
     }
