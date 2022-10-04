@@ -1,16 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TaskEngine : MonoBehaviour
 {
-    [SerializeField] private int taskType;
-    [SerializeField] private Canvas endPanel, bathCanvas, bathDirtspots, feedCanvas, foodDirtspots;
-    [SerializeField] private Transform bathStates, feedStates;
+    [Header("Panels")]
+    [SerializeField] private Canvas endPanel;
+    [SerializeField] private Canvas bathCanvas, bathDirtspots;
+    [SerializeField] private Canvas feedCanvas, foodDirtspots, foodSparkles;
+
+    [Header("States")]
+    [SerializeField] private Transform bathStates;
+    [SerializeField] private Transform feedStates;
+
+    [Header("End Components")]
+    [SerializeField] private Button contBtn;
+    [SerializeField] private Animator confettiAnim;
+
     public static int tool;
+    public static int taskType;
+
+    private void EndScene()
+    {
+        SceneManager.LoadScene("DBG_Movement");
+    }
 
     private void Start()
     {
+        endPanel.enabled = false;
+        bathCanvas.enabled = false;
+        feedCanvas.enabled = false;
+
+        contBtn.onClick.AddListener(EndScene);
+
         if (taskType == 0)
         {
             bathCanvas.enabled = true;
@@ -33,14 +57,23 @@ public class TaskEngine : MonoBehaviour
 
             if (bathDirtspots.transform.childCount <= 0)
             {
-                bathDirtspots.enabled = false;
+                if (bathDirtspots.enabled)
+                {
+                    bathDirtspots.enabled = false;
+                    Cursor.visible = true;
+                }
             }
         }
         else if (taskType == 1)
         {
             if (foodDirtspots.transform.childCount <= 0)
             {
-                foodDirtspots.enabled = false;
+                if (foodDirtspots.enabled)
+                {
+                    foodDirtspots.enabled = false;
+                    foodSparkles.enabled = false;
+                    Cursor.visible = true;
+                }
             }
 
             if (feedStates.childCount <= 0)
@@ -49,6 +82,8 @@ public class TaskEngine : MonoBehaviour
                 endPanel.enabled = true;
             }
         }
+
+        confettiAnim.SetBool("atEnd", endPanel.enabled);
 
         if (Input.GetMouseButtonDown(1))
         {
