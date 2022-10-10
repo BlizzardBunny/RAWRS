@@ -3425,6 +3425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededTool: 3
   canvas: {fileID: 1164424717}
+  dirtspots: {fileID: 1495406244}
   toolAnim: {fileID: 1959647625}
 --- !u!225 &1164424717
 CanvasGroup:
@@ -3953,6 +3954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededTool: 4
   canvas: {fileID: 1412467953}
+  dirtspots: {fileID: 1495406244}
   toolAnim: {fileID: 757710773}
 --- !u!225 &1412467953
 CanvasGroup:
@@ -5120,6 +5122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededTool: 3
   canvas: {fileID: 1709562274}
+  dirtspots: {fileID: 1495406244}
   toolAnim: {fileID: 1959647625}
 --- !u!225 &1709562274
 CanvasGroup:
@@ -5549,6 +5552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededTool: 3
   canvas: {fileID: 1953913615}
+  dirtspots: {fileID: 1495406244}
   toolAnim: {fileID: 1959647625}
 --- !u!225 &1953913615
 CanvasGroup:

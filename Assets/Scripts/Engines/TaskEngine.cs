@@ -20,7 +20,7 @@ public class TaskEngine : MonoBehaviour
     [SerializeField] private Animator confettiAnim;
 
     public static int tool;
-    public static int taskType;
+    public static int taskType = 1;
 
     private void EndScene()
     {

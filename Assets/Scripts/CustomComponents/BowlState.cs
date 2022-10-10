@@ -8,12 +8,15 @@ public class BowlState : MonoBehaviour, IPointerClickHandler, IPointerExitHandle
 {    
     [SerializeField] private int neededTool;
     [SerializeField] private CanvasGroup canvas;
+    [SerializeField] private Canvas dirtspots;
     [SerializeField] private Animator toolAnim;
+    private bool isProcced;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (TaskEngine.tool == neededTool)
+        if (TaskEngine.tool == neededTool && !dirtspots.enabled)
         {
+            isProcced = true;
             toolAnim.SetBool("isInUse", true);
         }
     }
@@ -25,7 +28,7 @@ public class BowlState : MonoBehaviour, IPointerClickHandler, IPointerExitHandle
 
     private void Update()
     {
-        if (toolAnim.GetBool("isInUse"))
+        if (isProcced)
         {
             canvas.alpha -= 0.5f * Time.deltaTime;
         }
@@ -33,6 +36,12 @@ public class BowlState : MonoBehaviour, IPointerClickHandler, IPointerExitHandle
         if (canvas.alpha <= 0)
         {
             toolAnim.SetBool("isInUse", false);
+            
+            if (this.name == "WaterBowl (1)" || this.name == "FoodBowl (1)")
+            {
+                Cursor.visible = true;
+            }
+
             Destroy(gameObject);
         }
     }
