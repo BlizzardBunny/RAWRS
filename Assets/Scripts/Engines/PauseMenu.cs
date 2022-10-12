@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         returnToMainMenu.onClick.AddListener(ReturnToMain);
-        exitGame.onClick.AddListener(ExitGame);
+        exitGame.onClick.AddListener(StaticItems.ExitGame);
     }
 
     // Update is called once per frame
@@ -39,15 +39,4 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-
-    void ExitGame()
-    {
-#if UNITY_STANDALONE
-        Application.Quit();
-#endif
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
-    }
-
 }
