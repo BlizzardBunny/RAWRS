@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     #region Object References
 
     [SerializeField] private Canvas pauseMenuCanvas;
-    [SerializeField] private Button returnToMainMenu;
+    [SerializeField] private Button returnToMainMenu, exitGame;
 
     #endregion
 
@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         returnToMainMenu.onClick.AddListener(ReturnToMain);
+        exitGame.onClick.AddListener(ExitGame);
     }
 
     // Update is called once per frame
@@ -38,4 +39,15 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    void ExitGame()
+    {
+#if UNITY_STANDALONE
+        Application.Quit();
+#endif
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
+
 }
