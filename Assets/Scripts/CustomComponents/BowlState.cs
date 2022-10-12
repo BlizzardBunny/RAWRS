@@ -14,15 +14,27 @@ public class BowlState : MonoBehaviour, IPointerClickHandler, IPointerExitHandle
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (TaskEngine.tool == neededTool && !dirtspots.enabled)
+        if (dirtspots != null)
         {
-            isProcced = true;
-            toolAnim.SetBool("isInUse", true);
+            if (TaskEngine.tool == neededTool && !dirtspots.enabled)
+            {
+                isProcced = true;
+                toolAnim.SetBool("isInUse", true);
+            }
+        }
+        else
+        {
+            if (TaskEngine.tool == neededTool)
+            {
+                isProcced = true;
+                toolAnim.SetBool("isInUse", true);
+            }
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        isProcced = false;
         toolAnim.SetBool("isInUse", false);
     }
 

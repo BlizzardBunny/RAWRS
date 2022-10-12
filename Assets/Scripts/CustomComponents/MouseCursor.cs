@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class MouseCursor : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
+public class MouseCursor : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private int tool;
     [SerializeField] private Image image;
@@ -14,17 +14,11 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("ah");
         TaskEngine.tool = tool;
 
         isActive = true;
         image.raycastTarget = false;
         Cursor.visible = false;
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log("wah");
     }
 
     private void Start()
