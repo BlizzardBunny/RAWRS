@@ -4,62 +4,56 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class BowlState : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class BowlState : MonoBehaviour, IPointerClickHandler, IPointerExitHandler
 {    
     [SerializeField] private int neededTool;
     [SerializeField] private CanvasGroup canvas;
-    [SerializeField] private Canvas dirtCanvas;
-    [SerializeField] private Animator waterAnim;
-    private bool isPouring;
+    [SerializeField] private Canvas dirtspots;
+    [SerializeField] private Animator toolAnim;
+    private bool isProcced;
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (TaskEngine.tool == neededTool && !dirtCanvas.enabled)
-        {            
-            if (TaskEngine.tool == 4)
+        if (dirtspots != null)
+        {
+            if (TaskEngine.tool == neededTool && !dirtspots.enabled)
             {
-                isPouring = true;
-                if (waterAnim != null)
-                {
-                    waterAnim.SetBool("isPouring", true);
-                }
+                isProcced = true;
+                toolAnim.SetBool("isInUse", true);
             }
-            else
+        }
+        else
+        {
+            if (TaskEngine.tool == neededTool)
             {
-                canvas.alpha -= 0.2f;
+                isProcced = true;
+                toolAnim.SetBool("isInUse", true);
             }
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        isPouring = false;
-        if (waterAnim != null)
-        {
-            waterAnim.SetBool("isPouring", false);
-        }
+        isProcced = false;
+        toolAnim.SetBool("isInUse", false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (isPouring)
+        if (isProcced)
         {
             canvas.alpha -= 0.5f * Time.deltaTime;
         }
 
         if (canvas.alpha <= 0)
         {
-            isPouring = false;
-            if (waterAnim != null)
-            {
-                waterAnim.SetBool("isPouring", false);
-            }
-
-            if (this.name == "FoodBowl (1)" || this.name == "WaterBowl (1)")
+            toolAnim.SetBool("isInUse", false);
+            
+            if (this.name == "WaterBowl (1)" || this.name == "FoodBowl (1)")
             {
                 Cursor.visible = true;
             }
+
             Destroy(gameObject);
         }
     }

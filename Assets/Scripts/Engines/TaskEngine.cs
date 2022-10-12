@@ -10,6 +10,7 @@ public class TaskEngine : MonoBehaviour
     [SerializeField] private Canvas endPanel;
     [SerializeField] private Canvas bathCanvas, bathDirtspots;
     [SerializeField] private Canvas feedCanvas, foodDirtspots, foodSparkles;
+    [SerializeField] private Canvas cleanCanvas, cleanDirtspots;
 
     [Header("States")]
     [SerializeField] private Transform bathStates;
@@ -32,6 +33,7 @@ public class TaskEngine : MonoBehaviour
         endPanel.enabled = false;
         bathCanvas.enabled = false;
         feedCanvas.enabled = false;
+        cleanCanvas.enabled = false;
 
         contBtn.onClick.AddListener(EndScene);
 
@@ -42,6 +44,10 @@ public class TaskEngine : MonoBehaviour
         else if (taskType == 1)
         {
             feedCanvas.enabled = true;
+        }
+        else if (taskType == 2)
+        {
+            cleanCanvas.enabled = true;
         }
     }
 
@@ -78,6 +84,15 @@ public class TaskEngine : MonoBehaviour
 
             if (feedStates.childCount <= 0)
             {
+                Cursor.visible = true;
+                endPanel.enabled = true;
+            }
+        }
+        else if (taskType == 2)
+        {
+            if (cleanDirtspots.transform.childCount <= 0)
+            {
+                cleanDirtspots.enabled = false;
                 Cursor.visible = true;
                 endPanel.enabled = true;
             }

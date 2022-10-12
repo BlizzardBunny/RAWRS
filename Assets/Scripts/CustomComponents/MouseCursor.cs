@@ -8,6 +8,7 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private int tool;
     [SerializeField] private Image image;
+    [SerializeField] private Vector3 offset;
     private bool isActive = false;
     private Vector2 startPos;
 
@@ -30,7 +31,7 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
     {
         if (isActive)
         {
-            transform.position = Input.mousePosition;
+            transform.position = Input.mousePosition + offset;
 
             if (Cursor.visible || TaskEngine.tool != tool)
             {
