@@ -25,7 +25,7 @@ public class TaskEngine : MonoBehaviour
     public static int checkUpTasksTodo = 3;
 
     public static int tool;
-    public static int taskType = 3;
+    public static int taskType;
 
     private void EndScene()
     {
