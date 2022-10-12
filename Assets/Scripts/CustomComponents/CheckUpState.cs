@@ -48,12 +48,13 @@ public class CheckUpState : MonoBehaviour, IPointerClickHandler, IPointerExitHan
     {
         if (isActive && isProcced)
         {
-            stressSlider.value += 0.1f * Time.deltaTime;
+            stressSlider.value += 0.075f * Time.deltaTime;
             toolSlider.value += 0.2f * Time.deltaTime;
 
             if (toolSlider.value >= 1)
             {
                 Cursor.visible = true;
+                canvas.alpha = 0;
                 toolAnim.SetBool("isInUse", false);
                 isProcced = false;
                 isActive = false;

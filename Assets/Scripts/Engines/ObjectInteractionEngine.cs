@@ -71,6 +71,10 @@ public class ObjectInteractionEngine : MonoBehaviour
                 {
                     TaskEngine.taskType = 2;
                 }
+                else if (obj.gameObject.name == "CheckupTaskStation")
+                {
+                    TaskEngine.taskType = 3;
+                }
                 SceneManager.LoadScene("DBG_Tasks");
             }
         }

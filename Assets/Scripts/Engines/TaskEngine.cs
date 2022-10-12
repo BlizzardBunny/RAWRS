@@ -34,6 +34,7 @@ public class TaskEngine : MonoBehaviour
 
     private void RetryScene()
     {
+        checkUpTasksTodo = 3;
         SceneManager.LoadScene("DBG_Tasks");
     }
 
