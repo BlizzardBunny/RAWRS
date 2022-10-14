@@ -172,7 +172,7 @@ public class MainMenuEngine : MonoBehaviour
     private void ExitGame()
     {
         //(Li) TODO: Confirm exit before exiting.
-        Application.Quit();
+        StaticItems.ExitGame();
     }
 
 }

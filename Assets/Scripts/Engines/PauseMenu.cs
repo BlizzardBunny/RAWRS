@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     #region Object References
 
     [SerializeField] private Canvas pauseMenuCanvas;
-    [SerializeField] private Button returnToMainMenu;
+    [SerializeField] private Button returnToMainMenu, exitGame;
 
     #endregion
 
@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         returnToMainMenu.onClick.AddListener(ReturnToMain);
+        exitGame.onClick.AddListener(StaticItems.ExitGame);
     }
 
     // Update is called once per frame
