@@ -16,11 +16,15 @@ public class ObjectInteractionEngine : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI npcDialogue;
     [SerializeField] private Button nextLine;
 
+    [SerializeField] private Canvas confirmTaskCanvas;
+    [SerializeField] private TMPro.TextMeshProUGUI confirmDialogue;
+    [SerializeField] private Button confirmYes;
+    [SerializeField] private Button confirmNo;
+
     #endregion
 
     #region Variables
     private GameObject obj;
-    private TaskEngine taskEngine;
     private NPCDialogueInfo dialogueInfo;
     private int dialogueIndex = 1;
 
@@ -30,12 +34,16 @@ public class ObjectInteractionEngine : MonoBehaviour
     private Vector3 down = new Vector3(0.0f, -1.0f, 0.0f);
     private Vector3 right = new Vector3(1.0f, 0.0f, 0.0f);
 
+    private TaskStationInfo taskStationInfo;
+
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         nextLine.onClick.AddListener(ContDialogue);
+        confirmYes.onClick.AddListener(() => SceneManager.LoadScene("DBG_Tasks"));
+        confirmNo.onClick.AddListener(() => confirmTaskCanvas.enabled = false);
     }
 
     // Update is called once per frame
@@ -59,23 +67,12 @@ public class ObjectInteractionEngine : MonoBehaviour
             }
             else if (hit.transform.tag == "TaskStation")
             {
-                if (obj.gameObject.name == "BathingTaskStation")
-                {
-                    TaskEngine.taskType = 0;
-                }
-                else if (obj.gameObject.name == "FeedingTaskStation")
-                {
-                    TaskEngine.taskType = 1;
-                }
-                else if (obj.gameObject.name == "CleaningTaskStation")
-                {
-                    TaskEngine.taskType = 2;
-                }
-                else if (obj.gameObject.name == "CheckupTaskStation")
-                {
-                    TaskEngine.taskType = 3;
-                }
-                SceneManager.LoadScene("DBG_Tasks");
+                taskStationInfo = obj.GetComponent<TaskStationInfo>();
+
+                TaskEngine.taskType = taskStationInfo.taskType;
+                confirmDialogue.text = taskStationInfo.dialogue;
+
+                confirmTaskCanvas.enabled = true;
             }
         }
     }

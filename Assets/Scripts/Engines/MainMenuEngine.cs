@@ -166,7 +166,7 @@ public class MainMenuEngine : MonoBehaviour
     {
         StaticItems.isPaused = false;
         StaticItems.plrPos = new Vector3(-0.5f, 3.5f, 0.0f);
-        SceneManager.LoadScene("DBG_Movement");
+        SceneManager.LoadScene("Overworld");
     }
 
     private void ExitGame()
