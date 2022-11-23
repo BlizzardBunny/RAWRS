@@ -32,11 +32,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position != StaticItems.plrPos)
-        {
-            this.transform.position = StaticItems.plrPos;
-        }
-
         if (!StaticItems.isPaused)
         {
             if (!oie.dialogueCanvas.enabled)
