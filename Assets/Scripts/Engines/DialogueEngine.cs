@@ -59,9 +59,18 @@ public class DialogueEngine : MonoBehaviour
             {
                 if (chars[i] == '/')
                 {
-                    if (chars[++i] == 'p')
+                    ++i;
+                    if (chars[i] == 'p')
                     {
                         line += StaticItems.playerName;
+                    }
+                    else if (chars[i] == 'c')
+                    {
+                        line += StaticItems.petNames[0];
+                    }
+                    else if (chars[i] == 'd')
+                    {
+                        line += StaticItems.petNames[1];
                     }
                 }
                 else
