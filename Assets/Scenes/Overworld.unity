@@ -706,12 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c70ff4477f4cfc4182e350832a00046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnim: {fileID: 116131422}
-  dialogueCanvas: {fileID: 1925394870}
-  npcPic: {fileID: 1675361262}
-  npcName: {fileID: 1056775244}
-  npcDialogue: {fileID: 186189939}
-  nextLine: {fileID: 1466473723}
+  dialogueEngine: {fileID: 1925394872}
   confirmTaskCanvas: {fileID: 102539413}
   confirmDialogue: {fileID: 761118625}
   confirmYes: {fileID: 1339175180}
@@ -1093,7 +1088,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 10, y: 10, z: 40, w: 40}
+  m_margin: {x: 10, y: 20, z: 40, w: 40}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -45374,6 +45369,7 @@ GameObject:
   - component: {fileID: 1925394870}
   - component: {fileID: 1925394869}
   - component: {fileID: 1925394868}
+  - component: {fileID: 1925394872}
   m_Layer: 5
   m_Name: DialogueCanvas
   m_TagString: Untagged
@@ -45466,6 +45462,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1925394872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925394867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd7a1d3f84cd294bbc29fc5082c167b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueCanvas: {fileID: 1925394870}
+  npcPic: {fileID: 1675361262}
+  npcName: {fileID: 1056775244}
+  npcDialogue: {fileID: 186189939}
+  nextLine: {fileID: 1466473723}
+  autoPlay: 0
 --- !u!1 &1953804869
 GameObject:
   m_ObjectHideFlags: 0

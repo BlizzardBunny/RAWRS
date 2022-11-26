@@ -8,6 +8,8 @@ public static class StaticItems
 
     static public Vector3 plrPos;
 
+    static public string playerName = "Player";
+
     public static void ExitGame()
     {
 #if UNITY_STANDALONE
