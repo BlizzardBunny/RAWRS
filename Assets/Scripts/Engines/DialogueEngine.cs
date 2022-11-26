@@ -15,7 +15,7 @@ public class DialogueEngine : MonoBehaviour
     [SerializeField] private Button nextLine;
 
     public bool autoPlay;
-    public string nextScene = null;
+    public string nextScene = "";
 
     #endregion
 
@@ -33,6 +33,7 @@ public class DialogueEngine : MonoBehaviour
 
         if (autoPlay)
         {
+            dialogueInfo = this.GetComponent<NPCDialogueInfo>();
             StartDialogue();
         }
     }
@@ -75,26 +76,20 @@ public class DialogueEngine : MonoBehaviour
 
     public void StartDialogue(ref GameObject obj)
     {
-        dialogueCanvas.enabled = true;
-
         dialogueInfo = obj.GetComponent<NPCDialogueInfo>();
 
-        if (dialogueInfo == null || dialogueInfo.dialogue == null || dialogueInfo.names == null || dialogueInfo.sprites == null)
-        {
-            Debug.LogError("Missing dialogue information");
-            return;
-        }
-
-        npcDialogue.text = ApplyKeywords(ref dialogueInfo.dialogue[0]);
-        npcName.text = dialogueInfo.names[0];
-        npcPic.sprite = dialogueInfo.sprites[0];
+        StartDialogue();
     }
 
     public void StartDialogue()
     {
         dialogueCanvas.enabled = true;
 
-        dialogueInfo = this.GetComponent<NPCDialogueInfo>();
+        if (dialogueInfo == null || dialogueInfo.dialogue.Length == 0 || dialogueInfo.names.Length == 0 || dialogueInfo.sprites.Length == 0)
+        {
+            Debug.LogError("Missing dialogue information");
+            return;
+        }
 
         npcDialogue.text = ApplyKeywords(ref dialogueInfo.dialogue[0]);
         npcName.text = dialogueInfo.names[0];
@@ -116,7 +111,7 @@ public class DialogueEngine : MonoBehaviour
             dialogueIndex = 1;
             dialogueCanvas.enabled = false;
 
-            if (nextScene != null)
+            if (nextScene != "")
             {
                 SceneManager.LoadScene(nextScene);
             }

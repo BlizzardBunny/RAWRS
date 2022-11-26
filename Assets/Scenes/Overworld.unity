@@ -650,7 +650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116131419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5, y: 3.5, z: 0}
+  m_LocalPosition: {x: -5.5, y: 6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43287,7 +43287,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -513897947, guid: 8b2bb51ec762e2f4c9e675d89261486e, type: 3}
+  m_Sprite: {fileID: 59258428, guid: 8b2bb51ec762e2f4c9e675d89261486e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -45370,6 +45370,7 @@ GameObject:
   - component: {fileID: 1925394869}
   - component: {fileID: 1925394868}
   - component: {fileID: 1925394872}
+  - component: {fileID: 1925394873}
   m_Layer: 5
   m_Name: DialogueCanvas
   m_TagString: Untagged
@@ -45479,7 +45480,23 @@ MonoBehaviour:
   npcName: {fileID: 1056775244}
   npcDialogue: {fileID: 186189939}
   nextLine: {fileID: 1466473723}
-  autoPlay: 0
+  autoPlay: 1
+  nextScene: 
+--- !u!114 &1925394873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925394867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names: []
+  sprites: []
+  dialogue: []
 --- !u!1 &1953804869
 GameObject:
   m_ObjectHideFlags: 0

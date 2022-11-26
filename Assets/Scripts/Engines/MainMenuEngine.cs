@@ -41,12 +41,25 @@ public class MainMenuEngine : MonoBehaviour
     private int fullscreenIndex = 3;
     private Coroutine confirmCoroutine;
     private bool isCountingDown = false;
+
+    private bool updatedPlayBtn = false;
     #endregion
 
-    // Start is called before the first frame update
+
     void Start()
     {
         currCanvas = mainCanvas;
+
+        if (StaticItems.firstTime)
+        {
+            playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
+        }
+        else
+        {
+            playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Continue";
+        }
+
+        updatedPlayBtn = true;
 
         #region Add Listeners
 
@@ -63,6 +76,21 @@ public class MainMenuEngine : MonoBehaviour
         #endregion
 
         FindClosestResolution();
+    }
+
+    private void Update()
+    {
+        if (!updatedPlayBtn)
+        {
+            if (StaticItems.firstTime)
+            {
+                playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
+            }
+            else
+            {
+                playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Continue";
+            }
+        }
     }
 
     #region Resolution
@@ -166,7 +194,15 @@ public class MainMenuEngine : MonoBehaviour
     {
         StaticItems.isPaused = false;
         StaticItems.plrPos = new Vector3(-0.5f, 3.5f, 0.0f);
-        SceneManager.LoadScene("Overworld");
+        updatedPlayBtn = false;
+        if (StaticItems.firstTime)
+        {
+            SceneManager.LoadScene("Intro");
+        }
+        else
+        {
+            SceneManager.LoadScene("Overworld");
+        }
     }
 
     private void ExitGame()

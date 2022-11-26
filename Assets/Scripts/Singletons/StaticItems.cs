@@ -10,6 +10,8 @@ public static class StaticItems
 
     static public string playerName = "Player";
 
+    static public bool firstTime = true; //remove when Saving system is implemented;
+
     public static void ExitGame()
     {
 #if UNITY_STANDALONE
