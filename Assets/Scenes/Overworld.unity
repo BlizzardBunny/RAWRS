@@ -30141,10 +30141,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 387884513}
+  - component: {fileID: 387884519}
   - component: {fileID: 387884516}
-  - component: {fileID: 387884514}
   - component: {fileID: 387884517}
+  - component: {fileID: 387884518}
+  - component: {fileID: 387884521}
+  - component: {fileID: 387884520}
   m_Layer: 0
   m_Name: Theo
   m_TagString: NPC
@@ -30152,47 +30154,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &387884513
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387884512}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 6.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 872483817}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &387884514
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387884512}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!212 &387884516
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30234,7 +30195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1505906918, guid: 156fb24a82d40474d8058f0297392f24, type: 3}
+  m_Sprite: {fileID: 2113337047, guid: 156fb24a82d40474d8058f0297392f24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -30265,6 +30226,85 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &387884518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387884512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ed4bb8319417f4697b860299b25c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCAnim: {fileID: 387884517}
+  directions: 0300000003000000030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000001000000010000000100000001000000
+  dialogueInfo: {fileID: 387884521}
+  moveSpeed: 3
+  endDirection: 3
+--- !u!4 &387884519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387884512}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.5, y: 6.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 872483817}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &387884520
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387884512}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &387884521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387884512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMoving: 0
+  nextScene: 
+  NPCMovement: {fileID: 0}
+  names:
+  - Theo
+  sprites:
+  - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  dialogue:
+  - Hey!
 --- !u!1 &391572876
 GameObject:
   m_ObjectHideFlags: 0
@@ -39399,7 +39439,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1455019074}
-  - {fileID: 387884513}
+  - {fileID: 387884519}
   - {fileID: 1507350872}
   - {fileID: 15622752}
   - {fileID: 53817673}
@@ -42021,6 +42061,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 0
+  nextScene: 
+  NPCMovement: {fileID: 0}
   names:
   - Cat
   - You
@@ -42207,7 +42250,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1507350872}
-  - component: {fileID: 1507350871}
   - component: {fileID: 1507350870}
   - component: {fileID: 1507350868}
   m_Layer: 0
@@ -42295,27 +42337,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1507350871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507350867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  names:
-  - Cat
-  - You
-  sprites:
-  - {fileID: 738651450, guid: ca9201205827ca64384c12241f594fc0, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  dialogue:
-  - Mrreow!
-  - It seems annoyed that I'm here.
 --- !u!4 &1507350872
 Transform:
   m_ObjectHideFlags: 0
@@ -49680,6 +49701,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 0
+  nextScene: 
+  NPCMovement: {fileID: 387884518}
   names:
   - Cara
   - Theo
@@ -49725,7 +49749,6 @@ MonoBehaviour:
   npcDialogue: {fileID: 6463746762725880609}
   nextLine: {fileID: 6463746763863549865}
   autoPlay: 1
-  nextScene: 
 --- !u!1 &6463746763739460793
 GameObject:
   m_ObjectHideFlags: 0

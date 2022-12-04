@@ -15,7 +15,6 @@ public class DialogueEngine : MonoBehaviour
     [SerializeField] private Button nextLine;
 
     public bool autoPlay;
-    public string nextScene = "";
 
     #endregion
 
@@ -87,7 +86,10 @@ public class DialogueEngine : MonoBehaviour
     {
         dialogueInfo = obj.GetComponent<NPCDialogueInfo>();
 
-        StartDialogue();
+        if (!dialogueInfo.isMoving)
+        {
+            StartDialogue();
+        }
     }
 
     public void StartDialogue()
@@ -120,9 +122,13 @@ public class DialogueEngine : MonoBehaviour
             dialogueIndex = 1;
             dialogueCanvas.enabled = false;
 
-            if (nextScene != "")
+            if (dialogueInfo.nextScene != "")
             {
-                SceneManager.LoadScene(nextScene);
+                SceneManager.LoadScene(dialogueInfo.nextScene);
+            }
+            else if (dialogueInfo.NPCMovement != null)
+            {
+                StartCoroutine(dialogueInfo.NPCMovement.StartMovement());
             }
         }
     }

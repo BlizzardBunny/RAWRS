@@ -8,11 +8,14 @@ public class NPCMovement : MonoBehaviour
 
     [SerializeField] private Animator NPCAnim;
     [SerializeField] private int[] directions;
+    [SerializeField] private NPCDialogueInfo dialogueInfo;
+
+    public float moveSpeed = 5.0f;
+    public int endDirection = 0;
 
     #endregion
 
     #region Variables
-    public float moveSpeed = 5.0f;
 
     //Directions
     private Vector3 up = new Vector3(0.0f, 1.0f, 0.0f);
@@ -20,6 +23,8 @@ public class NPCMovement : MonoBehaviour
     private Vector3 down = new Vector3(0.0f, -1.0f, 0.0f);
     private Vector3 right = new Vector3(1.0f, 0.0f, 0.0f);
     private Vector3 currDirection;
+
+    private float distMoved = 0.0f;
 
     #endregion
 
@@ -49,43 +54,57 @@ public class NPCMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void StartMovement()
+    public IEnumerator StartMovement()
     {
+        dialogueInfo.isMoving = true;
+        NPCAnim.SetBool("isRunning", true);
         for (int i = 0; i < directions.Length; i++)
         {
             if (!StaticItems.isPaused)
             {
-                if (directions[i] == 0)
-                {
-                    Move(up);
+                NPCAnim.SetInteger("direction", directions[i]);
+
+                while (distMoved <= 1.0f)
+                {   
+                    if (directions[i] == 0)
+                    {
+                        Move(up);
+                    }
+                    else if (directions[i] == 1)
+                    {
+                        Move(left);
+                    }
+                    else if (directions[i] == 2)
+                    {
+                        Move(down);
+                    }
+                    else if (directions[i] == 3)
+                    {
+                        Move(right);
+                    }
+
+                    yield return new WaitForEndOfFrame();
                 }
-                else if (directions[i] == 1)
-                {
-                    Move(left);
-                }
-                else if (directions[i] == 2)
-                {
-                    Move(down);
-                }
-                else if (directions[i] == 3)
-                {
-                    Move(right);
-                }
+
+                distMoved = 0.0f;
             }
+
+            yield return new WaitForEndOfFrame();
         }
+
+        dialogueInfo.isMoving = false;
+        NPCAnim.SetInteger("direction", endDirection);
+        NPCAnim.SetBool("isRunning", false);
     }
 
     void Move(Vector3 direction)
     {
         currDirection = direction;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(direction), 0.5f);
-
-        if (!hit)
-        {     
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, moveSpeed * Time.deltaTime);
-        }
+        float distToMove = moveSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, distToMove);
+        distMoved += distToMove;
     }
 }
