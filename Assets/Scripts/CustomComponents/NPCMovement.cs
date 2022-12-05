@@ -6,12 +6,14 @@ public class NPCMovement : MonoBehaviour
 {
     #region Object References
 
-    [SerializeField] private Animator NPCAnim;
-    [SerializeField] private int[] directions;
-    [SerializeField] private NPCDialogueInfo dialogueInfo;
-
     public float moveSpeed = 5.0f;
     public int endDirection = 0;
+    public bool waitForMovement = false;
+
+    public Animator NPCAnim;
+    [SerializeField] private int[] directions;
+    [SerializeField] private NPCDialogueInfo dialogueInfo;
+    [SerializeField] private Canvas wasdCanvas;
 
     #endregion
 
@@ -33,7 +35,7 @@ public class NPCMovement : MonoBehaviour
     {
         int dir = NPCAnim.GetInteger("direction");
 
-        if (dir  == 0)
+        if (dir == 0)
         {
             currDirection = up;
         }
@@ -57,8 +59,34 @@ public class NPCMovement : MonoBehaviour
 
     }
 
+    private IEnumerator WaitForMovement()
+    {
+        wasdCanvas.enabled = true;
+        while ((!Input.GetKeyDown(KeyCode.W)) 
+            &&(!Input.GetKeyDown(KeyCode.A)) 
+            &&(!Input.GetKeyDown(KeyCode.S)) 
+            &&(!Input.GetKeyDown(KeyCode.D)))
+        {
+            yield return null;
+        }
+        wasdCanvas.enabled = false;
+    }
+
+    //private IEnumerator WaitForInput(KeyCode key)
+    //{
+    //    while (!Input.GetKeyDown(key))
+    //    {
+    //        yield return null;
+    //    }
+    //}
+
     public IEnumerator StartMovement()
     {
+        if (waitForMovement)
+        {
+            yield return StartCoroutine(WaitForMovement());
+        }
+
         dialogueInfo.isMoving = true;
         NPCAnim.SetBool("isRunning", true);
         for (int i = 0; i < directions.Length; i++)

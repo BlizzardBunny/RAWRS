@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.transform.position = StaticItems.plrPos;
         currDirection = up;
         playerAnim.SetInteger("direction", 0);
     }

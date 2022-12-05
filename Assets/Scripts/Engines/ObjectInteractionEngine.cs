@@ -34,7 +34,7 @@ public class ObjectInteractionEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        confirmYes.onClick.AddListener(() => SceneManager.LoadScene("DBG_Tasks"));
+        confirmYes.onClick.AddListener(StartTask);
         confirmNo.onClick.AddListener(() => confirmTaskCanvas.enabled = false);
     }
 
@@ -67,5 +67,10 @@ public class ObjectInteractionEngine : MonoBehaviour
                 confirmTaskCanvas.enabled = true;
             }
         }
-    }    
+    }   
+    
+    public void StartTask()
+    {
+        SceneManager.LoadScene("DBG_Tasks");
+    }
 }

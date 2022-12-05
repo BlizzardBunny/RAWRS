@@ -192,8 +192,6 @@ public class MainMenuEngine : MonoBehaviour
 
     private void PlayGame()
     {
-        StaticItems.isPaused = false;
-        StaticItems.plrPos = new Vector3(-0.5f, 3.5f, 0.0f);
         updatedPlayBtn = false;
         if (StaticItems.firstTime)
         {

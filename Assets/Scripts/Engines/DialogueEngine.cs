@@ -13,8 +13,7 @@ public class DialogueEngine : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI npcName;
     [SerializeField] private TMPro.TextMeshProUGUI npcDialogue;
     [SerializeField] private Button nextLine;
-
-    public bool autoPlay;
+    [SerializeField] private NPCDialogueInfo nextStateDialogueInfo;
 
     #endregion
 
@@ -30,10 +29,27 @@ public class DialogueEngine : MonoBehaviour
     {
         nextLine.onClick.AddListener(ContDialogue);
 
-        if (autoPlay)
+        dialogueInfo = this.GetComponent<NPCDialogueInfo>();
+
+        if (dialogueInfo != null)
         {
-            dialogueInfo = this.GetComponent<NPCDialogueInfo>();
-            StartDialogue();
+            if (dialogueInfo.playAtStart)
+            {
+                if (StaticItems.inTutorial)
+                {
+                    if (StaticItems.tutorialState != dialogueInfo.tutorialState)
+                    {
+                        nextStateDialogueInfo.gameObject.SetActive(true);
+                        dialogueInfo = nextStateDialogueInfo;
+                    }
+
+                    StartDialogue();
+                }
+                else if (dialogueInfo.tutorialState < 0)
+                {
+                    StartDialogue();
+                }
+            }
         }
     }
 
@@ -63,13 +79,14 @@ public class DialogueEngine : MonoBehaviour
                     {
                         line += StaticItems.playerName;
                     }
-                    else if (chars[i] == 'c')
+                    else if (chars[i] == 'a')
                     {
-                        line += StaticItems.petNames[0];
+                        ++i;
+                        line += StaticItems.petNames[int.Parse(chars[i].ToString())];
                     }
-                    else if (chars[i] == 'd')
+                    else
                     {
-                        line += StaticItems.petNames[1];
+                        line += "/" +  chars[i];
                     }
                 }
                 else
@@ -86,10 +103,7 @@ public class DialogueEngine : MonoBehaviour
     {
         dialogueInfo = obj.GetComponent<NPCDialogueInfo>();
 
-        if (!dialogueInfo.isMoving)
-        {
-            StartDialogue();
-        }
+        StartDialogue();
     }
 
     public void StartDialogue()
@@ -121,6 +135,15 @@ public class DialogueEngine : MonoBehaviour
         {
             dialogueIndex = 1;
             dialogueCanvas.enabled = false;
+
+            if (StaticItems.inTutorial && dialogueInfo.tutorialState > 0)
+            {
+                StaticItems.tutorialState++;
+                if (dialogueInfo.tutorialState == 3)
+                {
+                    StaticItems.inTutorial = false;
+                }
+            }
 
             if (dialogueInfo.nextScene != "")
             {

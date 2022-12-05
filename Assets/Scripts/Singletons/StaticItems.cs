@@ -5,8 +5,11 @@ using UnityEngine;
 public static class StaticItems
 {
     static public bool isPaused = false;
+    static public bool inTutorial = true;
 
-    static public Vector3 plrPos;
+    static public int tutorialState = 1;
+
+    static public Vector3 plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
 
     static public string playerName = "Player";
 
