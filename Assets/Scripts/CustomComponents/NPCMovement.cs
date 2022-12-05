@@ -9,11 +9,13 @@ public class NPCMovement : MonoBehaviour
     public float moveSpeed = 5.0f;
     public int endDirection = 0;
     public bool waitForMovement = false;
+    public bool waitForInput = false;
 
     public Animator NPCAnim;
     [SerializeField] private int[] directions;
     [SerializeField] private NPCDialogueInfo dialogueInfo;
     [SerializeField] private Canvas wasdCanvas;
+    [SerializeField] private Canvas pressKeyCanvas;
 
     #endregion
 
@@ -72,13 +74,15 @@ public class NPCMovement : MonoBehaviour
         wasdCanvas.enabled = false;
     }
 
-    //private IEnumerator WaitForInput(KeyCode key)
-    //{
-    //    while (!Input.GetKeyDown(key))
-    //    {
-    //        yield return null;
-    //    }
-    //}
+    private IEnumerator WaitForInput(KeyCode key)
+    {
+        pressKeyCanvas.enabled = true;
+        while (!Input.GetKeyDown(key))
+        {
+            yield return null;
+        }
+        pressKeyCanvas.enabled = false;
+    }
 
     public IEnumerator StartMovement()
     {
@@ -126,6 +130,11 @@ public class NPCMovement : MonoBehaviour
         dialogueInfo.isMoving = false;
         NPCAnim.SetInteger("direction", endDirection);
         NPCAnim.SetBool("isRunning", false);
+
+        if (waitForInput)
+        {
+            yield return StartCoroutine(WaitForInput(KeyCode.E));
+        }
     }
 
     void Move(Vector3 direction)

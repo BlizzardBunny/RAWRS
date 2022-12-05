@@ -6949,6 +6949,6 @@ MonoBehaviour:
   dialogueCanvas: {fileID: 1925394870}
   npcPic: {fileID: 1675361262}
   npcName: {fileID: 1056775244}
-  npcDialogue: {fileID: 0}
+  npcDialogue: {fileID: 307940757}
   nextLine: {fileID: 1466473723}
   nextStateDialogueInfo: {fileID: 0}
