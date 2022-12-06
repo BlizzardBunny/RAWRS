@@ -26,7 +26,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currDirection = down;
+        this.transform.position = StaticItems.plrPos;
+        currDirection = up;
+        playerAnim.SetInteger("direction", 0);
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!StaticItems.isPaused)
         {
-            if (!oie.dialogueCanvas.enabled)
+            if (!oie.dialogueEngine.dialogueCanvas.enabled)
             {
                 if (!playerAnim.GetBool("isRunning"))
                 {
@@ -44,22 +46,22 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKey(KeyCode.W))
                 {
                     playerAnim.SetInteger("direction", 0);
-                    Move(up);
+                    Move(up, 0.25f);
                 }
                 else if (Input.GetKey(KeyCode.A))
                 {
                     playerAnim.SetInteger("direction", 1);
-                    Move(left);
+                    Move(left, 0.5f);
                 }
                 else if (Input.GetKey(KeyCode.S))
                 {
                     playerAnim.SetInteger("direction", 2);
-                    Move(down);
+                    Move(down, 0.5f);
                 }
                 else if (Input.GetKey(KeyCode.D))
                 {
                     playerAnim.SetInteger("direction", 3);
-                    Move(right);
+                    Move(right, 0.5f);
                 }
                 else
                 {
@@ -77,10 +79,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Move(Vector3 direction)
+    void Move(Vector3 direction, float distance)
     {
         currDirection = direction;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(direction), 0.5f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(direction), distance);
 
         if (!hit)
         {     

@@ -29,7 +29,14 @@ public class TaskEngine : MonoBehaviour
 
     private void EndScene()
     {
-        SceneManager.LoadScene("DBG_Movement");
+        if (StaticItems.inTutorial)
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+        else
+        {
+            SceneManager.LoadScene("Overworld");
+        }
     }
 
     private void RetryScene()

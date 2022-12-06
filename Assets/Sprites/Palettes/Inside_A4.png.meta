@@ -5188,7 +5188,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5209,7 +5209,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5230,7 +5230,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5251,7 +5251,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5272,7 +5272,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5280,6 +5280,111 @@ TextureImporter:
       bones: []
       spriteID: a4c3660547840af4ca73ec660b249077
       internalID: -363477030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A4_245
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 264
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67922cc97aa56f446af7b6b157e30f4b
+      internalID: -97154382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A4_246
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 288
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599daef9ee61f98498c6d83d32b89c28
+      internalID: -1013372015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A4_247
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 264
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0149442f78342409ca94bfcfd2d812
+      internalID: -828967917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A4_248
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 240
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11006294a99254643b49848b5aa07f0a
+      internalID: -464381011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A4_249
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 264
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efbdc4f3a23f8274ba3a96060e38ab51
+      internalID: 1590760683
       vertices: []
       indices: 
       edges: []
@@ -5295,9 +5400,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Inside_A4_104: 1560042089
-      Inside_A4_151: 930552869
       Inside_A4_242: -807730664
+      Inside_A4_151: 930552869
+      Inside_A4_42: 279787311
       Inside_A4_117: 1623888479
       Inside_A4_116: 592141198
       Inside_A4_159: -479471077
@@ -5373,6 +5478,7 @@ TextureImporter:
       Inside_A4_203: -1795887440
       Inside_A4_73: -1810778650
       Inside_A4_119: -406157500
+      Inside_A4_249: 1590760683
       Inside_A4_241: 256979277
       Inside_A4_7: 818368184
       Inside_A4_19: 665731286
@@ -5418,6 +5524,7 @@ TextureImporter:
       Inside_A4_111: -2031853320
       Inside_A4_41: 1254295768
       Inside_A4_63: -1648547083
+      Inside_A4_248: -464381011
       Inside_A4_97: -719176441
       Inside_A4_185: 135086047
       Inside_A4_91: 43210426
@@ -5425,27 +5532,27 @@ TextureImporter:
       Inside_A4_158: -277891794
       Inside_A4_45: 1761548150
       Inside_A4_57: -1161605005
-      Inside_A4_228: -107066402
-      Inside_A4_103: -1126740028
-      Inside_A4_189: 1542474713
       Inside_A4_184: 1341458076
+      Inside_A4_228: -107066402
+      Inside_A4_189: 1542474713
+      Inside_A4_103: -1126740028
       Inside_A4_101: -932855363
       Inside_A4_209: -2081460346
       Inside_A4_15: 269555262
       Inside_A4_28: -657277233
-      Inside_A4_44: 1187336883
-      Inside_A4_175: -865346099
-      Inside_A4_222: 1787008465
       Inside_A4_220: -1317103527
+      Inside_A4_44: 1187336883
+      Inside_A4_222: 1787008465
+      Inside_A4_175: -865346099
       Inside_A4_31: 1815435756
       Inside_A4_195: 1128136759
       Inside_A4_121: -1343629308
       Inside_A4_34: 1997255551
       Inside_A4_178: -1990180073
       Inside_A4_6: 1545959786
+      Inside_A4_56: -1069114013
       Inside_A4_30: 500731243
       Inside_A4_129: 856430502
-      Inside_A4_56: -1069114013
       Inside_A4_202: -1384750121
       Inside_A4_43: -1024919681
       Inside_A4_11: -525282235
@@ -5475,6 +5582,7 @@ TextureImporter:
       Inside_A4_37: 1842894950
       Inside_A4_243: 1708787806
       Inside_A4_82: 1434252764
+      Inside_A4_247: -828967917
       Inside_A4_106: -86339958
       Inside_A4_204: -174910529
       Inside_A4_201: -1774253918
@@ -5490,6 +5598,7 @@ TextureImporter:
       Inside_A4_86: -405319790
       Inside_A4_64: 61460346
       Inside_A4_240: -40757771
+      Inside_A4_245: -97154382
       Inside_A4_227: -1765442578
       Inside_A4_180: 1160347413
       Inside_A4_107: -488104048
@@ -5536,10 +5645,11 @@ TextureImporter:
       Inside_A4_168: 1520033538
       Inside_A4_148: -777969115
       Inside_A4_17: -1291482443
-      Inside_A4_1: 1534113471
-      Inside_A4_164: 1308542180
       Inside_A4_84: -730541918
-      Inside_A4_42: 279787311
+      Inside_A4_164: 1308542180
+      Inside_A4_104: 1560042089
+      Inside_A4_1: 1534113471
+      Inside_A4_246: -1013372015
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

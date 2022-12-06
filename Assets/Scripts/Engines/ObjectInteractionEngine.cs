@@ -8,13 +8,7 @@ public class ObjectInteractionEngine : MonoBehaviour
 {
     #region Object References
 
-    [SerializeField] private Animator playerAnim;
-
-    public Canvas dialogueCanvas;
-    [SerializeField] private Image npcPic;
-    [SerializeField] private TMPro.TextMeshProUGUI npcName;
-    [SerializeField] private TMPro.TextMeshProUGUI npcDialogue;
-    [SerializeField] private Button nextLine;
+    public DialogueEngine dialogueEngine;
 
     [SerializeField] private Canvas confirmTaskCanvas;
     [SerializeField] private TMPro.TextMeshProUGUI confirmDialogue;
@@ -24,9 +18,8 @@ public class ObjectInteractionEngine : MonoBehaviour
     #endregion
 
     #region Variables
+
     private GameObject obj;
-    private NPCDialogueInfo dialogueInfo;
-    private int dialogueIndex = 1;
 
     //Directions
     private Vector3 up = new Vector3(0.0f, 1.0f, 0.0f);
@@ -41,8 +34,7 @@ public class ObjectInteractionEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nextLine.onClick.AddListener(ContDialogue);
-        confirmYes.onClick.AddListener(() => SceneManager.LoadScene("DBG_Tasks"));
+        confirmYes.onClick.AddListener(StartTask);
         confirmNo.onClick.AddListener(() => confirmTaskCanvas.enabled = false);
     }
 
@@ -60,9 +52,9 @@ public class ObjectInteractionEngine : MonoBehaviour
 
             if (hit.transform.tag == "NPC")
             {
-                if (!dialogueCanvas.enabled)
+                if (!dialogueEngine.dialogueCanvas.enabled)
                 {
-                    StartDialogue();
+                    dialogueEngine.StartDialogue(ref obj);
                 }
             }
             else if (hit.transform.tag == "TaskStation")
@@ -75,33 +67,10 @@ public class ObjectInteractionEngine : MonoBehaviour
                 confirmTaskCanvas.enabled = true;
             }
         }
-    }
-
-    public void StartDialogue()
+    }   
+    
+    public void StartTask()
     {
-        dialogueCanvas.enabled = true;
-
-        dialogueInfo = obj.GetComponent<NPCDialogueInfo>();
-
-        npcDialogue.text = dialogueInfo.dialogue[0];
-        npcName.text = dialogueInfo.names[0];
-        npcPic.sprite = dialogueInfo.sprites[0];
-    }
-
-    void ContDialogue()
-    {
-        if (dialogueIndex < dialogueInfo.dialogue.Length)
-        {
-            npcDialogue.text = dialogueInfo.dialogue[dialogueIndex];
-            npcName.text = dialogueInfo.names[dialogueIndex];
-            npcPic.sprite = dialogueInfo.sprites[dialogueIndex];
-
-            dialogueIndex++;
-        }
-        else
-        {
-            dialogueIndex = 1;
-            dialogueCanvas.enabled = false;
-        }
+        SceneManager.LoadScene("DBG_Tasks");
     }
 }
