@@ -23,7 +23,7 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
         image.raycastTarget = false;
         Cursor.visible = false;
 
-        if (TaskEngine.taskType == 3)
+        if (TaskEngine.taskType == 3 || TaskEngine.taskType == 0)
         {
             sliderText.text = usagePhrase;
             slider.value = 0;
@@ -48,10 +48,17 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
             transform.position = Input.mousePosition + offset;
 
             if (Cursor.visible || TaskEngine.tool != tool)
-            {
+            {                
                 transform.position = startPos;
                 image.raycastTarget = true;
                 isActive = false;
+                TaskEngine.tool = -1;
+
+                if (TaskEngine.taskType == 3 || TaskEngine.taskType == 0)
+                {
+                    sliderText.text = "";
+                    slider.value = 0;
+                }
             }
         }
     }

@@ -19,12 +19,12 @@ public class TaskEngine : MonoBehaviour
     [SerializeField] private Transform feedStates;
 
     [Header("End Components")]
-    [SerializeField] private Slider stressSlider;
+    [SerializeField] private Slider bathStressSlider, checkupStressSlider;
     [SerializeField] private Button contBtn, retryBtn, exitBtn;
     [SerializeField] private Animator confettiAnim;
     public static int checkUpTasksTodo = 3;
 
-    public static int tool;
+    public static int tool = -1;
     public static int taskType;
 
     private void EndScene()
@@ -79,7 +79,12 @@ public class TaskEngine : MonoBehaviour
     {
         if (taskType == 0)
         {
-            if (bathStates.childCount <= 0)
+            if (bathStressSlider.value >= 1)
+            {
+                Cursor.visible = true;
+                failPanel.enabled = true;
+            }
+            else if (bathStates.childCount <= 0)
             {
                 Cursor.visible = true;
                 endPanel.enabled = true;
@@ -122,7 +127,7 @@ public class TaskEngine : MonoBehaviour
         }
         else if (taskType == 3)
         {
-            if (stressSlider.value >= 1)
+            if (checkupStressSlider.value >= 1)
             {
                 Cursor.visible = true;
                 failPanel.enabled = true;
