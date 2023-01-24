@@ -18,6 +18,10 @@ public class AnimalState : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             isActive = true;
         }
+        else
+        {
+            isActive = false;
+        }
     }
     public void OnPointerExit(PointerEventData eventData)
     {

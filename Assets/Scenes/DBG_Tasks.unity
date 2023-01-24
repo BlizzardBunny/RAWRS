@@ -12233,7 +12233,8 @@ MonoBehaviour:
   checkupCanvas: {fileID: 1405569511}
   bathStates: {fileID: 523230537}
   feedStates: {fileID: 160640281}
-  stressSlider: {fileID: 1701040747}
+  bathStressSlider: {fileID: 594670456}
+  checkupStressSlider: {fileID: 1701040747}
   contBtn: {fileID: 1965492869}
   retryBtn: {fileID: 1176904862}
   exitBtn: {fileID: 1296595541}

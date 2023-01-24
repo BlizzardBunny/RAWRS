@@ -52,6 +52,7 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
                 transform.position = startPos;
                 image.raycastTarget = true;
                 isActive = false;
+                TaskEngine.tool = -1;
 
                 if (TaskEngine.taskType == 3 || TaskEngine.taskType == 0)
                 {
