@@ -15,7 +15,7 @@ public class DirtSpot : MonoBehaviour, IPointerEnterHandler
         {
             image.alpha -= 0.1f;
             toolSlider.value += 0.1f;
-            stressSlider.value += 0.5f;
+            stressSlider.value += 0.05f;
         }
     }
 
