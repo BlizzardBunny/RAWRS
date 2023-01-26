@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 84fa593483a5d2d4eb3952143f3740d9
   - enabled: 1
-    path: Assets/Scenes/DBG_Tasks.unity
+    path: Assets/Scenes/Tasks.unity
     guid: 8806f921d9165d6499dd16dd8397c1be
   - enabled: 1
     path: Assets/Scenes/Overworld.unity
