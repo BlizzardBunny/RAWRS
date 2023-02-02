@@ -15,7 +15,6 @@ public class TasklistEngine : MonoBehaviour
 
     public float listMoveSpeed = 5.0f;
     public float mapMoveSpeed = 5.0f;
-    private bool isShowingTasks = false;
 
     #endregion
 
@@ -33,7 +32,7 @@ public class TasklistEngine : MonoBehaviour
             ToggleTaskList();
         }
 
-        if (isShowingTasks)
+        if (StaticItems.isShowingTasks)
         {
             if (taskBackground.position != listPointA.position || mapBackground.position != mapPointA.position)
             {
@@ -60,14 +59,14 @@ public class TasklistEngine : MonoBehaviour
 
     void ToggleTaskList()
     {
-        if (!isShowingTasks)
+        if (!StaticItems.isShowingTasks)
         {
             tasklistCanvas.enabled = true;
-            isShowingTasks = true;
+            StaticItems.isShowingTasks = true;
         }
         else
         {
-            isShowingTasks = false;
+            StaticItems.isShowingTasks = false;
         }
     }
 

@@ -6,6 +6,7 @@ public static class StaticItems
 {
     static public bool isPaused = false;
     static public bool inTutorial = true;
+    static public bool isShowingTasks = false;
 
     static public int tutorialState = 1;
 
