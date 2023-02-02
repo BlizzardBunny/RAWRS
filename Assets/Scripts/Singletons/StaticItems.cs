@@ -10,6 +10,8 @@ public static class StaticItems
 
     static public int tutorialState = 1;
 
+    static public int[] lvlTaskIDs;
+
     static public Vector3 plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
 
     static public string playerName = "Player";

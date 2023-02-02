@@ -15,7 +15,7 @@ public class LevelSetupEngine : MonoBehaviour
     private GameObject newEntry;
     private static string[] taskNames =
     {
-        "Bathe Animal", "Prepare pet food", "Clean the center", "Check up on an animal"
+        "Bathe Animal", "Prepare pet food", "Clean up a kennel", "Check up on an animal"
     };
     #endregion
 
@@ -30,9 +30,11 @@ public class LevelSetupEngine : MonoBehaviour
 
     public void RandomizeTasks(int maxTasks)
     {
+        StaticItems.lvlTaskIDs = new int[maxTasks];
         for (int i = 0; i < maxTasks; i++)
         {
             int taskID = Random.Range(0, 4);
+            StaticItems.lvlTaskIDs[i] = taskID;
             MakeEntry(taskID);
         }
     }
