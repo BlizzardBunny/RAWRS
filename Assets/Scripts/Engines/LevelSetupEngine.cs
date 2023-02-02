@@ -11,7 +11,7 @@ public class LevelSetupEngine : MonoBehaviour
     #endregion
 
     #region Variables
-    private int numOnList = -1;
+    private int numOnList = 0;
     private GameObject newEntry;
     private static string[] taskNames =
     {
