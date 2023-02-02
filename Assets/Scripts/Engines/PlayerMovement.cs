@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!StaticItems.isPaused)
         {
-            if (!oie.dialogueEngine.dialogueCanvas.enabled)
+            if (!oie.dialogueEngine.dialogueCanvas.enabled && !StaticItems.isShowingTasks)
             {
                 if (!playerAnim.GetBool("isRunning"))
                 {

@@ -71,6 +71,6 @@ public class ObjectInteractionEngine : MonoBehaviour
     
     public void StartTask()
     {
-        SceneManager.LoadScene("DBG_Tasks");
+        SceneManager.LoadScene("Tasks");
     }
 }

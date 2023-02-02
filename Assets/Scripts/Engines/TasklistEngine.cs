@@ -7,14 +7,14 @@ public class TasklistEngine : MonoBehaviour
     #region Object References
 
     [SerializeField] private Canvas tasklistCanvas;
-    [SerializeField] private Transform taskBackground, pointA, pointB;
+    [SerializeField] private Transform taskBackground, listPointA, listPointB, mapBackground, mapPointA, mapPointB;
 
     #endregion
 
     #region Variables
 
-    public float bgMoveSpeed = 5.0f;
-    private bool isShowingTasks = false;
+    public float listMoveSpeed = 5.0f;
+    public float mapMoveSpeed = 5.0f;
 
     #endregion
 
@@ -32,18 +32,20 @@ public class TasklistEngine : MonoBehaviour
             ToggleTaskList();
         }
 
-        if (isShowingTasks)
+        if (StaticItems.isShowingTasks)
         {
-            if (taskBackground.position != pointA.position)
+            if (taskBackground.position != listPointA.position || mapBackground.position != mapPointA.position)
             {
-                taskBackground.position = Vector3.MoveTowards(taskBackground.position, pointA.position, bgMoveSpeed * Time.deltaTime);
+                taskBackground.position = Vector3.MoveTowards(taskBackground.position, listPointA.position, listMoveSpeed * Time.deltaTime);
+                mapBackground.position = Vector3.MoveTowards(mapBackground.position, mapPointA.position, mapMoveSpeed * Time.deltaTime);
             }
         }
         else
         {
-            if (taskBackground.position != pointB.position)
+            if (taskBackground.position != listPointB.position || mapBackground.position != mapPointB.position)
             {
-                taskBackground.position = Vector3.MoveTowards(taskBackground.position, pointB.position, bgMoveSpeed * Time.deltaTime);
+                taskBackground.position = Vector3.MoveTowards(taskBackground.position, listPointB.position, listMoveSpeed * Time.deltaTime);
+                mapBackground.position = Vector3.MoveTowards(mapBackground.position, mapPointB.position, mapMoveSpeed * Time.deltaTime);
             }
             else
             {
@@ -57,14 +59,14 @@ public class TasklistEngine : MonoBehaviour
 
     void ToggleTaskList()
     {
-        if (!isShowingTasks)
+        if (!StaticItems.isShowingTasks)
         {
             tasklistCanvas.enabled = true;
-            isShowingTasks = true;
+            StaticItems.isShowingTasks = true;
         }
         else
         {
-            isShowingTasks = false;
+            StaticItems.isShowingTasks = false;
         }
     }
 

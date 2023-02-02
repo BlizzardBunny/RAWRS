@@ -14,8 +14,11 @@ public class DirtSpot : MonoBehaviour, IPointerEnterHandler
         if (TaskEngine.tool == 1)
         {
             image.alpha -= 0.1f;
-            toolSlider.value += 0.1f;
-            stressSlider.value += 0.05f;
+            if (toolSlider != null && stressSlider != null)
+            {
+                toolSlider.value += 0.1f;
+                stressSlider.value += 0.05f;
+            }
         }
     }
 
@@ -23,7 +26,10 @@ public class DirtSpot : MonoBehaviour, IPointerEnterHandler
     {
         if (image.alpha <= 0)
         {
-            toolSlider.value = 0;
+            if (toolSlider != null)
+            {
+                toolSlider.value = 0;
+            }
             Destroy(gameObject);
         }
     }
