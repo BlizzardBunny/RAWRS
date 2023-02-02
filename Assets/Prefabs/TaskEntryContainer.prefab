@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 883004794295993770}
   - component: {fileID: 883004794295993772}
   - component: {fileID: 883004794295993771}
+  - component: {fileID: 754354684117689641}
   m_Layer: 5
   m_Name: TaskEntryContainer
   m_TagString: Untagged
@@ -78,6 +79,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &754354684117689641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883004794295993769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e92434bca226c24a918b9f661866fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberBG: {fileID: 883004794617131017}
+  taskNumber: {fileID: 883004795623599831}
+  taskName: {fileID: 883004795609700181}
 --- !u!1 &883004794617131015
 GameObject:
   m_ObjectHideFlags: 0
