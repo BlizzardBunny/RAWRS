@@ -5,8 +5,9 @@ using UnityEngine;
 public class LevelSetupEngine : MonoBehaviour
 {
     #region Object References
-    [SerializeField] GameObject tasklistEntryPrefab;
-    [SerializeField] Transform entryContainer;
+    [SerializeField] private GameObject tasklistEntryPrefab;
+    [SerializeField] private Transform entryContainer;
+    [SerializeField] private GameObject[] taskStationMarkers;
     #endregion
 
     #region Variables
@@ -20,6 +21,10 @@ public class LevelSetupEngine : MonoBehaviour
 
     private void Start()
     {
+        foreach (GameObject x in taskStationMarkers)
+        {
+            x.SetActive(false);
+        }
         RandomizeTasks(4);
     }
 
@@ -37,6 +42,7 @@ public class LevelSetupEngine : MonoBehaviour
         newEntry = Instantiate(tasklistEntryPrefab, entryContainer);
         TaskEntry entryData = newEntry.GetComponent<TaskEntry>();
         entryData.taskName.text = taskNames[i];
+        entryData.taskStationMarkers = taskStationMarkers[i];
         entryData.taskNumber.text = (++numOnList).ToString();
     }
 }
