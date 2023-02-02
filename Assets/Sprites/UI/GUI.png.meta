@@ -437,7 +437,7 @@ TextureImporter:
       name: button_small_enabled
       rect:
         serializedVersion: 2
-        x: 2
+        x: 1
         y: 209
         width: 14
         height: 14
@@ -1417,8 +1417,8 @@ TextureImporter:
       button_small_iconHeart: -423227771
       button_large_enabled: -971783595
       button_text_Yes: -1895616
-      GUI_60: 2097650401
       bluebar_frame: -1276390219
+      GUI_60: 2097650401
       GUI_77: 1423470453
       bluebar_outer: 1430200769
       button_text_SFX: -1659852112
