@@ -10,7 +10,7 @@ public class TaskEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public Image numberBG;
     public TMPro.TextMeshProUGUI taskNumber, taskName;
-    public GameObject taskStationMarkers;
+    public GameObject taskStationMarker;
     [SerializeField] private Image entryBG;
     [SerializeField] private Sprite mouseOverSprite;
 
@@ -39,7 +39,7 @@ public class TaskEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        taskStationMarkers.SetActive(!taskStationMarkers.activeSelf);
+        taskStationMarker.SetActive(!taskStationMarker.activeSelf);
     }
 
 

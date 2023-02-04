@@ -26,6 +26,8 @@ public class TaskEngine : MonoBehaviour
 
     public static int tool = -1;
     public static int taskType;
+    public static bool petType;
+    public static int currStationID = -1;
 
     private void EndScene()
     {
@@ -47,6 +49,9 @@ public class TaskEngine : MonoBehaviour
 
     private void Start()
     {
+        StaticItems.isShowingTasks = false;
+        StaticItems.isPaused = false;
+
         endPanel.enabled = false;
         bathCanvas.enabled = false;
         feedCanvas.enabled = false;
