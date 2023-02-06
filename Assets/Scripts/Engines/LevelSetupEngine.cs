@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,13 +16,14 @@ public class LevelSetupEngine : MonoBehaviour
 
     #region Variables
     private int numOnList = 0;
-    private GameObject[] entries;
+    private List<GameObject> entries = new List<GameObject>();
     private static bool init = true;
     private static string[] taskNames =
     {
         "Bathe Animal", "Prepare pet food", "Clean up a kennel", "Check up on an animal"
     };
-    private static bool[] taskCompletion = new bool[1];
+    private static bool[] taskCompletion = new bool[2]; //set number of tasks here
+    private static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
     #endregion
 
     private void Start()
@@ -32,7 +32,6 @@ public class LevelSetupEngine : MonoBehaviour
 
         if (init)
         {
-            entries = new GameObject[taskCompletion.Length];
             RandomizeTasks(taskCompletion.Length);
 
             for (int i = 0; i < taskCompletion.Length; i++)
@@ -41,6 +40,17 @@ public class LevelSetupEngine : MonoBehaviour
             }
 
             init = false;
+        }
+        else
+        {
+            for (int i = 0; i < entriesData.Count; i++)
+            {
+                MakeEntry(entriesData[i].Item1, entriesData[i].Item2);
+                if (taskCompletion[i])
+                {
+                    MarkCompleteTask(i);
+                }
+            }
         }
 
         if (TaskEngine.currStationID > -1)
@@ -76,8 +86,8 @@ public class LevelSetupEngine : MonoBehaviour
 
     public void MakeEntry(int taskType, int taskStationID)
     {
-        entries[numOnList] = Instantiate(tasklistEntryPrefab, entryContainer);
-        TaskEntry entryData = entries[numOnList].GetComponent<TaskEntry>();
+        GameObject entry = Instantiate(tasklistEntryPrefab, entryContainer);
+        TaskEntry entryData = entry.GetComponent<TaskEntry>();
         entryData.taskName.text = taskNames[taskType];
         entryData.taskNumber.text = (++numOnList).ToString();
 
@@ -90,12 +100,20 @@ public class LevelSetupEngine : MonoBehaviour
         }
 
         entryData.taskStationMarker.GetComponentInParent<TaskStationInfo>().isActive = true;
-        entryData.taskStationMarker.GetComponentInParent<TaskStationInfo>().listID = numOnList;
+        entryData.taskStationMarker.GetComponentInParent<TaskStationInfo>().listID = numOnList - 1;
+
+        entries.Add(entry);
+
+        if (init)
+        {
+            entriesData.Add(new System.Tuple<int, int>(taskType, taskStationID));
+        }
     }
 
     public void MarkCompleteTask(int listID)
     {
-        taskCompletion[listID-1] = true;
+        taskCompletion[listID] = true;
+        entries[listID].GetComponent<TaskEntry>().numberBG.color = Color.green;
     }
 
     public bool CheckLevelComplete()
