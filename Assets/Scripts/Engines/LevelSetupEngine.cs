@@ -4,6 +4,7 @@ using UnityEngine;
 public class LevelSetupEngine : MonoBehaviour
 {
     #region Object References
+
     [SerializeField] private Canvas endCanvas;
     [SerializeField] private GameObject tasklistEntryPrefab;
     [SerializeField] private Transform entryContainer;
@@ -15,6 +16,7 @@ public class LevelSetupEngine : MonoBehaviour
     #endregion
 
     #region Variables
+
     private int numOnList = 0;
     private List<GameObject> entries = new List<GameObject>();
     private static bool init = true;
@@ -22,8 +24,9 @@ public class LevelSetupEngine : MonoBehaviour
     {
         "Bathe Animal", "Prepare pet food", "Clean up a kennel", "Check up on an animal"
     };
-    private static bool[] taskCompletion = new bool[2]; //set number of tasks here
+    private static bool[] taskCompletion = new bool[4]; //set number of tasks here
     private static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
+
     #endregion
 
     private void Start()
@@ -80,7 +83,14 @@ public class LevelSetupEngine : MonoBehaviour
                 case 3: taskStationID = Random.Range(0, checkupTaskStations.Length); break;
             }
 
-            MakeEntry(taskType, taskStationID);
+            if (CheckIsUniqueTask(taskType, taskStationID))
+            {
+                MakeEntry(taskType, taskStationID);
+            }
+            else
+            {
+                i--;
+            }
         }
     }
 
@@ -128,5 +138,18 @@ public class LevelSetupEngine : MonoBehaviour
             }
         }
         return ret;
+    }
+
+    private bool CheckIsUniqueTask(int taskType, int taskStationID)
+    {
+        foreach(System.Tuple<int,int> entryData in entriesData)
+        {
+            if (entryData.Item1 == taskType && entryData.Item2 == taskStationID)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
