@@ -31,8 +31,6 @@ public class LevelSetupEngine : MonoBehaviour
 
     private void Start()
     {
-        StaticItems.inTutorial = false;
-
         if (init)
         {
             RandomizeTasks(taskCompletion.Length);
