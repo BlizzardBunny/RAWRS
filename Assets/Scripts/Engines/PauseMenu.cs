@@ -25,7 +25,14 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause();
+            if (StaticItems.isShowingTasks)
+            {
+                StaticItems.isShowingTasks = false;
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
 
