@@ -16,6 +16,7 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private NPCDialogueInfo dialogueInfo;
     [SerializeField] private Canvas wasdCanvas;
     [SerializeField] private Canvas pressKeyCanvas;
+    [SerializeField] private Canvas pressMedKeyCanvas;
 
     #endregion
 
@@ -125,6 +126,11 @@ public class NPCMovement : MonoBehaviour
             }
 
             yield return new WaitForEndOfFrame();
+        }
+
+        if (this.transform.childCount > 0)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(true);
         }
 
         dialogueInfo.isMoving = false;

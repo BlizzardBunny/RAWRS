@@ -12,6 +12,7 @@ public class LevelSetupEngine : MonoBehaviour
     [SerializeField] private GameObject[] feedingTaskStations;
     [SerializeField] private GameObject[] cleaningTaskStations;
     [SerializeField] private GameObject[] checkupTaskStations;
+    [SerializeField] private bool isOverworld = false;
 
     #endregion
 
@@ -19,26 +20,47 @@ public class LevelSetupEngine : MonoBehaviour
 
     private int numOnList = 0;
     private List<GameObject> entries = new List<GameObject>();
-    private static bool init = true;
+    public static bool init = true;
+    private static bool[] taskCompletion;
     private static string[] taskNames =
     {
         "Bathe Animal", "Prepare pet food", "Clean up a kennel", "Check up on an animal"
     };
-    private static bool[] taskCompletion = new bool[4]; //set number of tasks here
     private static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
 
     #endregion
 
-    private void Start()
+    #region Custom functions
+
+    public void Init()
     {
+        if (isOverworld)
+        {
+            StaticItems.inTutorial = false;
+        }
+
+        if (StaticItems.inTutorial)
+        {
+            taskCompletion = new bool[1];
+            init = false;
+            entriesData.Add(new System.Tuple<int, int>(0, 0));
+        }
+        else
+        {
+            taskCompletion = new bool[4]; //set number of tasks here
+        }
+
         if (init)
         {
-            RandomizeTasks(taskCompletion.Length);
+            entriesData.Clear();
+            TaskEngine.currStationID = -1;
 
             for (int i = 0; i < taskCompletion.Length; i++)
             {
                 taskCompletion[i] = false;
             }
+
+            RandomizeTasks(taskCompletion.Length);
 
             init = false;
         }
@@ -61,6 +83,7 @@ public class LevelSetupEngine : MonoBehaviour
 
         if (CheckLevelComplete())
         {
+            init = true;
             endCanvas.enabled = true;
         }
     }
@@ -150,4 +173,23 @@ public class LevelSetupEngine : MonoBehaviour
 
         return true;
     }
+
+#endregion
+
+    #region Unity functions
+
+    private void Start()
+    {
+        Init();
+    }
+
+    private void Update()
+    {
+        if (init)
+        {
+            Init();
+        }
+    }
+
+    #endregion
 }
