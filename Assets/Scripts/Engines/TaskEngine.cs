@@ -41,6 +41,16 @@ public class TaskEngine : MonoBehaviour
         }
     }
 
+    private void FailScene()
+    {
+        currStationID = -1;
+        if (StaticItems.inTutorial)
+        {
+            StaticItems.tutorialState = 0;
+        }
+        EndScene();
+    }
+
     private void RetryScene()
     {
         checkUpTasksTodo = 3;
@@ -60,7 +70,7 @@ public class TaskEngine : MonoBehaviour
 
         contBtn.onClick.AddListener(EndScene);
         retryBtn.onClick.AddListener(RetryScene);
-        exitBtn.onClick.AddListener(EndScene);
+        exitBtn.onClick.AddListener(FailScene);
 
         if (taskType == 0)
         {
@@ -77,6 +87,11 @@ public class TaskEngine : MonoBehaviour
         else if (taskType == 3)
         {
             checkupCanvas.enabled = true;
+        }
+
+        if (StaticItems.inTutorial)
+        {
+            exitBtn.interactable = false;
         }
     }
 

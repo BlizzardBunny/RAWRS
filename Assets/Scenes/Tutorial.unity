@@ -30570,7 +30570,7 @@ MonoBehaviour:
   - Thanks! I was planning on walking around afterwards anyway.
   - No problem! Feel free to ask the rest of the staff any questions. They're all
     friendly and happy to help.
-  - Now if you have no more questions, let's go and give [PetName1] a bath.
+  - Now if you have no more questions, let's go and give /a0 a bath.
 --- !u!1 &392241463
 GameObject:
   m_ObjectHideFlags: 0
@@ -44929,6 +44929,7 @@ MonoBehaviour:
   feedingTaskStations: []
   cleaningTaskStations: []
   checkupTaskStations: []
+  isOverworld: 0
 --- !u!4 &1935102190
 Transform:
   m_ObjectHideFlags: 0
