@@ -94,6 +94,7 @@ MonoBehaviour:
   numberBG: {fileID: 883004794617131017}
   taskNumber: {fileID: 883004795623599831}
   taskName: {fileID: 883004795609700181}
+  taskStationMarker: {fileID: 0}
   entryBG: {fileID: 883004794295993771}
   mouseOverSprite: {fileID: 273657137, guid: a0bef30c4508c964eb90c1f4970523fe, type: 3}
 --- !u!1 &883004794617131015

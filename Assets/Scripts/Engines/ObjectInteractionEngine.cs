@@ -61,10 +61,15 @@ public class ObjectInteractionEngine : MonoBehaviour
             {
                 taskStationInfo = obj.GetComponent<TaskStationInfo>();
 
-                TaskEngine.taskType = taskStationInfo.taskType;
-                confirmDialogue.text = taskStationInfo.dialogue;
+                if (taskStationInfo.isActive)
+                {
+                    TaskEngine.taskType = taskStationInfo.taskType;
+                    TaskEngine.petType = taskStationInfo.petType;
+                    TaskEngine.currStationID = taskStationInfo.listID;
+                    confirmDialogue.text = taskStationInfo.dialogue;
 
-                confirmTaskCanvas.enabled = true;
+                    confirmTaskCanvas.enabled = true;
+                }
             }
         }
     }   

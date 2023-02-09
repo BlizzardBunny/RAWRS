@@ -21,6 +21,7 @@ public class DialogueEngine : MonoBehaviour
 
     private NPCDialogueInfo dialogueInfo;
     private int dialogueIndex = 1;
+    private GameObject child = null;
 
     #endregion
 
@@ -103,6 +104,11 @@ public class DialogueEngine : MonoBehaviour
     {
         dialogueInfo = obj.GetComponent<NPCDialogueInfo>();
 
+        if (obj.transform.childCount > 0)
+        {
+            child = obj.transform.GetChild(0).gameObject;
+        }
+
         StartDialogue();
     }
 
@@ -145,8 +151,14 @@ public class DialogueEngine : MonoBehaviour
                 }
             }
 
+            if (child != null)
+            {
+                child.SetActive(false);
+            }
+
             if (dialogueInfo.nextScene != "")
             {
+                LevelSetupEngine.init = true;
                 SceneManager.LoadScene(dialogueInfo.nextScene);
             }
             else if (dialogueInfo.NPCMovement != null)

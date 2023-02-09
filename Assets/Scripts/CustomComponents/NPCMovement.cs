@@ -16,6 +16,7 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private NPCDialogueInfo dialogueInfo;
     [SerializeField] private Canvas wasdCanvas;
     [SerializeField] private Canvas pressKeyCanvas;
+    [SerializeField] private Canvas pressMedKeyCanvas;
 
     #endregion
 
@@ -30,6 +31,7 @@ public class NPCMovement : MonoBehaviour
 
     private float distMoved = 0.0f;
 
+    private static Vector2 endLocation;
     #endregion
 
     // Start is called before the first frame update
@@ -53,12 +55,23 @@ public class NPCMovement : MonoBehaviour
         {
             currDirection = right;
         }
+
+        if (endLocation != null)
+        {
+            NPCAnim.SetInteger("direction", endDirection);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (StaticItems.inTutorial)
+        {
+            if (StaticItems.tutorialState == 0)
+            {
 
+            }
+        }
     }
 
     private IEnumerator WaitForMovement()
@@ -127,6 +140,12 @@ public class NPCMovement : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        if (this.transform.childCount > 0)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(true);
+        }
+
+        endLocation = this.transform.position;
         dialogueInfo.isMoving = false;
         NPCAnim.SetInteger("direction", endDirection);
         NPCAnim.SetBool("isRunning", false);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class TaskEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -10,7 +11,7 @@ public class TaskEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public Image numberBG;
     public TMPro.TextMeshProUGUI taskNumber, taskName;
-    public GameObject taskStationMarkers;
+    public GameObject taskStationMarker;
     [SerializeField] private Image entryBG;
     [SerializeField] private Sprite mouseOverSprite;
 
@@ -19,13 +20,9 @@ public class TaskEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     #region Variables
 
     private Sprite defaultSprite;
+    private bool init = true;
 
     #endregion
-
-    private void Start()
-    {
-        defaultSprite = entryBG.sprite;
-    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -39,8 +36,16 @@ public class TaskEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        taskStationMarkers.SetActive(!taskStationMarkers.activeSelf);
+        taskStationMarker.GetComponentInParent<TaskStationInfo>().isActive = !taskStationMarker.GetComponentInParent<TaskStationInfo>().isActive;
+        taskStationMarker.SetActive(!taskStationMarker.activeSelf);
     }
 
-
+    private void Start()
+    {
+        if (init)
+        {
+            defaultSprite = entryBG.sprite;
+            init = false;
+        }
+    }
 }

@@ -26,6 +26,8 @@ public class TaskEngine : MonoBehaviour
 
     public static int tool = -1;
     public static int taskType;
+    public static bool petType;
+    public static int currStationID = -1;
 
     private void EndScene()
     {
@@ -39,6 +41,16 @@ public class TaskEngine : MonoBehaviour
         }
     }
 
+    private void FailScene()
+    {
+        currStationID = -1;
+        if (StaticItems.inTutorial)
+        {
+            StaticItems.tutorialState = 0;
+        }
+        EndScene();
+    }
+
     private void RetryScene()
     {
         checkUpTasksTodo = 3;
@@ -47,6 +59,9 @@ public class TaskEngine : MonoBehaviour
 
     private void Start()
     {
+        StaticItems.isShowingTasks = false;
+        StaticItems.isPaused = false;
+
         endPanel.enabled = false;
         bathCanvas.enabled = false;
         feedCanvas.enabled = false;
@@ -55,7 +70,7 @@ public class TaskEngine : MonoBehaviour
 
         contBtn.onClick.AddListener(EndScene);
         retryBtn.onClick.AddListener(RetryScene);
-        exitBtn.onClick.AddListener(EndScene);
+        exitBtn.onClick.AddListener(FailScene);
 
         if (taskType == 0)
         {
@@ -72,6 +87,11 @@ public class TaskEngine : MonoBehaviour
         else if (taskType == 3)
         {
             checkupCanvas.enabled = true;
+        }
+
+        if (StaticItems.inTutorial)
+        {
+            exitBtn.interactable = false;
         }
     }
 
