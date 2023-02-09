@@ -130,7 +130,6 @@ public class LevelSetupEngine : MonoBehaviour
             case 3: entryData.taskStationMarker = checkupTaskStations[taskStationID].transform.GetChild(0).gameObject; break;
         }
 
-        entryData.taskStationMarker.GetComponentInParent<TaskStationInfo>().isActive = true;
         entryData.taskStationMarker.GetComponentInParent<TaskStationInfo>().listID = numOnList - 1;
 
         entries.Add(entry);
