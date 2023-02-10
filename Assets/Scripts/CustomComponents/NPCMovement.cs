@@ -16,7 +16,6 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private NPCDialogueInfo dialogueInfo;
     [SerializeField] private Canvas wasdCanvas;
     [SerializeField] private Canvas pressKeyCanvas;
-    [SerializeField] private Canvas pressMedKeyCanvas;
 
     #endregion
 
