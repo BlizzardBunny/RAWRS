@@ -9,6 +9,8 @@ public class NPCDialogueInfo : MonoBehaviour
     public bool isMoving;
     public string nextScene;
     public NPCMovement NPCMovement;
+    public Canvas showAtStartCanvas, showAtEndCanvas;
+    public string waitForInputAtEnd = null;
 
     public string[] names;
     public Sprite[] sprites;

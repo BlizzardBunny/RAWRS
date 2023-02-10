@@ -57,6 +57,16 @@ public class DialogueEngine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dialogueInfo.waitForInputAtEnd != null)
+        {
+            if (dialogueInfo.waitForInputAtEnd.ToUpper() == "TAB")
+            {
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    dialogueInfo.showAtEndCanvas.enabled = false;
+                }
+            }
+        }
 
     }
 
@@ -125,10 +135,20 @@ public class DialogueEngine : MonoBehaviour
         npcDialogue.text = ApplyKeywords(ref dialogueInfo.dialogue[0]);
         npcName.text = dialogueInfo.names[0];
         npcPic.sprite = dialogueInfo.sprites[0];
+
+        if (dialogueInfo.showAtStartCanvas != null)
+        {
+            dialogueInfo.showAtStartCanvas.enabled = true;
+        }
     }
 
     private void ContDialogue()
     {
+        if (dialogueInfo.showAtStartCanvas != null)
+        {
+            dialogueInfo.showAtStartCanvas.enabled = false;
+        }
+
         if (dialogueIndex < dialogueInfo.dialogue.Length)
         {
             npcDialogue.text = ApplyKeywords(ref dialogueInfo.dialogue[dialogueIndex]);
@@ -156,6 +176,11 @@ public class DialogueEngine : MonoBehaviour
                 child.SetActive(false);
             }
 
+            if (dialogueInfo.showAtEndCanvas != null)
+            {
+                dialogueInfo.showAtEndCanvas.enabled = true;
+            }
+
             if (dialogueInfo.nextScene != "")
             {
                 LevelSetupEngine.init = true;
@@ -167,4 +192,6 @@ public class DialogueEngine : MonoBehaviour
             }
         }
     }
+
+
 }
