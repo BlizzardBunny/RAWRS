@@ -57,7 +57,7 @@ public class DialogueEngine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dialogueInfo.waitForInputAtEnd != null)
+        if (dialogueInfo != null && dialogueInfo.waitForInputAtEnd != "")
         {
             if (dialogueInfo.waitForInputAtEnd.ToUpper() == "TAB")
             {
@@ -67,7 +67,6 @@ public class DialogueEngine : MonoBehaviour
                 }
             }
         }
-
     }
 
     private string ApplyKeywords(ref string line)
