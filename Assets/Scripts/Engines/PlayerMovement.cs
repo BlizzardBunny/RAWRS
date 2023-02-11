@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     #region Object References
 
     [SerializeField] private Animator playerAnim;
+    [SerializeField] private RectTransform body;
 
     #endregion
 
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 down = new Vector3(0.0f, -1.0f, 0.0f);
     private Vector3 right = new Vector3(1.0f, 0.0f, 0.0f);
     private Vector3 currDirection;
+    private Vector3 halfheight, halfwidth;
+    private float padding = 0.05f; //padding when/where collisions are checked.
 
     public ObjectInteractionEngine oie;
     #endregion
@@ -26,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        halfheight = new Vector3(0f, (body.rect.height - padding) / 2 , 0f);
+        halfwidth = new Vector3((body.rect.width - padding) / 2, 0f, 0f);
         this.transform.position = StaticItems.plrPos;
         currDirection = up;
         playerAnim.SetInteger("direction", 0);
@@ -46,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKey(KeyCode.W))
                 {
                     playerAnim.SetInteger("direction", 0);
-                    Move(up, 0.25f);
+                    Move(up, 0.5f);
                 }
                 else if (Input.GetKey(KeyCode.A))
                 {
@@ -82,11 +87,32 @@ public class PlayerMovement : MonoBehaviour
     void Move(Vector3 direction, float distance)
     {
         currDirection = direction;
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(direction), distance);
+        Debug.DrawRay(transform.position, transform.TransformDirection(direction), Color.red, 0.25f);
 
         if (!hit)
-        {     
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, moveSpeed * Time.deltaTime);
+        {
+            RaycastHit2D hit1, hit2;
+            if (direction == left || direction == right)
+            {
+                hit1 = Physics2D.Raycast(transform.position + halfheight, transform.TransformDirection(direction), distance);
+                hit2 = Physics2D.Raycast(transform.position - halfheight, transform.TransformDirection(direction), distance);
+                Debug.DrawRay(transform.position + halfheight, transform.TransformDirection(direction), Color.red, 0.25f);
+                Debug.DrawRay(transform.position - halfheight, transform.TransformDirection(direction), Color.red, 0.25f);
+            }
+            else
+            {
+                hit1 = Physics2D.Raycast(transform.position + halfwidth, transform.TransformDirection(direction), distance);
+                hit2 = Physics2D.Raycast(transform.position - halfwidth, transform.TransformDirection(direction), distance);
+                Debug.DrawRay(transform.position + halfwidth, transform.TransformDirection(direction), Color.red, 0.25f);
+                Debug.DrawRay(transform.position - halfwidth, transform.TransformDirection(direction), Color.red, 0.25f);
+            }
+
+            if (!hit1 && !hit2)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, moveSpeed * Time.deltaTime);
+            }
         }
     }
 }
