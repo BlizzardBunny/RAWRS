@@ -4204,12 +4204,12 @@ MonoBehaviour:
     -MUSIC-
 
 
-    -ADVISORS-
+    -ASSETS-
 
-    Maria
-    Mercedes T. Rodrigo
+    Keyboard
+    Prompts - OpenGameArt
 
-    Jayzon F. Ty'
+    Sprites - @wht_dragon, OpenGameArt'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a8d11de59d254342b562cd7b83b687e, type: 2}
   m_sharedMaterial: {fileID: 1684395246248992988, guid: 3a8d11de59d254342b562cd7b83b687e, type: 2}
