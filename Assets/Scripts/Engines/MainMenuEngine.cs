@@ -11,10 +11,11 @@ public class MainMenuEngine : MonoBehaviour
     [Header("Panel Management")]
     [SerializeField] private Canvas mainCanvas;
     [SerializeField] private Canvas optionsCanvas;
+    [SerializeField] private Canvas creditsCanvas;
 
     [Header("Main Menu")]
     [SerializeField] private Button playButton;
-    [SerializeField] private Button optionsButton, exitButton;
+    [SerializeField] private Button optionsButton, creditsButton, exitButton;
 
     [Header("Resolution")]
     [SerializeField] private Canvas confirmPanel;
@@ -23,7 +24,7 @@ public class MainMenuEngine : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI countdown;
 
     [Header("Return")]
-    [SerializeField] private Button returnButton;
+    [SerializeField] private Button returnButtonOptions, returnButtonCredits;
     #endregion
 
     #region Variables
@@ -65,13 +66,15 @@ public class MainMenuEngine : MonoBehaviour
 
         playButton.onClick.AddListener(PlayGame);
         optionsButton.onClick.AddListener(OpenOptions);
+        creditsButton.onClick.AddListener(OpenCredits);
         exitButton.onClick.AddListener(ExitGame);
 
         resolutionDropdown.onValueChanged.AddListener((i) => UpdateResolution(ref i));
         acceptChanges.onClick.AddListener(AcceptChanges);
         cancelChanges.onClick.AddListener(CancelChanges);
 
-        returnButton.onClick.AddListener(ReturnToMainMenu);
+        returnButtonOptions.onClick.AddListener(ReturnToMainMenu);
+        returnButtonCredits.onClick.AddListener(ReturnToMainMenu);
 
         #endregion
 
@@ -186,6 +189,13 @@ public class MainMenuEngine : MonoBehaviour
         currCanvas.enabled = !currCanvas.enabled;
         optionsCanvas.enabled = true;
         currCanvas = optionsCanvas;
+    }
+
+    private void OpenCredits()
+    {
+        currCanvas.enabled = !currCanvas.enabled;
+        creditsCanvas.enabled = true;
+        currCanvas = creditsCanvas;
     }
 
     #endregion
