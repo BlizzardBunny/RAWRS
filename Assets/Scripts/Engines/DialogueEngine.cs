@@ -13,6 +13,7 @@ public class DialogueEngine : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI npcName;
     [SerializeField] private TMPro.TextMeshProUGUI npcDialogue;
     [SerializeField] private Button nextLine;
+    [SerializeField] private SceneTransitions sceneTransitions;
     [SerializeField] private NPCDialogueInfo nextStateDialogueInfo;
 
     #endregion
@@ -192,7 +193,7 @@ public class DialogueEngine : MonoBehaviour
             if (dialogueInfo.nextScene != "")
             {
                 LevelSetupEngine.init = true;
-                SceneManager.LoadScene(dialogueInfo.nextScene);
+                sceneTransitions.LoadScene(dialogueInfo.nextScene);
             }
             else if (dialogueInfo.NPCMovement != null)
             {
