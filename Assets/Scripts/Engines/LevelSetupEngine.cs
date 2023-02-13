@@ -22,11 +22,11 @@ public class LevelSetupEngine : MonoBehaviour
     private List<GameObject> entries = new List<GameObject>();
     public static bool init = true;
     private static bool[] taskCompletion;
+    private static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
     private static string[] taskNames =
     {
         "Bathe Animal", "Prepare pet food", "Clean up a kennel", "Check up on an animal"
     };
-    private static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
 
     #endregion
 
@@ -47,7 +47,7 @@ public class LevelSetupEngine : MonoBehaviour
         }
         else
         {
-            taskCompletion = new bool[4]; //set number of tasks here
+            taskCompletion = new bool[LevelEndEngine.levelNumber + 1];
         }
 
         if (init)
