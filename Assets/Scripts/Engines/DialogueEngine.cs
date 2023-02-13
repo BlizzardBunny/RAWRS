@@ -28,6 +28,15 @@ public class DialogueEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name != "Intro")
+        {
+            Init();
+        }
+
+    }
+
+    public void Init()
+    {
         nextLine.onClick.AddListener(ContDialogue);
 
         dialogueInfo = this.GetComponent<NPCDialogueInfo>();
