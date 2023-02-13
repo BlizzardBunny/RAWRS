@@ -1180,7 +1180,7 @@ MonoBehaviour:
   playAtStart: 1
   tutorialState: 3
   isMoving: 0
-  nextScene: Overworld
+  nextScene: Level End
   NPCMovement: {fileID: 0}
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
@@ -44979,7 +44979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5580a339f3532a4292641b532af4b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endCanvas: {fileID: 0}
   tasklistEntryPrefab: {fileID: 883004794295993769, guid: 5f381e4df6f194a44855fed7d520fb03, type: 3}
   entryContainer: {fileID: 3341030574220759312}
   bathingTaskStations:

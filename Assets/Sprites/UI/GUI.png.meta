@@ -212,7 +212,7 @@ TextureImporter:
         height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 6, y: 6, z: 6, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1417,8 +1417,8 @@ TextureImporter:
       button_small_iconHeart: -423227771
       button_large_enabled: -971783595
       button_text_Yes: -1895616
-      GUI_60: 2097650401
       bluebar_frame: -1276390219
+      GUI_60: 2097650401
       GUI_77: 1423470453
       bluebar_outer: 1430200769
       button_text_SFX: -1659852112

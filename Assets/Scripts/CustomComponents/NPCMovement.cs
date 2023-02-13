@@ -7,6 +7,7 @@ public class NPCMovement : MonoBehaviour
     #region Object References
 
     public float moveSpeed = 5.0f;
+    public int startDirection = 0;
     public int endDirection = 0;
     public bool waitForMovement = false;
     public bool waitForInput = false;
@@ -55,22 +56,23 @@ public class NPCMovement : MonoBehaviour
             currDirection = right;
         }
 
-        if (endLocation != null)
+        if (StaticItems.tutorialState == 2)
         {
-            NPCAnim.SetInteger("direction", endDirection);
+            NPCAnim.SetInteger("direction", startDirection);
+        }
+        else
+        {
+            if (endLocation != null)
+            {
+                NPCAnim.SetInteger("direction", endDirection);
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (StaticItems.inTutorial)
-        {
-            if (StaticItems.tutorialState == 0)
-            {
-
-            }
-        }
+        
     }
 
     private IEnumerator WaitForMovement()

@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSetupEngine : MonoBehaviour
 {
     #region Object References
 
-    [SerializeField] private Canvas endCanvas;
     [SerializeField] private GameObject tasklistEntryPrefab;
     [SerializeField] private Transform entryContainer;
     [SerializeField] private GameObject[] bathingTaskStations;
@@ -22,11 +22,11 @@ public class LevelSetupEngine : MonoBehaviour
     private List<GameObject> entries = new List<GameObject>();
     public static bool init = true;
     private static bool[] taskCompletion;
+    private static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
     private static string[] taskNames =
     {
         "Bathe Animal", "Prepare pet food", "Clean up a kennel", "Check up on an animal"
     };
-    private static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
 
     #endregion
 
@@ -34,6 +34,8 @@ public class LevelSetupEngine : MonoBehaviour
 
     public void Init()
     {
+        StaticItems.firstTime = false;
+
         if (isOverworld)
         {
             StaticItems.inTutorial = false;
@@ -47,7 +49,7 @@ public class LevelSetupEngine : MonoBehaviour
         }
         else
         {
-            taskCompletion = new bool[4]; //set number of tasks here
+            taskCompletion = new bool[LevelEndEngine.levelNumber + 1];
         }
 
         if (init)
@@ -84,7 +86,7 @@ public class LevelSetupEngine : MonoBehaviour
         if (CheckLevelComplete())
         {
             init = true;
-            endCanvas.enabled = true;
+            SceneManager.LoadScene("Level End");
         }
     }
 
