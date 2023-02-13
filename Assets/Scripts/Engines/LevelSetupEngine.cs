@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSetupEngine : MonoBehaviour
 {
     #region Object References
 
-    [SerializeField] private Canvas endCanvas;
     [SerializeField] private GameObject tasklistEntryPrefab;
     [SerializeField] private Transform entryContainer;
     [SerializeField] private GameObject[] bathingTaskStations;
@@ -84,7 +84,7 @@ public class LevelSetupEngine : MonoBehaviour
         if (CheckLevelComplete())
         {
             init = true;
-            endCanvas.enabled = true;
+            SceneManager.LoadScene("Level End");
         }
     }
 
