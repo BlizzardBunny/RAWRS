@@ -22,6 +22,7 @@ public class LevelEndEngine : MonoBehaviour
         nextLvl.onClick.AddListener(NextLvl);
         restartLvl.onClick.AddListener(RestartLvl);
         endLvl.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        StaticItems.plrPos = new Vector3(-5.5f, -0.5f, 0.0f);
     }
 
     private void NextLvl()
