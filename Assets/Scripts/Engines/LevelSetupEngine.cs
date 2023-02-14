@@ -52,6 +52,8 @@ public class LevelSetupEngine : MonoBehaviour
             taskCompletion = new bool[LevelEndEngine.levelNumber + 1];
         }
 
+        Debug.Log(taskCompletion.Length);
+
         if (init)
         {
             entriesData.Clear();

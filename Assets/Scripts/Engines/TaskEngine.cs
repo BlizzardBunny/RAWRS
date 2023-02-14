@@ -31,6 +31,7 @@ public class TaskEngine : MonoBehaviour
 
     private void EndScene()
     {
+        SceneTransitions.fadeOnStart = false;
         if (StaticItems.inTutorial)
         {
             SceneManager.LoadScene("Tutorial");

@@ -15,6 +15,8 @@ public class SceneTransitions: MonoBehaviour
 
     public float fadeSpeed = 0.75f;
 
+    public static bool fadeOnStart = true;
+
     /// <summary>
     /// 
     /// Fading In makes the referenced background disappear (fading into the scene).
@@ -53,7 +55,15 @@ public class SceneTransitions: MonoBehaviour
     private void Start()
     {
         canvas.sortingOrder = 10;
-        Fade(true);
+        if (fadeOnStart)
+        {
+            Fade(true);
+        }
+        else
+        {
+            canvas.enabled = false;
+            fadeOnStart = true;
+        }
     }
 
     private void Update()
