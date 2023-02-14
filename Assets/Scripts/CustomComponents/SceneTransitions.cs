@@ -25,6 +25,7 @@ public class SceneTransitions: MonoBehaviour
     public void Fade(bool inOut)
     {
         isFading = true;
+        canvas.enabled = true;
         isFadingIn = inOut;
     }
     ///// <summary>
@@ -59,7 +60,6 @@ public class SceneTransitions: MonoBehaviour
     {
         if (isFading)
         {
-            canvas.enabled = true;
             if (isFadingIn)
             {
                 canvasGroup.alpha -= fadeSpeed * Time.deltaTime;
@@ -71,8 +71,6 @@ public class SceneTransitions: MonoBehaviour
                         loadScene = false;
                         SceneManager.LoadScene(sceneName);
                     }
-
-                    canvas.enabled = false;
                     isFading = false;
                 }
             }
@@ -87,12 +85,13 @@ public class SceneTransitions: MonoBehaviour
                         loadScene = false;
                         SceneManager.LoadScene(sceneName);
                     }
-
-                    canvas.enabled = false;
                     isFading = false;
                 }
             }
         }
+        else
+        {
+            canvas.enabled = false;
+        }
     }
-
 }
