@@ -39,23 +39,22 @@ public class LevelSetupEngine : MonoBehaviour
         if (isOverworld)
         {
             StaticItems.inTutorial = false;
-        }
-
+        }     
+        
         if (StaticItems.inTutorial)
         {
             taskCompletion = new bool[1];
             init = false;
             entriesData.Add(new System.Tuple<int, int>(0, 0));
         }
-        else
-        {
-            taskCompletion = new bool[LevelEndEngine.levelNumber + 1];
-        }
-
-        Debug.Log(taskCompletion.Length);
 
         if (init)
-        {
+        {          
+            if (!StaticItems.inTutorial)
+            {
+                taskCompletion = new bool[LevelEndEngine.levelNumber + 1];
+            }
+
             entriesData.Clear();
             TaskEngine.currStationID = -1;
 
