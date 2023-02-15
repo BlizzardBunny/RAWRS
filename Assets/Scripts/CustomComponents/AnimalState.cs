@@ -14,6 +14,7 @@ public class AnimalState : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+
         if (TaskEngine.tool == neededTool && !dirtCanvas.enabled)
         {
             isActive = true;
