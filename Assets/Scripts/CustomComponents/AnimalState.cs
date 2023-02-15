@@ -36,6 +36,12 @@ public class AnimalState : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Update is called once per frame
     void Update()
     {
+        if (Cursor.visible)
+        {
+            isActive = false;
+            isDestressing = false;
+        }
+
         if (isActive && !dirtCanvas.enabled)
         {
             canvas.alpha -= 0.25f * Time.deltaTime;
@@ -52,12 +58,6 @@ public class AnimalState : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             dirtCanvas.enabled = true;
             Cursor.visible = true;
             Destroy(gameObject);
-        }
-
-        if (Cursor.visible)
-        {
-            isActive = false;
-            isDestressing = false;
         }
     }
 }

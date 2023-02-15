@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c572d8e479da2f14db3e65a9525a8664
+guid: 44ee3cd0771e8b844a744b2fbc65beba
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -140,7 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Litterbox_0
+      name: Pee Pad_0
       rect:
         serializedVersion: 2
         x: 71
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce21b1905ad44fd4cb558b6352c0d3cb
-      internalID: -1813995584
+      spriteID: ff0aea29a4429b340b1c1ebc5cd67260
+      internalID: -1093979756
       vertices: []
       indices: 
       edges: []
@@ -171,7 +171,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Litterbox_0: -1813995584
+      Pee Pad_0: -1093979756
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

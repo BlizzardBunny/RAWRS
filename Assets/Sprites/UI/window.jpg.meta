@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c572d8e479da2f14db3e65a9525a8664
+guid: 97ec0afb658f4e541b2228ba798455ce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -140,13 +140,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Litterbox_0
+      name: window_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 173
-        width: 658
-        height: 202
+        x: 0
+        y: 0
+        width: 2685
+        height: 2370
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce21b1905ad44fd4cb558b6352c0d3cb
-      internalID: -1813995584
+      spriteID: 21f3d60cb7cca3c46b4d25f23b57688f
+      internalID: 1469222492
       vertices: []
       indices: 
       edges: []
@@ -171,7 +171,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Litterbox_0: -1813995584
+      window_0: 1469222492
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

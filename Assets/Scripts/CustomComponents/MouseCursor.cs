@@ -12,6 +12,7 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
     [SerializeField] private string usagePhrase = ""; //for check-up task; phrase that displays on progress bar
     [SerializeField] private TMPro.TextMeshProUGUI sliderText;
     [SerializeField] private Slider slider;
+    private static int previousTool = -1;
     private bool isActive = false;
     private Vector2 startPos;
 
@@ -21,12 +22,15 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
 
         isActive = true;
         image.raycastTarget = false;
-        Cursor.visible = false;
+        Cursor.visible = false;        
 
         if ((TaskEngine.taskType == 3 || TaskEngine.taskType == 0) && TaskEngine.tool != 12)
         {
             sliderText.text = usagePhrase;
-            slider.value = 0;
+            if (TaskEngine.tool != previousTool)
+            {
+                slider.value = 0;
+            }
         }
     }
 
@@ -52,7 +56,11 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
                 transform.position = startPos;
                 image.raycastTarget = true;
                 isActive = false;
-                TaskEngine.tool = -1;
+                
+                if (TaskEngine.tool != 12)
+                {
+                    previousTool = TaskEngine.tool;
+                }
             }
         }
     }
