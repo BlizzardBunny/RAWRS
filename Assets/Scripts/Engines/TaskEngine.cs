@@ -25,7 +25,7 @@ public class TaskEngine : MonoBehaviour
 
     [Header("Pet Specific Components")]
     [SerializeField] private Canvas bathingCat;
-    [SerializeField] private Canvas bathingCatDirtSpots, bathingDog, bathingDogDirtspots;
+    [SerializeField] private Canvas bathingCatDirtSpots, bathingDog, bathingDogDirtspots, checkupCat, checkupDog;
     [SerializeField] private Transform bathCatStates, bathDogStates;
     [SerializeField] private Image cleaningPoopArea, feedingFoodBag;
     [SerializeField] private Sprite[] poopAreaSprites, foodBagSprites;
@@ -38,8 +38,8 @@ public class TaskEngine : MonoBehaviour
     public static int checkUpTasksTodo = 3;
 
     public static int tool = -1;
-    public static int taskType;
-    public static bool petType;
+    public static int taskType = 3;
+    public static bool petType = true;
     public static int currStationID = -1;
     #endregion
 
@@ -135,6 +135,17 @@ public class TaskEngine : MonoBehaviour
         else if (taskType == 3)
         {
             checkupCanvas.enabled = true;
+
+            if (petType)
+            {
+                checkupDog.enabled = true;
+                checkupCat.enabled = false;
+            }
+            else
+            {
+                checkupDog.enabled = false;
+                checkupCat.enabled = true;
+            }
         }
 
         if (StaticItems.inTutorial)
