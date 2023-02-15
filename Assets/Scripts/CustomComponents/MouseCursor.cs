@@ -17,6 +17,12 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (TaskEngine.tool != tool)
+        {
+            Debug.Log(TaskEngine.tool + " != " + tool) ;
+            slider.value = 0;
+        }
+
         TaskEngine.tool = tool;
 
         isActive = true;
@@ -26,7 +32,6 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
         if ((TaskEngine.taskType == 3 || TaskEngine.taskType == 0) && TaskEngine.tool != 12)
         {
             sliderText.text = usagePhrase;
-            slider.value = 0;
         }
     }
 
@@ -52,7 +57,7 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
                 transform.position = startPos;
                 image.raycastTarget = true;
                 isActive = false;
-                TaskEngine.tool = -1;
+                //TaskEngine.tool = -1;
             }
         }
     }
