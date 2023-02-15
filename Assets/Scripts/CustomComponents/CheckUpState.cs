@@ -25,7 +25,6 @@ public class CheckUpState : MonoBehaviour, IPointerClickHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("booped");
         if (TaskEngine.tool != 12 && isActive)
         {
             canvas.alpha = 1;
