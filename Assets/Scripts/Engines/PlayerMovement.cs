@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 right = new Vector3(1.0f, 0.0f, 0.0f);
     private Vector3 currDirection;
     private Vector3 halfheight, halfwidth;
-    private float padding = 0.05f; //padding when/where collisions are checked.
+    private float padding = 0.4f; //padding when/where collisions are checked.
 
     public ObjectInteractionEngine oie;
     #endregion
