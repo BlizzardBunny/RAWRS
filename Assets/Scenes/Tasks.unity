@@ -12451,6 +12451,10 @@ MonoBehaviour:
   bathingDogDirtspots: {fileID: 1094839931}
   bathCatStates: {fileID: 523230537}
   bathDogStates: {fileID: 38189004}
+  cleaningPoopArea: {fileID: 4519129009302800180}
+  poopAreaSprites:
+  - {fileID: -1093979756, guid: 44ee3cd0771e8b844a744b2fbc65beba, type: 3}
+  - {fileID: -1813995584, guid: c572d8e479da2f14db3e65a9525a8664, type: 3}
 --- !u!114 &4519129007238967440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14773,8 +14777,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14791,8 +14795,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14848,8 +14852,8 @@ RectTransform:
   m_Father: {fileID: 4519129008117698036}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.75, y: 0.82100004}
-  m_AnchorMax: {x: 1, y: 0.8921482}
+  m_AnchorMin: {x: 0.75, y: 0.82}
+  m_AnchorMax: {x: 1, y: 0.95}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
