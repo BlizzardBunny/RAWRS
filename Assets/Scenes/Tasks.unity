@@ -11556,7 +11556,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030895529}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -12452,9 +12452,13 @@ MonoBehaviour:
   bathCatStates: {fileID: 523230537}
   bathDogStates: {fileID: 38189004}
   cleaningPoopArea: {fileID: 4519129009302800180}
+  feedingFoodBag: {fileID: 1959647623}
   poopAreaSprites:
   - {fileID: -1093979756, guid: 44ee3cd0771e8b844a744b2fbc65beba, type: 3}
   - {fileID: -1813995584, guid: c572d8e479da2f14db3e65a9525a8664, type: 3}
+  foodBagSprites:
+  - {fileID: 1509428220, guid: 9e5888fd50e16084182abf017c88a146, type: 3}
+  - {fileID: 475902271, guid: 9e5888fd50e16084182abf017c88a146, type: 3}
 --- !u!114 &4519129007238967440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14367,7 +14371,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4519129008117698037}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
