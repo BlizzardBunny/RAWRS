@@ -17,11 +17,10 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (TaskEngine.tool != tool)
+        if (TaskEngine.tool != tool && TaskEngine.tool != 12)
         {
-            Debug.Log(TaskEngine.tool + " != " + tool) ;
             slider.value = 0;
-        }
+        } 
 
         TaskEngine.tool = tool;
 
