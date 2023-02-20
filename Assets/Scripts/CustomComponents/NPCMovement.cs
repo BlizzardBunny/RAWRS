@@ -13,6 +13,7 @@ public class NPCMovement : MonoBehaviour
     public bool waitForInput = false;
 
     public Animator NPCAnim;
+    [SerializeField] private RectTransform objRect;
     [SerializeField] private int[] directions;
     [SerializeField] private NPCDialogueInfo dialogueInfo;
     [SerializeField] private Canvas wasdCanvas;
@@ -22,13 +23,6 @@ public class NPCMovement : MonoBehaviour
 
     #region Variables
 
-    //Directions
-    private Vector3 up = new Vector3(0.0f, 1.0f, 0.0f);
-    private Vector3 left = new Vector3(-1.0f, 0.0f, 0.0f);
-    private Vector3 down = new Vector3(0.0f, -1.0f, 0.0f);
-    private Vector3 right = new Vector3(1.0f, 0.0f, 0.0f);
-    private Vector3 currDirection;
-
     private float distMoved = 0.0f;
 
     private static Vector2 endLocation;
@@ -37,25 +31,6 @@ public class NPCMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int dir = NPCAnim.GetInteger("direction");
-
-        if (dir == 0)
-        {
-            currDirection = up;
-        }
-        else if (dir == 1)
-        {
-            currDirection = left;
-        }
-        else if (dir == 2)
-        {
-            currDirection = down;
-        }
-        else if (dir == 3)
-        {
-            currDirection = right;
-        }
-
         if (StaticItems.tutorialState == 2)
         {
             NPCAnim.SetInteger("direction", startDirection);
@@ -112,24 +87,26 @@ public class NPCMovement : MonoBehaviour
             if (!StaticItems.isPaused)
             {
                 NPCAnim.SetInteger("direction", directions[i]);
+                Vector3 startPos = transform.position;
+                Debug.Log(i);
 
                 while (distMoved <= 1.0f)
                 {   
                     if (directions[i] == 0)
                     {
-                        Move(up);
+                        Move(startPos, new Vector3(0.0f, objRect.rect.height, 0.0f));
                     }
                     else if (directions[i] == 1)
                     {
-                        Move(left);
+                        Move(startPos, new Vector3(-(objRect.rect.width), 0.0f, 0.0f));
                     }
                     else if (directions[i] == 2)
                     {
-                        Move(down);
+                        Move(startPos, new Vector3(0.0f, -(objRect.rect.height), 0.0f));
                     }
                     else if (directions[i] == 3)
                     {
-                        Move(right);
+                        Move(startPos, new Vector3(objRect.rect.width, 0.0f, 0.0f));
                     }
 
                     yield return new WaitForEndOfFrame();
@@ -157,11 +134,16 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
-    void Move(Vector3 direction)
+    void Move(Vector3 startPos, Vector3 moveDist)
     {
-        currDirection = direction;
         float distToMove = moveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, distToMove);
+        transform.position = Vector3.MoveTowards(transform.position, startPos + moveDist, moveSpeed * Time.deltaTime);
+
+        if (distMoved + distToMove > 1.0f)
+        {
+            transform.position = startPos + moveDist;
+        }
+
         distMoved += distToMove;
     }
 }
