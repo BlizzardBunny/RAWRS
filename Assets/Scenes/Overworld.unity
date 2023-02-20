@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 107071559}
   - component: {fileID: 107071558}
   m_Layer: 0
-  m_Name: Info5
+  m_Name: Info9
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -651,7 +651,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2027343656}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &107071558
 MonoBehaviour:
@@ -674,11 +674,12 @@ MonoBehaviour:
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
   names:
-  - 
+  - Excerpt
   sprites:
   - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
-  - '[Insert Animal Wellfare Factoid here]'
+  - '"Dogs have a short memory and if you scold them for doing something wrong five
+    minutes later, they will not correlate the scolding with the bad behavior."'
 --- !u!61 &107071559
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1363,7 +1364,7 @@ GameObject:
   - component: {fileID: 321417645}
   - component: {fileID: 321417644}
   m_Layer: 0
-  m_Name: EmptyInfo3
+  m_Name: Info6
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1382,7 +1383,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2027343656}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &321417644
 MonoBehaviour:
@@ -1405,11 +1406,12 @@ MonoBehaviour:
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
   names:
-  - You
+  - Excerpt
   sprites:
   - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
-  - I'm not seeing anything I wanna read in this shelf.
+  - '"Brushing your dog''s teeth is often overlooked, but hugely important to their
+    overall health and avoiding expensive dental treatments in the future."'
 --- !u!61 &321417645
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1501,7 +1503,7 @@ GameObject:
   - component: {fileID: 348063420}
   - component: {fileID: 348063419}
   m_Layer: 0
-  m_Name: EmptyInfo2
+  m_Name: Info4
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1520,7 +1522,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2027343656}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &348063419
 MonoBehaviour:
@@ -1543,11 +1545,12 @@ MonoBehaviour:
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
   names:
-  - You
+  - Excerpt
   sprites:
   - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
-  - I'm not seeing anything I wanna read in this shelf.
+  - '"Cats hate the scent of orange and lemon, use these to stop cats scratching
+    furniture and of course provide a cat scratcher."'
 --- !u!61 &348063420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4677,7 +4680,7 @@ GameObject:
   - component: {fileID: 999579604}
   - component: {fileID: 999579603}
   m_Layer: 0
-  m_Name: EmptyInfo1
+  m_Name: Info2
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4696,7 +4699,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2027343656}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &999579603
 MonoBehaviour:
@@ -4719,11 +4722,11 @@ MonoBehaviour:
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
   names:
-  - You
+  - Excerpt
   sprites:
   - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
-  - I'm not seeing anything I wanna read in this shelf.
+  - '"A steady diet of dog food may cause blindness in your cat -- it lacks taurine."'
 --- !u!61 &999579604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4966,11 +4969,12 @@ MonoBehaviour:
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
   names:
-  - 
+  - Excerpt
   sprites:
   - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
-  - '[Insert Animal Wellfare Factoid here]'
+  - '"Many cats cannot properly digest cow''s milk. Milk and milk products give them
+    diarrhea."'
 --- !u!61 &1118183816
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5506,7 +5510,7 @@ GameObject:
   - component: {fileID: 1250816891}
   - component: {fileID: 1250816890}
   m_Layer: 0
-  m_Name: Info2
+  m_Name: Info3
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5525,7 +5529,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2027343656}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1250816890
 MonoBehaviour:
@@ -5548,11 +5552,11 @@ MonoBehaviour:
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
   names:
-  - 
+  - Excerpt
   sprites:
   - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
-  - '[Insert Animal Wellfare Factoid here]'
+  - '"White vinegar is good to neutralize cat urine odor."'
 --- !u!61 &1250816891
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6386,7 +6390,7 @@ GameObject:
   - component: {fileID: 1504472269}
   - component: {fileID: 1504472268}
   m_Layer: 0
-  m_Name: Info4
+  m_Name: Info7
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6405,7 +6409,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2027343656}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1504472268
 MonoBehaviour:
@@ -6428,11 +6432,16 @@ MonoBehaviour:
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
   names:
-  - 
+  - Excerpt
+  - Excerpt
   sprites:
   - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
-  - '[Insert Animal Wellfare Factoid here]'
+  - '"Dog''s paw pads are sensitive to heat and can be burned when walking on hot
+    surfaces...'
+  - If you can't comfortably place your bare hand or foot on the hot ground outside,
+    the surface is too hot for your dog to walk on."
 --- !u!61 &1504472269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7352,7 +7361,7 @@ GameObject:
   - component: {fileID: 1622899994}
   - component: {fileID: 1622899993}
   m_Layer: 0
-  m_Name: EmptyInfo4
+  m_Name: Info8
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7371,7 +7380,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2027343656}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1622899993
 MonoBehaviour:
@@ -7394,11 +7403,13 @@ MonoBehaviour:
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
   names:
-  - You
+  - Excerpt
   sprites:
   - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
-  - I'm not seeing anything I wanna read in this shelf.
+  - '"Just like us, dogs need plenty of mental stimulation to stay happy and healthy.
+    Give your dog a puzzle toy, teach them new tricks, and play new games with them
+    to keep them engaged."'
 --- !u!61 &1622899994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8292,7 +8303,7 @@ GameObject:
   - component: {fileID: 1921251635}
   - component: {fileID: 1921251634}
   m_Layer: 0
-  m_Name: Info3
+  m_Name: Info5
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8311,7 +8322,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2027343656}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1921251634
 MonoBehaviour:
@@ -8334,11 +8345,12 @@ MonoBehaviour:
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
   names:
-  - 
+  - Excerpt
   sprites:
   - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
-  - '[Insert Animal Wellfare Factoid here]'
+  - '"Chocolate is toxic. As little as a 16 oz. bar can kill a cat. The darker the
+    chocolate, the more dangerous it is."'
 --- !u!61 &1921251635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8618,14 +8630,14 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1118183814}
-  - {fileID: 1250816889}
-  - {fileID: 1921251633}
-  - {fileID: 1504472267}
-  - {fileID: 107071557}
   - {fileID: 999579602}
+  - {fileID: 1250816889}
   - {fileID: 348063418}
+  - {fileID: 1921251633}
   - {fileID: 321417643}
+  - {fileID: 1504472267}
   - {fileID: 1622899992}
+  - {fileID: 107071557}
   m_Father: {fileID: 872483817}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9715,6 +9727,82 @@ PrefabInstance:
     - target: {fileID: 8629341372642289326, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[8].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[24].m_Data
+      value: 
+      objectReference: {fileID: 1509250670, guid: ee9222727a0568f43a467382eaadcb67, type: 3}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[47].m_Data
+      value: 
+      objectReference: {fileID: -1397067245, guid: ee9222727a0568f43a467382eaadcb67, type: 3}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[48].m_Data
+      value: 
+      objectReference: {fileID: 835135020, guid: 51651395e1c4d6a4f8d6edd74dc72925, type: 3}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[49].m_Data
+      value: 
+      objectReference: {fileID: 1923572044, guid: 51651395e1c4d6a4f8d6edd74dc72925, type: 3}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[52].m_Data
+      value: 
+      objectReference: {fileID: -956807286, guid: 51651395e1c4d6a4f8d6edd74dc72925, type: 3}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[53].m_Data
+      value: 
+      objectReference: {fileID: -1894848887, guid: ee9222727a0568f43a467382eaadcb67, type: 3}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[58].m_Data
+      value: 
+      objectReference: {fileID: 115264924, guid: 091fbd2f789a0a2479370a3f0b5913ce, type: 3}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[63].m_Data
+      value: 
+      objectReference: {fileID: -1003308468, guid: 091fbd2f789a0a2479370a3f0b5913ce, type: 3}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[8].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[63].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_Tiles.Array.data[0].second.m_TileSpriteIndex
+      value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_Tiles.Array.data[1].second.m_TileSpriteIndex
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_Tiles.Array.data[23].second.m_TileSpriteIndex
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_Tiles.Array.data[78].second.m_TileSpriteIndex
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_Tiles.Array.data[89].second.m_TileSpriteIndex
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_Tiles.Array.data[165].second.m_TileSpriteIndex
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_Tiles.Array.data[332].second.m_TileSpriteIndex
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629341374245707231, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}
+      propertyPath: m_Tiles.Array.data[339].second.m_TileSpriteIndex
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f1ef8cdddd4a1b4aa4302aa1c87f79d, type: 3}

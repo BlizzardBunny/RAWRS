@@ -77,6 +77,7 @@ public class TaskEngine : MonoBehaviour
         StaticItems.isShowingTasks = false;
         StaticItems.isPaused = false;
 
+        failPanel.enabled = false;
         endPanel.enabled = false;
         bathCanvas.enabled = false;
         feedCanvas.enabled = false;
