@@ -14,7 +14,7 @@ public class DialogueEngine : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI npcDialogue;
     [SerializeField] private Button nextLine;
     [SerializeField] private SceneTransitions sceneTransitions;
-    [SerializeField] private NPCDialogueInfo nextStateDialogueInfo;
+    public NPCDialogueInfo nextStateDialogueInfo;
 
     #endregion
 
@@ -58,6 +58,18 @@ public class DialogueEngine : MonoBehaviour
                 }
                 else if (dialogueInfo.tutorialState < 0)
                 {
+                    StartDialogue();
+                }
+            }
+        }
+        else
+        {
+            if (nextStateDialogueInfo != null)
+            {
+                if (nextStateDialogueInfo.playAtStart)
+                {
+                    nextStateDialogueInfo.gameObject.SetActive(true);
+                    dialogueInfo = nextStateDialogueInfo;
                     StartDialogue();
                 }
             }
@@ -197,10 +209,12 @@ public class DialogueEngine : MonoBehaviour
             }
             else if (dialogueInfo.NPCMovement != null)
             {
-                StartCoroutine(dialogueInfo.NPCMovement.StartMovement());
+                dialogueInfo.NPCMovement.isMoving = true; 
+                if (dialogueInfo.NPCMovement.iter <= 0)
+                {
+                    StartCoroutine(dialogueInfo.NPCMovement.StartMovement());
+                }
             }
         }
     }
-
-
 }

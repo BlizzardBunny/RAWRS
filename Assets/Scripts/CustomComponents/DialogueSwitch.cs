@@ -6,13 +6,20 @@ using UnityEngine;
 public class DialogueSwitch : MonoBehaviour
 {
     public int playAtLevel;
+    [SerializeField] private DialogueEngine dialogueEngine;
+    [SerializeField] private NPCDialogueInfo NPCDialogueInfo;
+    [SerializeField] private GameObject prop;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (playAtLevel != LevelEndEngine.levelNumber)
         {
             Destroy(this.gameObject);
+        }
+        else
+        {
+            prop.gameObject.SetActive(true);
+            dialogueEngine.nextStateDialogueInfo = NPCDialogueInfo;
         }
     }
 }
