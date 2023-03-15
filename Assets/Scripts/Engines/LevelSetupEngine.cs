@@ -21,13 +21,14 @@ public class LevelSetupEngine : MonoBehaviour
     private int numOnList = 0;
     private List<GameObject> entries = new List<GameObject>();
     public static bool init = true;
+    public static bool isEnding = false;
     private static bool[] taskCompletion;
     private static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
     private static string[] taskNames =
     {
         "Bathe Animal", "Prepare pet food", "Clean up a kennel", "Check up on an animal"
     };
-
+    
     #endregion
 
     #region Custom functions
@@ -86,8 +87,8 @@ public class LevelSetupEngine : MonoBehaviour
 
         if (CheckLevelComplete())
         {
-            init = true;
-            SceneManager.LoadScene("Level End");
+            isEnding = true;
+            MakeEntry();
         }
     }
 
@@ -141,7 +142,7 @@ public class LevelSetupEngine : MonoBehaviour
         entryData.taskNumber.text = (++numOnList).ToString();
 
         switch (taskType)
-        { 
+        {
             case 0: entryData.taskStationMarker = bathingTaskStations[taskStationID].transform.GetChild(0).gameObject; break;
             case 1: entryData.taskStationMarker = feedingTaskStations[taskStationID].transform.GetChild(0).gameObject; break;
             case 2: entryData.taskStationMarker = cleaningTaskStations[taskStationID].transform.GetChild(0).gameObject; break;
@@ -156,6 +157,16 @@ public class LevelSetupEngine : MonoBehaviour
         {
             entriesData.Add(new System.Tuple<int, int>(taskType, taskStationID));
         }
+    }
+
+    public void MakeEntry()
+    {
+        GameObject entry = Instantiate(tasklistEntryPrefab, entryContainer);
+        TaskEntry entryData = entry.GetComponent<TaskEntry>();
+        entryData.taskName.text = "Talk to Theo";
+        entryData.taskNumber.text = (++numOnList).ToString();
+
+        entries.Add(entry);
     }
 
     public void MarkCompleteTask(int listID)

@@ -140,7 +140,22 @@ public class DialogueEngine : MonoBehaviour
             child = obj.transform.GetChild(0).gameObject;
         }
 
-        StartDialogue();
+        if (dialogueInfo.playAtEndLevel)
+        {
+            if (LevelSetupEngine.isEnding)
+            {
+            }
+            else
+            {
+                dialogueInfo = dialogueInfo.backupDialogue;
+            }
+
+            StartDialogue();
+        }
+        else
+        {
+            StartDialogue();
+        }
     }
 
     public void StartDialogue()

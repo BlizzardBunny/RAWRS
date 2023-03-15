@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DialogueSwitch : MonoBehaviour
 {
+    public static bool hasPlayed = false;
     public int playAtLevel;
     [SerializeField] private DialogueEngine dialogueEngine;
     [SerializeField] private NPCDialogueInfo NPCDialogueInfo;
@@ -12,14 +13,18 @@ public class DialogueSwitch : MonoBehaviour
 
     void Awake()
     {
-        if (playAtLevel - 1 != LevelEndEngine.levelNumber)
+        if (!hasPlayed)
         {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            prop.gameObject.SetActive(true);
-            dialogueEngine.nextStateDialogueInfo = NPCDialogueInfo;
+            if (playAtLevel - 1 != LevelEndEngine.levelNumber)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                prop.gameObject.SetActive(true);
+                dialogueEngine.nextStateDialogueInfo = NPCDialogueInfo;
+            }
+            hasPlayed = true;
         }
     }
 }
