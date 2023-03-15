@@ -23,8 +23,9 @@ public class NPCMovement : MonoBehaviour
 
     #region Variables
 
+    public bool isMoving;
+    public int iter = 0;
     private float distMoved = 0.0f;
-
     private static Vector2 endLocation;
     #endregion
 
@@ -73,6 +74,24 @@ public class NPCMovement : MonoBehaviour
         pressKeyCanvas.enabled = false;
     }
 
+    private IEnumerator Pause()
+    {
+        NPCAnim.SetBool("isRunning", false);
+        while (StaticItems.isPaused)
+        {
+            yield return null;
+        }
+        NPCAnim.SetBool("isRunning", true);
+    }
+
+    private IEnumerator PauseMovement()
+    {
+        while (!isMoving)
+        {
+            yield return null;
+        }
+    }
+
     public IEnumerator StartMovement()
     {
         if (waitForMovement)
@@ -80,31 +99,30 @@ public class NPCMovement : MonoBehaviour
             yield return StartCoroutine(WaitForMovement());
         }
 
-        dialogueInfo.isMoving = true;
+        isMoving = true;
         NPCAnim.SetBool("isRunning", true);
-        for (int i = 0; i < directions.Length; i++)
+        while (iter < directions.Length)
         {
             if (!StaticItems.isPaused)
             {
-                NPCAnim.SetInteger("direction", directions[i]);
+                NPCAnim.SetInteger("direction", directions[iter]);
                 Vector3 startPos = transform.position;
-                Debug.Log(i);
 
                 while (distMoved <= 1.0f)
                 {   
-                    if (directions[i] == 0)
+                    if (directions[iter] == 0)
                     {
                         Move(startPos, new Vector3(0.0f, objRect.rect.height, 0.0f));
                     }
-                    else if (directions[i] == 1)
+                    else if (directions[iter] == 1)
                     {
                         Move(startPos, new Vector3(-(objRect.rect.width), 0.0f, 0.0f));
                     }
-                    else if (directions[i] == 2)
+                    else if (directions[iter] == 2)
                     {
                         Move(startPos, new Vector3(0.0f, -(objRect.rect.height), 0.0f));
                     }
-                    else if (directions[i] == 3)
+                    else if (directions[iter] == 3)
                     {
                         Move(startPos, new Vector3(objRect.rect.width, 0.0f, 0.0f));
                     }
@@ -114,8 +132,21 @@ public class NPCMovement : MonoBehaviour
 
                 distMoved = 0.0f;
             }
+            else
+            {
+                iter--;
+                yield return StartCoroutine(Pause());
+                isMoving = true;
+            }
+
+            if (!isMoving)
+            {
+                iter--;
+                yield return StartCoroutine(PauseMovement());
+            }
 
             yield return new WaitForEndOfFrame();
+            iter++;
         }
 
         if (this.transform.childCount > 0)
@@ -124,7 +155,7 @@ public class NPCMovement : MonoBehaviour
         }
 
         endLocation = this.transform.position;
-        dialogueInfo.isMoving = false;
+        isMoving = false;
         NPCAnim.SetInteger("direction", endDirection);
         NPCAnim.SetBool("isRunning", false);
 

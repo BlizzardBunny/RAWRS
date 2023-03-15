@@ -95,16 +95,31 @@ public class LevelSetupEngine : MonoBehaviour
     {
         for (int i = 0; i < maxTasks; i++)
         {
-            int taskType = Random.Range(0, 4);
-
+            int taskType = 0;
             int taskStationID = 0;
 
-            switch (taskType)
+            if (LevelEndEngine.levelNumber == 1)
             {
-                case 0: taskStationID = Random.Range(0, bathingTaskStations.Length); break;
-                case 1: taskStationID = Random.Range(0, feedingTaskStations.Length); break;
-                case 2: taskStationID = Random.Range(0, cleaningTaskStations.Length); break;
-                case 3: taskStationID = Random.Range(0, checkupTaskStations.Length); break;
+                taskType = Random.Range(0, 2); // 0 or 1
+
+                if (taskType == 0)
+                {
+                    taskStationID = 1;
+                }
+                else
+                {
+                    taskStationID = 0;
+                }
+            }
+            else
+            {
+                switch (taskType)
+                {
+                    case 0: taskStationID = Random.Range(0, bathingTaskStations.Length); break;
+                    case 1: taskStationID = Random.Range(0, feedingTaskStations.Length); break;
+                    case 2: taskStationID = Random.Range(0, cleaningTaskStations.Length); break;
+                    case 3: taskStationID = Random.Range(0, checkupTaskStations.Length); break;
+                }
             }
 
             if (CheckIsUniqueTask(taskType, taskStationID))

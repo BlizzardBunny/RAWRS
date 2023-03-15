@@ -54,6 +54,13 @@ public class ObjectInteractionEngine : MonoBehaviour
             {
                 if (!dialogueEngine.dialogueCanvas.enabled)
                 {
+                    NPCMovement NPCMovement = obj.GetComponent<NPCMovement>();
+
+                    if (NPCMovement != null)
+                    {
+                        NPCMovement.isMoving = false;
+                    }
+
                     dialogueEngine.StartDialogue(ref obj);
                 }
             }
