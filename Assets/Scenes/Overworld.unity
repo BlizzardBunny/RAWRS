@@ -6405,6 +6405,7 @@ MonoBehaviour:
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
   isMoving: 0
+  iter: 0
 --- !u!95 &1000670703
 Animator:
   serializedVersion: 4
@@ -6875,8 +6876,8 @@ MonoBehaviour:
   - Great! Just remember to show /p where to go. See you both around!
   - Thanks Cara!
   - If you don't mind we can split it up and I can handle the cats for today. You
-    know your way around the shelter anyways right? Just check your journal if you
-    aren't sure.
+    know your way around the shelter anyways right? Just check your map if you aren't
+    sure.
   - Bathing the dogs shouldn't be any different to the cats, and for feeding just
     remember to wash the bowls before filling them.
   - Arright! See you around then! Just find me if you have any concerns!
