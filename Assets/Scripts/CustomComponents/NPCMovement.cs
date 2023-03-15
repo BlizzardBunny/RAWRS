@@ -38,7 +38,11 @@ public class NPCMovement : MonoBehaviour
         }
         else
         {
-            if (endLocation != null)
+            if (LevelEndEngine.levelNumber > 0)
+            {
+                NPCAnim.SetInteger("direction", startDirection);
+            }
+            else if (endLocation != null)
             {
                 NPCAnim.SetInteger("direction", endDirection);
             }

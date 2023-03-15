@@ -1013,6 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -1020,6 +1021,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Excerpt
   sprites:
@@ -1933,6 +1935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -1940,6 +1943,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Excerpt
   sprites:
@@ -2071,6 +2075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -2078,6 +2083,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Excerpt
   sprites:
@@ -6191,6 +6197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -6198,6 +6205,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Excerpt
   sprites:
@@ -6297,12 +6305,12 @@ GameObject:
   - component: {fileID: 1000670702}
   - component: {fileID: 1000670705}
   m_Layer: 0
-  m_Name: Theo Prop 2
+  m_Name: Theo Day 2
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1000670700
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6437,7 +6445,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1551732268}
   m_Father: {fileID: 2016901138}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6458,6 +6467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 255
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -6465,12 +6475,28 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 1551732269}
   names:
+  - Theo<size=50><br>(they/them)</size>
+  - Theo<size=50><br>(they/them)</size>
+  - Theo<size=50><br>(they/them)</size>
+  - Theo<size=50><br>(they/them)</size>
   - Theo<size=50><br>(they/them)</size>
   sprites:
   - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
   dialogue:
-  - filler filler
+  - You done? Good!
+  - We're still onboarding you, so we're just slowly piling on the tasks instead
+    of dumping everything on you all at once.
+  - Shelter work is hard work, and while it isn't that difficult to bathe or feed
+    the animals.
+  - There's usually a lot of animals and not enough volunteers. We're lucky that
+    RAWRS has enough volunteers to make the workload more manageable.
+  - Tomorrow is the day we clean their kennels, see you then /p!
 --- !u!1 &1047142058
 GameObject:
   m_ObjectHideFlags: 0
@@ -6702,6 +6728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -6709,6 +6736,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Excerpt
   sprites:
@@ -6806,7 +6834,7 @@ GameObject:
   - component: {fileID: 1142112088}
   - component: {fileID: 1142112087}
   m_Layer: 0
-  m_Name: Level 2 Dialogue
+  m_Name: Day 2 Dialogue
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6839,6 +6867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 1
   tutorialState: -1
   nextScene: 
@@ -6846,6 +6875,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Cara<size=50><br>(she/her)</size>
   - Theo<size=50><br>(they/them)</size>
@@ -7514,6 +7544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -7521,6 +7552,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Excerpt
   sprites:
@@ -8512,6 +8544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -8519,6 +8552,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Cat
   - You
@@ -8574,6 +8608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -8581,6 +8616,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Excerpt
   - Excerpt
@@ -8794,6 +8830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 1
   tutorialState: -1
   nextScene: 
@@ -8801,12 +8838,77 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Cara<size=50><br>(she/her)</size>
   sprites:
   - {fileID: -221269525, guid: cb6c266eec88e1a479aa7877d29d883a, type: 3}
   dialogue:
   - Feel free to look around.
+--- !u!1 &1551732267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1551732268}
+  - component: {fileID: 1551732269}
+  m_Layer: 0
+  m_Name: Tutorial Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1551732268
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551732267}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1000670704}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1551732269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551732267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playAtEndLevel: 0
+  playAtStart: 0
+  tutorialState: -1
+  nextScene: 
+  NPCMovement: {fileID: 1000670702}
+  showAtStartCanvas: {fileID: 0}
+  showAtEndCanvas: {fileID: 0}
+  waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
+  names:
+  - Theo<size=50><br>(they/them)</size>
+  sprites:
+  - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  dialogue:
+  - Oh hey, /p! What's up?
 --- !u!1 &1575554693
 GameObject:
   m_ObjectHideFlags: 0
@@ -9619,6 +9721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -9626,6 +9729,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Excerpt
   sprites:
@@ -10597,6 +10701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
   nextScene: 
@@ -10604,6 +10709,7 @@ MonoBehaviour:
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
   waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
   names:
   - Excerpt
   sprites:
