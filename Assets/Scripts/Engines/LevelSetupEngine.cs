@@ -114,6 +114,22 @@ public class LevelSetupEngine : MonoBehaviour
             }
             else
             {
+                if (LevelEndEngine.levelNumber == 2)
+                {
+                    if (i == 0)
+                    {
+                        taskType = 2;
+                    }
+                    else
+                    {
+                        taskType = Random.Range(0, 3);
+                    }
+                }
+                else
+                {
+                    taskType = Random.Range(0, 4);
+                }
+
                 switch (taskType)
                 {
                     case 0: taskStationID = Random.Range(0, bathingTaskStations.Length); break;

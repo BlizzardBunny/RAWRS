@@ -9,7 +9,7 @@ public class LevelEndEngine : MonoBehaviour
     #region Object References
     [SerializeField] Button nextLvl, restartLvl, endLvl;
 
-    public static int levelNumber = 1;
+    public static int levelNumber = 2;
     #endregion
 
     #region Variables
