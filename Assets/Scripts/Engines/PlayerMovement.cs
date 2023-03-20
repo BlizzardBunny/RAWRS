@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.E))
             {
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(currDirection), 0.5f);
-                oie.CheckObject(hit);
+                oie.CheckObject(hit, playerAnim.GetInteger("direction"));
             }
         }
     }

@@ -6542,6 +6542,7 @@ MonoBehaviour:
   dialogueInfo: {fileID: 1142112087}
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
+  endLocation: {x: 20.5, y: 14.5}
   isMoving: 0
   iter: 0
 --- !u!95 &1000670703
@@ -7283,6 +7284,7 @@ MonoBehaviour:
   dialogueInfo: {fileID: 971915135}
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
+  endLocation: {x: 20.5, y: 14.5}
   isMoving: 0
   iter: 0
 --- !u!95 &1198672964
@@ -8577,6 +8579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial Dialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 5396445901418701566, guid: 622091d31993f8648b971b7fdde135e9, type: 3}
+      propertyPath: NPCMovement
+      value: 
+      objectReference: {fileID: 1198672963}
     - target: {fileID: 5396445901418701567, guid: 622091d31993f8648b971b7fdde135e9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

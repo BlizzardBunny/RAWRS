@@ -224,10 +224,14 @@ public class DialogueEngine : MonoBehaviour
             }
             else if (dialogueInfo.NPCMovement != null)
             {
-                dialogueInfo.NPCMovement.isMoving = true; 
                 if (dialogueInfo.NPCMovement.iter <= 0)
                 {
+                    dialogueInfo.NPCMovement.isMoving = true; 
                     StartCoroutine(dialogueInfo.NPCMovement.StartMovement());
+                }
+                else 
+                {
+                    dialogueInfo.NPCMovement.FaceEnd();
                 }
             }
         }

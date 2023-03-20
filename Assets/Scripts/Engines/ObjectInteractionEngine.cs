@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -44,7 +45,7 @@ public class ObjectInteractionEngine : MonoBehaviour
         
     }
 
-    public void CheckObject(RaycastHit2D hit)
+    public void CheckObject(RaycastHit2D hit, int plrDir)
     {      
         if (hit)
         {
@@ -59,6 +60,15 @@ public class ObjectInteractionEngine : MonoBehaviour
                     if (NPCMovement != null)
                     {
                         NPCMovement.isMoving = false;
+                        NPCMovement.iter-=2;
+                        if (plrDir <= 1)
+                        {
+                            NPCMovement.NPCAnim.SetInteger("direction", plrDir + 2);
+                        }
+                        else
+                        {
+                            NPCMovement.NPCAnim.SetInteger("direction", plrDir + 2);
+                        }
                     }
 
                     dialogueEngine.StartDialogue(ref obj);
