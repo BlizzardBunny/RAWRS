@@ -60,14 +60,13 @@ public class ObjectInteractionEngine : MonoBehaviour
                     if (NPCMovement != null)
                     {
                         NPCMovement.isMoving = false;
-                        NPCMovement.iter-=2;
                         if (plrDir <= 1)
                         {
                             NPCMovement.NPCAnim.SetInteger("direction", plrDir + 2);
                         }
                         else
                         {
-                            NPCMovement.NPCAnim.SetInteger("direction", plrDir + 2);
+                            NPCMovement.NPCAnim.SetInteger("direction", plrDir - 2);
                         }
                     }
 

@@ -63,11 +63,6 @@ public class NPCMovement : MonoBehaviour
         {
             NPCAnim.SetInteger("direction", endDirection);
         }
-        else
-        {
-            Debug.Log(iter + " " + directions.Length);
-            isMoving = true;
-        }
     }
 
     private IEnumerator WaitForMovement()

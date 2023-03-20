@@ -113,6 +113,47 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, moveSpeed * Time.deltaTime);
             }
+            else if (hit1)
+            {
+                if (hit1.transform.tag.Equals("NPC"))
+                {
+                    CheckIfStuck(hit1);
+                }
+            }
+            else if (hit2)
+            {
+                if (hit2.transform.tag.Equals("NPC"))
+                {
+                    CheckIfStuck(hit2);
+                }
+            }
         }
+        else
+        {
+            if (hit.transform.tag.Equals("NPC"))
+            {
+                CheckIfStuck(hit);
+            }
+        }
+    }
+
+    private void CheckIfStuck(RaycastHit2D hit)
+    {
+
+        //RectTransform obj = hit.transform.GetComponent<RectTransform>();
+
+        //if (obj == null)
+        //{
+        //    return;
+        //}
+
+        //if ((StaticItems.plrPos.x > obj.position.x - (obj.rect.width / 2)) 
+        //    && (StaticItems.plrPos.x < obj.position.x + (obj.rect.width / 2))
+        //    && (StaticItems.plrPos.y > obj.position.y - (obj.rect.height / 2))
+        //    && (StaticItems.plrPos.y < obj.position.y + (obj.rect.height / 2)))
+        //{
+            /*IMPLEMENT: Find nearest clear space and teleport player to it*/
+        //    transform.position = StaticItems.plrPos - new Vector3(currDirection.x * obj.rect.width, currDirection.y * obj.rect.height, 0.0f);
+        //}
     }
 }
