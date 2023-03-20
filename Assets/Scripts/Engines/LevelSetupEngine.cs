@@ -33,6 +33,13 @@ public class LevelSetupEngine : MonoBehaviour
 
     #region Custom functions
 
+    public static void ResetStaticVars()
+    {
+        init = true;
+        isEnding = false;
+        entriesData.Clear();
+    }
+
     public void Init()
     {
         StaticItems.firstTime = false;
