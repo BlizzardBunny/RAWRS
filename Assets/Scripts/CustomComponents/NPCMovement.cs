@@ -18,6 +18,7 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private NPCDialogueInfo dialogueInfo;
     [SerializeField] private Canvas wasdCanvas;
     [SerializeField] private Canvas pressKeyCanvas;
+    [SerializeField] private Vector2 endLocation;
 
     #endregion
 
@@ -26,7 +27,12 @@ public class NPCMovement : MonoBehaviour
     public bool isMoving;
     public int iter = 0;
     private float distMoved = 0.0f;
-    private static Vector2 endLocation;
+
+    //Directions
+    private Vector3 up = new Vector3(0.0f, 1.0f, 0.0f);
+    private Vector3 left = new Vector3(-1.0f, 0.0f, 0.0f);
+    private Vector3 down = new Vector3(0.0f, -1.0f, 0.0f);
+    private Vector3 right = new Vector3(1.0f, 0.0f, 0.0f);
     #endregion
 
     // Start is called before the first frame update
@@ -42,17 +48,21 @@ public class NPCMovement : MonoBehaviour
             {
                 NPCAnim.SetInteger("direction", startDirection);
             }
-            else if (endLocation != null)
-            {
-                NPCAnim.SetInteger("direction", endDirection);
-            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        this.GetComponent<Collider2D>().enabled = !isMoving;
+    }
+
+    public void FaceEnd()
+    {
+        if (!isMoving)
+        {
+            NPCAnim.SetInteger("direction", endDirection);
+        }
     }
 
     private IEnumerator WaitForMovement()
@@ -107,28 +117,40 @@ public class NPCMovement : MonoBehaviour
         NPCAnim.SetBool("isRunning", true);
         while (iter < directions.Length)
         {
+            if (!isMoving)
+            {
+                iter--;
+                yield return StartCoroutine(PauseMovement());
+            }
+
             if (!StaticItems.isPaused)
             {
                 NPCAnim.SetInteger("direction", directions[iter]);
                 Vector3 startPos = transform.position;
 
                 while (distMoved <= 1.0f)
-                {   
+                {
+                    if (!isMoving)
+                    {
+                        iter--;
+                        yield return StartCoroutine(PauseMovement());
+                    }
+
                     if (directions[iter] == 0)
                     {
-                        Move(startPos, new Vector3(0.0f, objRect.rect.height, 0.0f));
+                        Move(startPos, new Vector3(0.0f, objRect.rect.height, 0.0f), up);
                     }
                     else if (directions[iter] == 1)
                     {
-                        Move(startPos, new Vector3(-(objRect.rect.width), 0.0f, 0.0f));
+                        Move(startPos, new Vector3(-(objRect.rect.width), 0.0f, 0.0f), left);
                     }
                     else if (directions[iter] == 2)
                     {
-                        Move(startPos, new Vector3(0.0f, -(objRect.rect.height), 0.0f));
+                        Move(startPos, new Vector3(0.0f, -(objRect.rect.height), 0.0f), down);
                     }
                     else if (directions[iter] == 3)
                     {
-                        Move(startPos, new Vector3(objRect.rect.width, 0.0f, 0.0f));
+                        Move(startPos, new Vector3(objRect.rect.width, 0.0f, 0.0f), right);
                     }
 
                     yield return new WaitForEndOfFrame();
@@ -143,14 +165,14 @@ public class NPCMovement : MonoBehaviour
                 isMoving = true;
             }
 
-            if (!isMoving)
-            {
-                iter--;
-                yield return StartCoroutine(PauseMovement());
-            }
-
             yield return new WaitForEndOfFrame();
             iter++;
+
+            if ((this.transform.position.x == endLocation.x)
+                && (this.transform.position.y == endLocation.y))
+            {
+                break;
+            }
         }
 
         if (this.transform.childCount > 0)
@@ -158,7 +180,6 @@ public class NPCMovement : MonoBehaviour
             this.transform.GetChild(0).gameObject.SetActive(true);
         }
 
-        endLocation = this.transform.position;
         isMoving = false;
         NPCAnim.SetInteger("direction", endDirection);
         NPCAnim.SetBool("isRunning", false);
@@ -169,16 +190,26 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
-    void Move(Vector3 startPos, Vector3 moveDist)
+    void Move(Vector3 startPos, Vector3 moveDist, Vector2 direction)
     {
-        float distToMove = moveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, startPos + moveDist, moveSpeed * Time.deltaTime);
+        Vector2 posV2 = transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(posV2 + (direction * ((objRect.rect.width/2) + 0.01f)), direction, 0.1f);
 
-        if (distMoved + distToMove > 1.0f)
+        if (!hit)
         {
-            transform.position = startPos + moveDist;
-        }
+            float distToMove = moveSpeed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, startPos + moveDist, moveSpeed * Time.deltaTime);
 
-        distMoved += distToMove;
+            if (distMoved + distToMove > 1.0f)
+            {
+                transform.position = startPos + moveDist;
+            }
+
+            distMoved += distToMove;
+        }
+        else
+        {
+            distMoved = 1.5f;
+        }
     }
 }

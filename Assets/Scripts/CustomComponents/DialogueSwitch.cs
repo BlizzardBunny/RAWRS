@@ -13,18 +13,19 @@ public class DialogueSwitch : MonoBehaviour
 
     void Awake()
     {
-        if (!hasPlayed)
+        if (playAtLevel - 1 != LevelEndEngine.levelNumber)
         {
-            if (playAtLevel - 1 != LevelEndEngine.levelNumber)
-            {
-                Destroy(this.gameObject);
-            }
-            else
+            Destroy(prop.gameObject);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            if (!hasPlayed)
             {
                 prop.gameObject.SetActive(true);
                 dialogueEngine.nextStateDialogueInfo = NPCDialogueInfo;
+                hasPlayed = true;
             }
-            hasPlayed = true;
         }
     }
 }

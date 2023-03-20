@@ -9,7 +9,7 @@ public class LevelEndEngine : MonoBehaviour
     #region Object References
     [SerializeField] Button nextLvl, restartLvl, endLvl;
 
-    public static int levelNumber = 1;
+    public static int levelNumber = 0;
     #endregion
 
     #region Variables
@@ -22,12 +22,15 @@ public class LevelEndEngine : MonoBehaviour
         nextLvl.onClick.AddListener(NextLvl);
         restartLvl.onClick.AddListener(RestartLvl);
         endLvl.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
-        StaticItems.plrPos = new Vector3(-5.5f, -0.5f, 0.0f);
+        StaticItems.plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
+        StopAllCoroutines();
     }
 
     private void NextLvl()
     {
         levelNumber++;
+        DialogueSwitch.hasPlayed = false;
+        LevelSetupEngine.ResetStaticVars();
         SceneManager.LoadScene("Overworld");
     }
 
@@ -42,6 +45,7 @@ public class LevelEndEngine : MonoBehaviour
         }
         else
         {
+            DialogueSwitch.hasPlayed = false;
             SceneManager.LoadScene("Overworld");
         }
     }
