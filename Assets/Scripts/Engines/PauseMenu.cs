@@ -8,8 +8,8 @@ public class PauseMenu : MonoBehaviour
 {
     #region Object References
 
-    [SerializeField] private Canvas pauseMenuCanvas;
-    [SerializeField] private Button returnToMainMenu, exitGame;
+    [SerializeField] private Canvas pauseMenuCanvas, optionsCanvas;
+    [SerializeField] private Button returnToMainMenu, exitGame, returnButton, optionsButton;
 
     #endregion
 
@@ -18,6 +18,9 @@ public class PauseMenu : MonoBehaviour
     {
         returnToMainMenu.onClick.AddListener(ReturnToMain);
         exitGame.onClick.AddListener(StaticItems.ExitGame);
+
+        optionsButton.onClick.AddListener(OpenSettings);
+        returnButton.onClick.AddListener(CloseSettings);
     }
 
     // Update is called once per frame
@@ -34,6 +37,7 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+        
     }
 
     void Pause()
@@ -45,5 +49,17 @@ public class PauseMenu : MonoBehaviour
     void ReturnToMain()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+    void OpenSettings()
+    {        
+        optionsCanvas.enabled = !optionsCanvas.enabled;
+        pauseMenuCanvas.enabled = false;
+        StaticItems.isShowingTasks = false;
+    }
+    void CloseSettings()
+    {
+        optionsCanvas.enabled = !optionsCanvas.enabled;
+        pauseMenuCanvas.enabled = true;
+        StaticItems.isShowingTasks = true;
     }
 }
