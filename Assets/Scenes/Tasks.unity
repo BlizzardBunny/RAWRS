@@ -2238,6 +2238,7 @@ MonoBehaviour:
   usagePhrase: 
   sliderText: {fileID: 575077177}
   slider: {fileID: 180990653}
+  rightButtonEvent: {fileID: 0}
 --- !u!114 &388877341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4345,6 +4346,7 @@ MonoBehaviour:
   usagePhrase: 
   sliderText: {fileID: 0}
   slider: {fileID: 0}
+  rightButtonEvent: {fileID: 0}
 --- !u!114 &698421458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4653,6 +4655,7 @@ MonoBehaviour:
   usagePhrase: 
   sliderText: {fileID: 0}
   slider: {fileID: 0}
+  rightButtonEvent: {fileID: 0}
 --- !u!114 &757710771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5417,6 +5420,7 @@ MonoBehaviour:
   usagePhrase: Washing
   sliderText: {fileID: 575077177}
   slider: {fileID: 180990653}
+  rightButtonEvent: {fileID: 934259424}
 --- !u!114 &934259421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6237,6 +6241,7 @@ MonoBehaviour:
   usagePhrase: Scrubbing
   sliderText: {fileID: 575077177}
   slider: {fileID: 180990653}
+  rightButtonEvent: {fileID: 1029818785}
 --- !u!114 &1029818785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7383,6 +7388,7 @@ MonoBehaviour:
   usagePhrase: Drying
   sliderText: {fileID: 575077177}
   slider: {fileID: 180990653}
+  rightButtonEvent: {fileID: 1170742829}
 --- !u!114 &1170742827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7870,6 +7876,7 @@ MonoBehaviour:
   usagePhrase: 
   sliderText: {fileID: 930766834}
   slider: {fileID: 840881734}
+  rightButtonEvent: {fileID: 0}
 --- !u!114 &1204242483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10343,6 +10350,7 @@ MonoBehaviour:
   usagePhrase: Taking Temperature
   sliderText: {fileID: 930766834}
   slider: {fileID: 840881734}
+  rightButtonEvent: {fileID: 0}
 --- !u!114 &1627838310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10878,6 +10886,7 @@ MonoBehaviour:
   usagePhrase: Measuring Heart Rate
   sliderText: {fileID: 930766834}
   slider: {fileID: 840881734}
+  rightButtonEvent: {fileID: 0}
 --- !u!114 &1787842249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11510,6 +11519,7 @@ MonoBehaviour:
   usagePhrase: Checking ears
   sliderText: {fileID: 930766834}
   slider: {fileID: 840881734}
+  rightButtonEvent: {fileID: 0}
 --- !u!114 &1876428168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12042,6 +12052,7 @@ MonoBehaviour:
   usagePhrase: 
   sliderText: {fileID: 0}
   slider: {fileID: 0}
+  rightButtonEvent: {fileID: 0}
 --- !u!114 &1959647623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14351,6 +14362,7 @@ MonoBehaviour:
   usagePhrase: 
   sliderText: {fileID: 0}
   slider: {fileID: 0}
+  rightButtonEvent: {fileID: 0}
 --- !u!222 &4519129007374538447
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14685,6 +14697,7 @@ MonoBehaviour:
   usagePhrase: 
   sliderText: {fileID: 0}
   slider: {fileID: 0}
+  rightButtonEvent: {fileID: 0}
 --- !u!95 &4519129007455150439
 Animator:
   serializedVersion: 4
@@ -15259,6 +15272,7 @@ MonoBehaviour:
   usagePhrase: 
   sliderText: {fileID: 0}
   slider: {fileID: 0}
+  rightButtonEvent: {fileID: 0}
 --- !u!95 &4519129007817929505
 Animator:
   serializedVersion: 4
@@ -16687,6 +16701,7 @@ MonoBehaviour:
   usagePhrase: 
   sliderText: {fileID: 0}
   slider: {fileID: 0}
+  rightButtonEvent: {fileID: 0}
 --- !u!95 &4519129008590660359
 Animator:
   serializedVersion: 4

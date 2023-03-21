@@ -36,4 +36,9 @@ public class RightButtonEvent : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         isOver = false;
     }
+
+    public void EndSound()
+    {
+        onRightDown.Invoke();
+    }
 }

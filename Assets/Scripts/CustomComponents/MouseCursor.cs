@@ -12,6 +12,7 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
     [SerializeField] private string usagePhrase = ""; //for check-up task; phrase that displays on progress bar
     [SerializeField] private TMPro.TextMeshProUGUI sliderText;
     [SerializeField] private Slider slider;
+    [SerializeField] private RightButtonEvent rightButtonEvent;
     private static int previousTool = -1;
     private bool isActive = false;
     private Vector2 startPos;
@@ -57,6 +58,11 @@ public class MouseCursor : MonoBehaviour, IPointerClickHandler
                 image.raycastTarget = true;
                 isActive = false;
                 
+                if (rightButtonEvent != null)
+                {
+                    rightButtonEvent.EndSound();
+                }
+
                 if (TaskEngine.tool != 12)
                 {
                     previousTool = TaskEngine.tool;
