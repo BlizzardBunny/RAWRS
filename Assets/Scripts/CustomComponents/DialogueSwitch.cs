@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DialogueSwitch : MonoBehaviour
 {
-    public static bool hasPlayed = false;
     public int playAtLevel;
     [SerializeField] private DialogueEngine dialogueEngine;
     [SerializeField] private NPCDialogueInfo NPCDialogueInfo;
@@ -20,11 +19,11 @@ public class DialogueSwitch : MonoBehaviour
         }
         else
         {
-            if (!hasPlayed)
+            if (!StaticItems.hasPlayed)
             {
                 prop.gameObject.SetActive(true);
                 dialogueEngine.nextStateDialogueInfo = NPCDialogueInfo;
-                hasPlayed = true;
+                StaticItems.hasPlayed = true;
             }
         }
     }

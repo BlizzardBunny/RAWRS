@@ -27,7 +27,7 @@ public class LevelEndEngine : MonoBehaviour
     private void NextLvl()
     {
         StaticItems.levelNumber++;
-        DialogueSwitch.hasPlayed = false;
+        StaticItems.hasPlayed = false;
         LevelSetupEngine.ResetStaticVars();
         SceneManager.LoadScene("Overworld");
     }
@@ -43,7 +43,7 @@ public class LevelEndEngine : MonoBehaviour
         }
         else
         {
-            DialogueSwitch.hasPlayed = false;
+            StaticItems.hasPlayed = false;
             SceneManager.LoadScene("Overworld");
         }
     }

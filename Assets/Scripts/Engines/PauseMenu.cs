@@ -49,6 +49,7 @@ public class PauseMenu : MonoBehaviour
 
     void ReturnToMain()
     {
+        StaticItems.isPaused = false;
         SceneManager.LoadScene("MainMenu");
     }
     void OpenSettings()

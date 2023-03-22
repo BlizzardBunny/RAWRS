@@ -38,8 +38,6 @@ public class LevelSetupEngine : MonoBehaviour
 
     public void Init()
     {
-        StaticItems.firstTime = false;
-
         if (isOverworld)
         {
             StaticItems.inTutorial = false;

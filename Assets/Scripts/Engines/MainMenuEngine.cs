@@ -49,9 +49,11 @@ public class MainMenuEngine : MonoBehaviour
 
     void Start()
     {
+        StaticItems.LoadGame();
+
         currCanvas = mainCanvas;
 
-        if (StaticItems.firstTime)
+        if (StaticItems.playerName.Equals("Player"))
         {
             playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
         }
@@ -85,7 +87,7 @@ public class MainMenuEngine : MonoBehaviour
     {
         if (!updatedPlayBtn)
         {
-            if (StaticItems.firstTime)
+            if (StaticItems.playerName.Equals("Player"))
             {
                 playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
             }
@@ -203,7 +205,7 @@ public class MainMenuEngine : MonoBehaviour
     private void PlayGame()
     {
         updatedPlayBtn = false;
-        if (StaticItems.firstTime)
+        if (StaticItems.playerName.Equals("Player"))
         {
             SceneManager.LoadScene("Intro");
         }

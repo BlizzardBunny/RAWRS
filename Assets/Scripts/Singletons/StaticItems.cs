@@ -15,6 +15,7 @@ public static class StaticItems
 
     public static bool inTutorial = true;
     public static int tutorialState = 1;
+    public static bool hasPlayed = false;
     #endregion
 
     #region Misc Items
@@ -31,7 +32,6 @@ public static class StaticItems
         "Cat", "Dog"
     };
 
-    public static bool firstTime = true; //remove when Saving system is implemented;
     #endregion
 
     private static void SetSavedBool(string key, bool val)
@@ -72,8 +72,10 @@ public static class StaticItems
 
         SetSavedBool("inTutorial", inTutorial);
         PlayerPrefs.SetInt("tutorialState", tutorialState);
+        SetSavedBool("hasPlayed", hasPlayed);
 
         PlayerPrefs.Save();
+        Debug.Log("saved");
     }
 
     private static bool GetSavedBool(string key, int defVal)
@@ -89,6 +91,7 @@ public static class StaticItems
         init = GetSavedBool("init", 1);
         isEnding = GetSavedBool("isEnding", 0);
 
+        taskCompletion = new bool[levelNumber + 1];
         for (int i = 0; i < levelNumber + 1; i++)
         {
             taskCompletion[i] = GetSavedBool("taskCompletion" + i.ToString(), 0);
@@ -111,6 +114,7 @@ public static class StaticItems
 
         inTutorial = GetSavedBool("inTutorial", 1);
         tutorialState = PlayerPrefs.GetInt("tutorialState");
+        hasPlayed = GetSavedBool("hasPlayed", 0);
     }
 
     public static void ExitGame()
