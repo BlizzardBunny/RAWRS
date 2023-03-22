@@ -44,7 +44,7 @@ public class NPCMovement : MonoBehaviour
         }
         else
         {
-            if (LevelEndEngine.levelNumber > 0)
+            if (StaticItems.levelNumber > 0)
             {
                 NPCAnim.SetInteger("direction", startDirection);
             }

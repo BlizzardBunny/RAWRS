@@ -13,7 +13,7 @@ public class DialogueSwitch : MonoBehaviour
 
     void Awake()
     {
-        if (playAtLevel - 1 != LevelEndEngine.levelNumber)
+        if (playAtLevel - 1 != StaticItems.levelNumber)
         {
             Destroy(prop.gameObject);
             Destroy(this.gameObject);

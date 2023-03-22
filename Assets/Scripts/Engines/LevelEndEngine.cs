@@ -8,12 +8,10 @@ public class LevelEndEngine : MonoBehaviour
 {
     #region Object References
     [SerializeField] Button nextLvl, restartLvl, endLvl;
-
-    public static int levelNumber = 0;
     #endregion
 
     #region Variables
-    
+        
     #endregion
 
     // Start is called before the first frame update
@@ -28,7 +26,7 @@ public class LevelEndEngine : MonoBehaviour
 
     private void NextLvl()
     {
-        levelNumber++;
+        StaticItems.levelNumber++;
         DialogueSwitch.hasPlayed = false;
         LevelSetupEngine.ResetStaticVars();
         SceneManager.LoadScene("Overworld");
@@ -36,7 +34,7 @@ public class LevelEndEngine : MonoBehaviour
 
     private void RestartLvl()
     {
-        if (levelNumber == 0) 
+        if (StaticItems.levelNumber == 0) 
         {
             StaticItems.inTutorial= true;
             StaticItems.tutorialState = 2;

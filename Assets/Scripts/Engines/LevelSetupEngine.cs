@@ -60,7 +60,7 @@ public class LevelSetupEngine : MonoBehaviour
         {          
             if (!StaticItems.inTutorial)
             {
-                taskCompletion = new bool[LevelEndEngine.levelNumber + 1];
+                taskCompletion = new bool[StaticItems.levelNumber + 1];
             }
 
             entriesData.Clear();
@@ -106,7 +106,7 @@ public class LevelSetupEngine : MonoBehaviour
             int taskType = 0;
             int taskStationID = 0;
 
-            if (LevelEndEngine.levelNumber == 1)
+            if (StaticItems.levelNumber == 1)
             {
                 taskType = Random.Range(0, 2); // 0 or 1
 
@@ -121,7 +121,7 @@ public class LevelSetupEngine : MonoBehaviour
             }
             else
             {
-                if (LevelEndEngine.levelNumber == 2)
+                if (StaticItems.levelNumber == 2)
                 {
                     if (i == 0)
                     {

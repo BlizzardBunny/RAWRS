@@ -4,16 +4,22 @@ using UnityEngine;
 
 public static class StaticItems
 {
-    static public bool isPaused = false;
+    //Items saved in PlayerPref
+    #region Saved Items
+    static public string playerName = "Player";
+    public static int levelNumber = 0;
+
     static public bool inTutorial = true;
+    static public int tutorialState = 1;
+    #endregion
+
+    static public bool isPaused = false;
     static public bool isShowingTasks = false;
 
-    static public int tutorialState = 1;
     static public float Volume = 1.0f;
 
     static public Vector3 plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
 
-    static public string playerName = "Player";
 
     static public string[] petNames =
     {
