@@ -6,27 +6,31 @@ public static class StaticItems
 {
     //Items saved in PlayerPref
     #region Saved Items
-    static public string playerName = "Player";
+    public static string playerName = "Player";
     public static int levelNumber = 0;
+    public static bool init = true;
+    public static bool isEnding = false;
+    public static bool[] taskCompletion;
+    public static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
 
-    static public bool inTutorial = true;
-    static public int tutorialState = 1;
+    public static bool inTutorial = true;
+    public static int tutorialState = 1;
     #endregion
 
-    static public bool isPaused = false;
-    static public bool isShowingTasks = false;
+    public static bool isPaused = false;
+    public static bool isShowingTasks = false;
 
-    static public float Volume = 1.0f;
+    public static float Volume = 1.0f;
 
-    static public Vector3 plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
+    public static Vector3 plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
 
 
-    static public string[] petNames =
+    public static string[] petNames =
     {
         "Cat", "Dog"
     };
 
-    static public bool firstTime = true; //remove when Saving system is implemented;
+    public static bool firstTime = true; //remove when Saving system is implemented;
 
     public static void ExitGame()
     {

@@ -20,10 +20,6 @@ public class LevelSetupEngine : MonoBehaviour
 
     private int numOnList = 0;
     private List<GameObject> entries = new List<GameObject>();
-    public static bool init = true;
-    public static bool isEnding = false;
-    private static bool[] taskCompletion;
-    private static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
     private static string[] taskNames =
     {
         "Bathe Animal", "Prepare pet food", "Clean up a kennel", "Check up on an animal"
@@ -35,9 +31,9 @@ public class LevelSetupEngine : MonoBehaviour
 
     public static void ResetStaticVars()
     {
-        init = true;
-        isEnding = false;
-        entriesData.Clear();
+        StaticItems.init = true;
+        StaticItems.isEnding = false;
+        StaticItems.entriesData.Clear();
     }
 
     public void Init()
@@ -51,36 +47,36 @@ public class LevelSetupEngine : MonoBehaviour
         
         if (StaticItems.inTutorial)
         {
-            taskCompletion = new bool[1];
-            init = false;
-            entriesData.Add(new System.Tuple<int, int>(0, 0));
+            StaticItems.taskCompletion = new bool[1];
+            StaticItems.init = false;
+            StaticItems.entriesData.Add(new System.Tuple<int, int>(0, 0));
         }
 
-        if (init)
+        if (StaticItems.init)
         {          
             if (!StaticItems.inTutorial)
             {
-                taskCompletion = new bool[StaticItems.levelNumber + 1];
+                StaticItems.taskCompletion = new bool[StaticItems.levelNumber + 1];
             }
 
-            entriesData.Clear();
+            StaticItems.entriesData.Clear();
             TaskEngine.currStationID = -1;
 
-            for (int i = 0; i < taskCompletion.Length; i++)
+            for (int i = 0; i < StaticItems.taskCompletion.Length; i++)
             {
-                taskCompletion[i] = false;
+                StaticItems.taskCompletion[i] = false;
             }
 
-            RandomizeTasks(taskCompletion.Length);
+            RandomizeTasks(StaticItems.taskCompletion.Length);
 
-            init = false;
+            StaticItems.init = false;
         }
         else
         {
-            for (int i = 0; i < entriesData.Count; i++)
+            for (int i = 0; i < StaticItems.entriesData.Count; i++)
             {
-                MakeEntry(entriesData[i].Item1, entriesData[i].Item2);
-                if (taskCompletion[i])
+                MakeEntry(StaticItems.entriesData[i].Item1, StaticItems.entriesData[i].Item2);
+                if (StaticItems.taskCompletion[i])
                 {
                     MarkCompleteTask(i);
                 }
@@ -94,7 +90,7 @@ public class LevelSetupEngine : MonoBehaviour
 
         if (CheckLevelComplete())
         {
-            isEnding = true;
+            StaticItems.isEnding = true;
             MakeEntry();
         }
     }
@@ -176,9 +172,9 @@ public class LevelSetupEngine : MonoBehaviour
 
         entries.Add(entry);
 
-        if (init)
+        if (StaticItems.init)
         {
-            entriesData.Add(new System.Tuple<int, int>(taskType, taskStationID));
+            StaticItems.entriesData.Add(new System.Tuple<int, int>(taskType, taskStationID));
         }
     }
 
@@ -194,14 +190,14 @@ public class LevelSetupEngine : MonoBehaviour
 
     public void MarkCompleteTask(int listID)
     {
-        taskCompletion[listID] = true;
+        StaticItems.taskCompletion[listID] = true;
         entries[listID].GetComponent<TaskEntry>().numberBG.color = Color.green;
     }
 
     public bool CheckLevelComplete()
     {
         bool ret = true;
-        foreach (bool b in taskCompletion)
+        foreach (bool b in StaticItems.taskCompletion)
         {
             if (!b)
             {
@@ -214,7 +210,7 @@ public class LevelSetupEngine : MonoBehaviour
 
     private bool CheckIsUniqueTask(int taskType, int taskStationID)
     {
-        foreach(System.Tuple<int,int> entryData in entriesData)
+        foreach(System.Tuple<int,int> entryData in StaticItems.entriesData)
         {
             if (entryData.Item1 == taskType && entryData.Item2 == taskStationID)
             {
@@ -236,7 +232,7 @@ public class LevelSetupEngine : MonoBehaviour
 
     private void Update()
     {
-        if (init)
+        if (StaticItems.init)
         {
             Init();
         }

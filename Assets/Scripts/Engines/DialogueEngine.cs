@@ -142,7 +142,7 @@ public class DialogueEngine : MonoBehaviour
 
         if (dialogueInfo.playAtEndLevel)
         {
-            if (LevelSetupEngine.isEnding)
+            if (StaticItems.isEnding)
             {
             }
             else
@@ -219,7 +219,7 @@ public class DialogueEngine : MonoBehaviour
 
             if (dialogueInfo.nextScene != "")
             {
-                LevelSetupEngine.init = true;
+                StaticItems.init = true;
                 sceneTransitions.LoadScene(dialogueInfo.nextScene);
             }
             else if (dialogueInfo.NPCMovement != null)
