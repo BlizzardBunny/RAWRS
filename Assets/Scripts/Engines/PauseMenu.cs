@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     #region Object References
 
     [SerializeField] private Canvas pauseMenuCanvas, optionsCanvas;
-    [SerializeField] private Button returnToMainMenu, exitGame, returnButton, optionsButton;
+    [SerializeField] private Button returnToMainMenu, exitGame, returnButton, saveButton, optionsButton;
 
     #endregion
 
@@ -19,6 +19,7 @@ public class PauseMenu : MonoBehaviour
         returnToMainMenu.onClick.AddListener(ReturnToMain);
         exitGame.onClick.AddListener(StaticItems.ExitGame);
 
+        saveButton.onClick.AddListener(Save);
         optionsButton.onClick.AddListener(OpenSettings);
         returnButton.onClick.AddListener(CloseSettings);
     }
@@ -61,5 +62,12 @@ public class PauseMenu : MonoBehaviour
         optionsCanvas.enabled = !optionsCanvas.enabled;
         pauseMenuCanvas.enabled = true;
         StaticItems.isShowingTasks = true;
+    }
+
+    void Save()
+    {
+        StaticItems.SaveGame();
+
+        //IMPLEMENT: tell player game is saved
     }
 }

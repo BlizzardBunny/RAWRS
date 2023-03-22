@@ -7247,7 +7247,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1207084823}
   m_OnClick:
     m_PersistentCalls:
@@ -7961,6 +7961,7 @@ MonoBehaviour:
   returnToMainMenu: {fileID: 1391355708}
   exitGame: {fileID: 1585206023}
   returnButton: {fileID: 1626524201}
+  saveButton: {fileID: 1207084822}
   optionsButton: {fileID: 588219095}
 --- !u!1 &1333730164
 GameObject:
