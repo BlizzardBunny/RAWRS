@@ -540,6 +540,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6705822bb4dd6654dbfe04663eb260d7, type: 3}
+--- !u!114 &92648921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 901392235496062023, guid: 6705822bb4dd6654dbfe04663eb260d7, type: 3}
+  m_PrefabInstance: {fileID: 92648920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42779ca0c56208343a28c27f314a565d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &104973876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -671,6 +682,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6856126648829196002, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+      propertyPath: sceneTransitions
+      value: 
+      objectReference: {fileID: 92648921}
     - target: {fileID: 6856126648829196005, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas

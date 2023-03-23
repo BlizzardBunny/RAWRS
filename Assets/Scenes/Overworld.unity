@@ -2053,6 +2053,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!223 &409314652 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2028598426065118435, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+  m_PrefabInstance: {fileID: 6856126649754303796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &421809598
 GameObject:
   m_ObjectHideFlags: 0
@@ -4546,6 +4551,8 @@ MonoBehaviour:
   - {fileID: 537076767}
   - {fileID: 939621288}
   isOverworld: 1
+  pauseMenu: {fileID: 1973771162}
+  optionsMenu: {fileID: 409314652}
 --- !u!1 &998904510
 GameObject:
   m_ObjectHideFlags: 0
@@ -8692,6 +8699,11 @@ RectTransform:
   m_AnchoredPosition: {x: 1320, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &1973771162 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6856126648829196000, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+  m_PrefabInstance: {fileID: 6856126649754303796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976898591
 GameObject:
   m_ObjectHideFlags: 0
@@ -10199,6 +10211,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6856126648829196002, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+      propertyPath: sceneTransitions
+      value: 
+      objectReference: {fileID: 889573986}
     - target: {fileID: 6856126648829196005, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas

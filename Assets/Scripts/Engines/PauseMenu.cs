@@ -10,12 +10,16 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] private Canvas pauseMenuCanvas, optionsCanvas;
     [SerializeField] private Button returnToMainMenu, exitGame, returnButton, saveButton, optionsButton;
+    [SerializeField] private SceneTransitions sceneTransitions;
 
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        pauseMenuCanvas.enabled = false;
+        optionsCanvas.enabled = false;
+
         returnToMainMenu.onClick.AddListener(ReturnToMain);
         exitGame.onClick.AddListener(StaticItems.ExitGame);
 
@@ -50,12 +54,11 @@ public class PauseMenu : MonoBehaviour
     void ReturnToMain()
     {
         StaticItems.isPaused = false;
-        SceneManager.LoadScene("MainMenu");
+        sceneTransitions.LoadScene("MainMenu");
     }
     void OpenSettings()
     {        
         optionsCanvas.enabled = !optionsCanvas.enabled;
-        pauseMenuCanvas.enabled = false;
         StaticItems.isShowingTasks = false;
     }
     void CloseSettings()

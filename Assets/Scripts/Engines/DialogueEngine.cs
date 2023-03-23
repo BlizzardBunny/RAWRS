@@ -13,7 +13,7 @@ public class DialogueEngine : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI npcName;
     [SerializeField] private TMPro.TextMeshProUGUI npcDialogue;
     [SerializeField] private Button nextLine;
-    [SerializeField] private SceneTransitions sceneTransitions;
+    public SceneTransitions sceneTransitions;
     public NPCDialogueInfo nextStateDialogueInfo;
 
     #endregion
