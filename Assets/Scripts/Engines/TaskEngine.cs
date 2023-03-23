@@ -48,6 +48,7 @@ public class TaskEngine : MonoBehaviour
         SceneTransitions.fadeOnStart = false;
         if (StaticItems.inTutorial)
         {
+            StaticItems.tutorialState = 5;
             SceneManager.LoadScene("Tutorial");
         }
         else

@@ -38,13 +38,21 @@ public class NPCMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (StaticItems.tutorialState == 2)
+        if (StaticItems.inTutorial)
         {
-            NPCAnim.SetInteger("direction", startDirection);
+            if (StaticItems.tutorialState <= 2)
+            {
+                NPCAnim.SetInteger("direction", startDirection);
+            }
+            else
+            {
+                this.transform.position = endLocation;
+                NPCAnim.SetInteger("direction", endDirection);
+            }
         }
         else
         {
-            if (LevelEndEngine.levelNumber > 0)
+            if (StaticItems.levelNumber > 0)
             {
                 NPCAnim.SetInteger("direction", startDirection);
             }
@@ -186,6 +194,10 @@ public class NPCMovement : MonoBehaviour
 
         if (waitForInput)
         {
+            if (StaticItems.inTutorial)
+            {
+                StaticItems.tutorialState = 3;
+            }
             yield return StartCoroutine(WaitForInput(KeyCode.E));
         }
     }

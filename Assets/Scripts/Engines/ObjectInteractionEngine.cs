@@ -70,6 +70,7 @@ public class ObjectInteractionEngine : MonoBehaviour
                         }
                     }
 
+                    dialogueEngine.dialogueCanvas.enabled = true;
                     dialogueEngine.StartDialogue(ref obj);
                 }
             }
