@@ -28,8 +28,15 @@ public class LevelEndEngine : MonoBehaviour
     {
         StaticItems.levelNumber++;
         StaticItems.hasPlayed = false;
-        LevelSetupEngine.ResetStaticVars();
-        SceneManager.LoadScene("Overworld");
+        LevelSetupEngine.ResetStaticVars(); 
+        if (StaticItems.levelNumber == 4)
+        {
+            SceneManager.LoadScene("TNR");
+        }
+        else
+        {
+            SceneManager.LoadScene("Overworld");
+        }
     }
 
     private void RestartLvl()

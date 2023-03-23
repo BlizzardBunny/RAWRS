@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level End.unity
     guid: b8ef5012e699376409c8e69571b6a607
+  - enabled: 1
+    path: Assets/Scenes/TNR.unity
+    guid: 99b85220dc906fd4cbbe3ec8371d6bae
   m_configObjects: {}
