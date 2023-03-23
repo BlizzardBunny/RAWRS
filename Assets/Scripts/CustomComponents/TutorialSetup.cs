@@ -51,7 +51,6 @@ public class TutorialSetup : MonoBehaviour
         }
         player.transform.position = StaticItems.plrPos;
     }
-    private int temp = 0;
     private void Update()
     {
         if (pressECanvas.enabled)
@@ -68,12 +67,6 @@ public class TutorialSetup : MonoBehaviour
             {
                 pressTabCanvas.enabled = false;
             }
-        }
-
-        if (temp != StaticItems.tutorialState)
-        {
-            Debug.Log(StaticItems.tutorialState);
-            temp = StaticItems.tutorialState;
         }
     }
 }
