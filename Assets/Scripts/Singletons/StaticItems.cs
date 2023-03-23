@@ -14,7 +14,7 @@ public static class StaticItems
     public static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
 
     public static bool inTutorial = true;
-    public static int tutorialState = 1;
+    public static int tutorialState = 0;
     public static bool hasPlayed = false;
     #endregion
 
@@ -85,6 +85,7 @@ public static class StaticItems
 
     public static void LoadGame()
     {
+        Debug.Log(tutorialState);
         playerName = PlayerPrefs.GetString("playerName", "Player");
         levelNumber = PlayerPrefs.GetInt("levelNumber", 0);
 
@@ -113,10 +114,10 @@ public static class StaticItems
         }
 
         inTutorial = GetSavedBool("inTutorial", 1);
-        tutorialState = PlayerPrefs.GetInt("tutorialState");
+        tutorialState = PlayerPrefs.GetInt("tutorialState", 0);
         hasPlayed = GetSavedBool("hasPlayed", 0);
     }
-
+    
     public static void ExitGame()
     {
 #if UNITY_STANDALONE

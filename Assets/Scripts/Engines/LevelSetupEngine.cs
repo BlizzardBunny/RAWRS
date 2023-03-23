@@ -43,7 +43,7 @@ public class LevelSetupEngine : MonoBehaviour
             StaticItems.inTutorial = false;
         }     
         
-        if (StaticItems.inTutorial)
+        if (StaticItems.inTutorial && StaticItems.tutorialState <= 1)
         {
             StaticItems.taskCompletion = new bool[1];
             StaticItems.init = false;

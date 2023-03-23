@@ -205,9 +205,16 @@ public class MainMenuEngine : MonoBehaviour
     private void PlayGame()
     {
         updatedPlayBtn = false;
-        if (StaticItems.playerName.Equals("Player"))
+        if (StaticItems.inTutorial)
         {
-            SceneManager.LoadScene("Intro");
+            if (StaticItems.tutorialState == 0)
+            {
+                SceneManager.LoadScene("Intro");
+            }
+            else
+            {
+                SceneManager.LoadScene("Tutorial");
+            }
         }
         else
         {

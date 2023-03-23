@@ -23,7 +23,6 @@ public class DialogueSwitch : MonoBehaviour
             {
                 prop.gameObject.SetActive(true);
                 dialogueEngine.nextStateDialogueInfo = NPCDialogueInfo;
-                StaticItems.hasPlayed = true;
             }
         }
     }

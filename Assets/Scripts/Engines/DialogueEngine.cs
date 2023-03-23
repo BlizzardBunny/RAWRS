@@ -50,8 +50,11 @@ public class DialogueEngine : MonoBehaviour
                 {
                     if (StaticItems.tutorialState != dialogueInfo.tutorialState)
                     {
-                        nextStateDialogueInfo.gameObject.SetActive(true);
-                        dialogueInfo = nextStateDialogueInfo;
+                        if (StaticItems.tutorialState == nextStateDialogueInfo.tutorialState)
+                        {
+                            nextStateDialogueInfo.gameObject.SetActive(true);
+                            dialogueInfo = nextStateDialogueInfo;
+                        }
                     }
 
                     StartDialogue();
@@ -160,7 +163,17 @@ public class DialogueEngine : MonoBehaviour
 
     public void StartDialogue()
     {
-        dialogueCanvas.enabled = true;
+        if (StaticItems.inTutorial)
+        {
+            if (StaticItems.tutorialState <= 1 || StaticItems.tutorialState >= 5)
+            {
+                dialogueCanvas.enabled = true;
+            }
+        }
+        else
+        {
+            dialogueCanvas.enabled = true;
+        }
 
         if (dialogueInfo == null || dialogueInfo.dialogue.Length == 0 || dialogueInfo.names.Length == 0 || dialogueInfo.sprites.Length == 0)
         {
@@ -198,12 +211,19 @@ public class DialogueEngine : MonoBehaviour
             dialogueIndex = 1;
             dialogueCanvas.enabled = false;
 
-            if (StaticItems.inTutorial && dialogueInfo.tutorialState > 0)
+            if (StaticItems.inTutorial)
             {
-                StaticItems.tutorialState++;
-                if (dialogueInfo.tutorialState == 3)
+                StaticItems.tutorialState = dialogueInfo.tutorialState + 1;
+                if (StaticItems.tutorialState >= 5)
                 {
                     StaticItems.inTutorial = false;
+                }
+            }
+            else
+            {
+                if (!StaticItems.hasPlayed)
+                {
+                    StaticItems.hasPlayed = true;
                 }
             }
 

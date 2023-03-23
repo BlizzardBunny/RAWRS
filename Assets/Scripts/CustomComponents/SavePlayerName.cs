@@ -17,6 +17,13 @@ public class SavePlayerName : MonoBehaviour
 
     private void Start()
     {
+        if (!StaticItems.playerName.Equals("Player"))
+        {
+            dialogueEngine.Init();
+            content.alpha = 0.0f;
+            isFading = true;
+        }
+        
         save.onClick.AddListener(UpdatePlayerName);
     }
 
