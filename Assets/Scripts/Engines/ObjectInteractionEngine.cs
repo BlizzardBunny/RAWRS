@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -35,8 +32,11 @@ public class ObjectInteractionEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        confirmYes.onClick.AddListener(StartTask);
-        confirmNo.onClick.AddListener(() => confirmTaskCanvas.enabled = false);
+        if (confirmTaskCanvas != null)
+        {
+            confirmYes.onClick.AddListener(StartTask);
+            confirmNo.onClick.AddListener(() => confirmTaskCanvas.enabled = false);
+        }
     }
 
     // Update is called once per frame

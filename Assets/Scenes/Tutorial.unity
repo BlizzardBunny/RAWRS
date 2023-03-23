@@ -7424,12 +7424,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6856126648829196002, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+      propertyPath: sceneTransitions
+      value: 
+      objectReference: {fileID: 575410155}
     - target: {fileID: 6856126648829196005, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+--- !u!223 &1684356353 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2028598426065118435, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+  m_PrefabInstance: {fileID: 1684356352}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1684356354 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6856126648829196000, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+  m_PrefabInstance: {fileID: 1684356352}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1693286766
 GameObject:
   m_ObjectHideFlags: 0
@@ -8711,6 +8725,8 @@ MonoBehaviour:
   cleaningTaskStations: []
   checkupTaskStations: []
   isOverworld: 0
+  pauseMenu: {fileID: 1684356354}
+  optionsMenu: {fileID: 1684356353}
 --- !u!4 &1935102190
 Transform:
   m_ObjectHideFlags: 0

@@ -25,6 +25,9 @@ public class MainMenuEngine : MonoBehaviour
 
     [Header("Return")]
     [SerializeField] private Button returnButtonOptions, returnButtonCredits;
+
+    [Header("Scene Transitions")]
+    [SerializeField] private SceneTransitions sceneTransitions;
     #endregion
 
     #region Variables
@@ -209,16 +212,16 @@ public class MainMenuEngine : MonoBehaviour
         {
             if (StaticItems.tutorialState == 0)
             {
-                SceneManager.LoadScene("Intro");
+                sceneTransitions.LoadScene("Intro");
             }
             else
             {
-                SceneManager.LoadScene("Tutorial");
+                sceneTransitions.LoadScene("Tutorial");
             }
         }
         else
         {
-            SceneManager.LoadScene("Overworld");
+            sceneTransitions.LoadScene("Overworld");
         }
     }
 

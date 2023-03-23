@@ -8,6 +8,7 @@ public class LevelEndEngine : MonoBehaviour
 {
     #region Object References
     [SerializeField] Button nextLvl, restartLvl, endLvl;
+    [SerializeField] SceneTransitions sceneTransitions;
     #endregion
 
     #region Variables
@@ -19,7 +20,7 @@ public class LevelEndEngine : MonoBehaviour
     {
         nextLvl.onClick.AddListener(NextLvl);
         restartLvl.onClick.AddListener(RestartLvl);
-        endLvl.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        endLvl.onClick.AddListener(() => sceneTransitions.LoadScene("MainMenu"));
         StaticItems.plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
         StopAllCoroutines();
     }
@@ -28,8 +29,15 @@ public class LevelEndEngine : MonoBehaviour
     {
         StaticItems.levelNumber++;
         StaticItems.hasPlayed = false;
-        LevelSetupEngine.ResetStaticVars();
-        SceneManager.LoadScene("Overworld");
+        LevelSetupEngine.ResetStaticVars(); 
+        if (StaticItems.levelNumber == 4)
+        {
+            sceneTransitions.LoadScene("TNR");
+        }
+        else
+        {
+            sceneTransitions.LoadScene("Overworld");
+        }
     }
 
     private void RestartLvl()
@@ -39,12 +47,12 @@ public class LevelEndEngine : MonoBehaviour
             StaticItems.inTutorial= true;
             StaticItems.tutorialState = 2;
             StaticItems.plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
-            SceneManager.LoadScene("Tutorial");
+            sceneTransitions.LoadScene("Tutorial");
         }
         else
         {
             StaticItems.hasPlayed = false;
-            SceneManager.LoadScene("Overworld");
+            sceneTransitions.LoadScene("Overworld");
         }
     }
 }
