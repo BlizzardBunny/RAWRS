@@ -126,6 +126,17 @@ public class LevelSetupEngine : MonoBehaviour
                         taskType = Random.Range(0, 3);
                     }
                 }
+                else if (StaticItems.levelNumber == 3)
+                {
+                    if (i == 0)
+                    {
+                        taskType = 3;
+                    }
+                    else
+                    {
+                        taskType = Random.Range(0, 4);
+                    }
+                }
                 else
                 {
                     taskType = Random.Range(0, 4);

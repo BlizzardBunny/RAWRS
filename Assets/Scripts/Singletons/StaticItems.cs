@@ -7,7 +7,7 @@ public static class StaticItems
     //Items saved in PlayerPref
     #region Saved Items
     public static string playerName = "Player";
-    public static int levelNumber = 0;
+    public static int levelNumber = 3;
     public static bool init = true;
     public static bool isEnding = false;
     public static bool[] taskCompletion;
