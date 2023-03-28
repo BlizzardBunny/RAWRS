@@ -27,6 +27,7 @@ public class LevelEndEngine : MonoBehaviour
 
     private void NextLvl()
     {
+        StaticItems.SaveGame();
         StaticItems.levelNumber++;
         StaticItems.hasPlayed = false;
         LevelSetupEngine.ResetStaticVars(); 
