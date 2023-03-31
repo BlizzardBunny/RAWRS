@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PauseMenu : MonoBehaviour
 {
     #region Object References
 
-    [SerializeField] private Canvas pauseMenuCanvas, optionsCanvas;
+    [SerializeField] private Canvas pauseMenuCanvas, optionsCanvas, confirmPanel;
     [SerializeField] private Button returnToMainMenu, exitGame, returnButton, saveButton, optionsButton;
     [SerializeField] private SceneTransitions sceneTransitions;
+    [SerializeField] private TMPro.TextMeshProUGUI confirmQuestion;
+    [SerializeField] private Button confirmButton, cancelButton;
 
     #endregion
 
@@ -66,6 +69,20 @@ public class PauseMenu : MonoBehaviour
         optionsCanvas.enabled = !optionsCanvas.enabled;
         pauseMenuCanvas.enabled = true;
         StaticItems.isShowingTasks = true;
+    }
+
+    void Confirm(bool type)
+    {
+        if (type) //return to main
+        {
+            confirmPanel.enabled = true;
+            confirmQuestion.text = "Are you sure you want to return to main menu?";
+            confirmButton.onClick.AddListener(ReturnToMain);
+        }
+        else //exit completely
+        {
+
+        }
     }
 
     void Save()
