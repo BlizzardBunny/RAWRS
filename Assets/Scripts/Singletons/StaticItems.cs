@@ -117,6 +117,22 @@ public static class StaticItems
         tutorialState = PlayerPrefs.GetInt("tutorialState", 0);
         hasPlayed = GetSavedBool("hasPlayed", 0);
     }
+
+    public static void ResetGame()
+    {
+        playerName = "Player";
+        levelNumber = 0;
+        init = true;
+        isEnding = false;
+        taskCompletion = new bool[levelNumber + 1];
+        entriesData.Clear();
+
+        inTutorial = true;
+        tutorialState = 0;
+        hasPlayed = false;
+
+        SaveGame();
+    }
     
     public static void ExitGame()
     {

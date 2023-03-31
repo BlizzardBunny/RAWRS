@@ -15,10 +15,14 @@ public class MainMenuEngine : MonoBehaviour
 
     [Header("Main Menu")]
     [SerializeField] private Button playButton;
-    [SerializeField] private Button optionsButton, creditsButton, exitButton;
+    [SerializeField] private Button newGameButton, optionsButton, creditsButton, exitButton;
+
+    [Header("New Game")]
+    [SerializeField] private Canvas confirmNewGamePanel;
+    [SerializeField] private Button acceptNewGame, cancelNewGame;
 
     [Header("Resolution")]
-    [SerializeField] private Canvas confirmPanel;
+    [SerializeField] private Canvas confirmResolutionPanel;
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Button acceptChanges, cancelChanges;
     [SerializeField] private TMPro.TextMeshProUGUI countdown;
@@ -45,8 +49,6 @@ public class MainMenuEngine : MonoBehaviour
     private int fullscreenIndex = 3;
     private Coroutine confirmCoroutine;
     private bool isCountingDown = false;
-
-    private bool updatedPlayBtn = false;
     #endregion
 
 
@@ -58,21 +60,19 @@ public class MainMenuEngine : MonoBehaviour
 
         if (StaticItems.playerName.Equals("Player"))
         {
-            playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
+            playButton.gameObject.SetActive(false);
         }
-        else
-        {
-            playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Continue";
-        }
-
-        updatedPlayBtn = true;
 
         #region Add Listeners
 
         playButton.onClick.AddListener(PlayGame);
+        newGameButton.onClick.AddListener(ConfirmNewGame);
         optionsButton.onClick.AddListener(OpenOptions);
         creditsButton.onClick.AddListener(OpenCredits);
         exitButton.onClick.AddListener(ExitGame);
+
+        acceptNewGame.onClick.AddListener(NewGame);
+        cancelNewGame.onClick.AddListener(() => confirmNewGamePanel.enabled = false);
 
         resolutionDropdown.onValueChanged.AddListener((i) => UpdateResolution(ref i));
         acceptChanges.onClick.AddListener(AcceptChanges);
@@ -88,17 +88,7 @@ public class MainMenuEngine : MonoBehaviour
 
     private void Update()
     {
-        if (!updatedPlayBtn)
-        {
-            if (StaticItems.playerName.Equals("Player"))
-            {
-                playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
-            }
-            else
-            {
-                playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Continue";
-            }
-        }
+
     }
 
     #region Resolution
@@ -139,7 +129,7 @@ public class MainMenuEngine : MonoBehaviour
 
         if (i != prevResolution)
         {
-            confirmPanel.enabled = true;
+            confirmResolutionPanel.enabled = true;
             isCountingDown = true;
             confirmCoroutine = StartCoroutine(Countdown());
         }
@@ -168,14 +158,14 @@ public class MainMenuEngine : MonoBehaviour
     {
         prevResolution = resolutionDropdown.value;
         isCountingDown = false;
-        confirmPanel.enabled = false;
+        confirmResolutionPanel.enabled = false;
     }
 
     private void CancelChanges()
     {
         resolutionDropdown.value = prevResolution;
         isCountingDown = false;
-        confirmPanel.enabled = false;
+        confirmResolutionPanel.enabled = false;
     }
 
     #endregion
@@ -205,9 +195,28 @@ public class MainMenuEngine : MonoBehaviour
 
     #endregion
 
+    #region New/Play Game
+    private void ConfirmNewGame()
+    {
+        if (StaticItems.playerName.Equals("Player"))
+        {
+            PlayGame();
+        }
+        else
+        {
+            confirmNewGamePanel.enabled = true;
+        }
+    }
+
+    private void NewGame()
+    {
+        StaticItems.ResetGame();
+        StaticItems.LoadGame();
+        PlayGame();
+    }
+
     private void PlayGame()
     {
-        updatedPlayBtn = false;
         if (StaticItems.inTutorial)
         {
             if (StaticItems.tutorialState == 0)
@@ -224,6 +233,7 @@ public class MainMenuEngine : MonoBehaviour
             sceneTransitions.LoadScene("Overworld");
         }
     }
+    #endregion
 
     private void ExitGame()
     {
