@@ -14,9 +14,19 @@ public class MixerController : MonoBehaviour
         LoadVolume();
     }
 
-    public void SetVolume(float volume)
+    public void SetMasterVolume(float volume)
     {
-        myAudioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
+        myAudioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+        StaticItems.Volume = volume;
+    }
+    public void SetMusicVolume(float volume)
+    {
+        myAudioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        StaticItems.Volume = volume;
+    }
+    public void SetSFXVolume(float volume)
+    {
+        myAudioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
         StaticItems.Volume = volume;
     }
 
