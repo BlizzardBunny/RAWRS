@@ -5263,7 +5263,7 @@ AudioSource:
   m_GameObject: {fileID: 1207817036}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: cb9746c691dbe624a9ffeeb3175a5e8a, type: 2}
+  OutputAudioMixerGroup: {fileID: -2566611505611076951, guid: cb9746c691dbe624a9ffeeb3175a5e8a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6bc2407df663b0249b68fc9b2f3f242b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5475,7 +5475,7 @@ AudioSource:
   m_GameObject: {fileID: 1212607419}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: e4e4442d225acbd478b23b648fbbeb08, type: 2}
+  OutputAudioMixerGroup: {fileID: 7726415539224045170, guid: cb9746c691dbe624a9ffeeb3175a5e8a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -7434,16 +7434,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
---- !u!223 &1684356353 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 2028598426065118435, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
-  m_PrefabInstance: {fileID: 1684356352}
-  m_PrefabAsset: {fileID: 0}
---- !u!223 &1684356354 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 6856126648829196000, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
-  m_PrefabInstance: {fileID: 1684356352}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1693286766
 GameObject:
   m_ObjectHideFlags: 0
@@ -8725,8 +8715,6 @@ MonoBehaviour:
   cleaningTaskStations: []
   checkupTaskStations: []
   isOverworld: 0
-  pauseMenu: {fileID: 1684356354}
-  optionsMenu: {fileID: 1684356353}
 --- !u!4 &1935102190
 Transform:
   m_ObjectHideFlags: 0
