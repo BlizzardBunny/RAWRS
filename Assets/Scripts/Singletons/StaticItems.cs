@@ -22,7 +22,9 @@ public static class StaticItems
     public static bool isPaused = false;
     public static bool isShowingTasks = false;
 
-    public static float Volume = 1.0f;
+    public static float MasterVolume = 1.0f;
+    public static float MusicVolume = 1.0f;
+    public static float SFXVolume = 1.0f;
 
     public static Vector3 plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
 
