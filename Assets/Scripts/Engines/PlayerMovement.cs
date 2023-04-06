@@ -32,13 +32,9 @@ public class PlayerMovement : MonoBehaviour
     {
         halfheight = new Vector3(0f, (body.rect.height - padding) / 2 , 0f);
         halfwidth = new Vector3((body.rect.width - padding) / 2, 0f, 0f);
-        if (SceneManager.GetActiveScene().name == "TNR")
-        {
-            StaticItems.plrPos = new Vector3(-5.5f, -1.5f, 0.0f);
-        }
-        this.transform.position = StaticItems.plrPos;
         currDirection = up;
         playerAnim.SetInteger("direction", 0);
+        this.transform.position = StaticItems.plrPos;
     }
 
     // Update is called once per frame

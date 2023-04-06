@@ -33,7 +33,6 @@ public class DialogueEngine : MonoBehaviour
         {
             Init();
         }
-
     }
 
     public void Init()
@@ -193,6 +192,11 @@ public class DialogueEngine : MonoBehaviour
 
     private void ContDialogue()
     {
+        if (dialogueInfo == null)
+        {
+            Debug.LogError("null");
+        }
+
         if (dialogueInfo.showAtStartCanvas != null)
         {
             dialogueInfo.showAtStartCanvas.enabled = false;
@@ -210,6 +214,11 @@ public class DialogueEngine : MonoBehaviour
         {
             dialogueIndex = 1;
             dialogueCanvas.enabled = false;
+
+            if (StaticItems.levelNumber >= 4)
+            {
+                StaticItems.TNRstate++;
+            }
 
             if (StaticItems.inTutorial)
             {

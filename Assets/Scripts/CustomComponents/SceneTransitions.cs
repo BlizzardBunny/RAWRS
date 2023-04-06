@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransitions: MonoBehaviour
 {
-    [SerializeField] private CanvasGroup canvasGroup;
-    [SerializeField] private Canvas canvas;
+    public CanvasGroup canvasGroup;
+    public Canvas canvas;
 
     private bool isFading = false;
     private bool isFadingIn = true;
