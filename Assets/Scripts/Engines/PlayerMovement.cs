@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -31,9 +32,9 @@ public class PlayerMovement : MonoBehaviour
     {
         halfheight = new Vector3(0f, (body.rect.height - padding) / 2 , 0f);
         halfwidth = new Vector3((body.rect.width - padding) / 2, 0f, 0f);
-        this.transform.position = StaticItems.plrPos;
         currDirection = up;
         playerAnim.SetInteger("direction", 0);
+        this.transform.position = StaticItems.plrPos;
     }
 
     // Update is called once per frame

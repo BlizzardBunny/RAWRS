@@ -16,13 +16,17 @@ public static class StaticItems
     public static bool inTutorial = true;
     public static int tutorialState = 0;
     public static bool hasPlayed = false;
+
+    public static int TNRstate = 0;
     #endregion
 
     #region Misc Items
     public static bool isPaused = false;
     public static bool isShowingTasks = false;
 
-    public static float Volume = 1.0f;
+    public static float MasterVolume = 1.0f;
+    public static float MusicVolume = 1.0f;
+    public static float SFXVolume = 1.0f;
 
     public static Vector3 plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
 
@@ -74,6 +78,8 @@ public static class StaticItems
         PlayerPrefs.SetInt("tutorialState", tutorialState);
         SetSavedBool("hasPlayed", hasPlayed);
 
+        PlayerPrefs.SetInt("TNRstate", TNRstate);
+
         PlayerPrefs.Save();
         Debug.Log("saved");
     }
@@ -85,7 +91,6 @@ public static class StaticItems
 
     public static void LoadGame()
     {
-        Debug.Log(tutorialState);
         playerName = PlayerPrefs.GetString("playerName", "Player");
         levelNumber = PlayerPrefs.GetInt("levelNumber", 0);
 
@@ -116,6 +121,7 @@ public static class StaticItems
         inTutorial = GetSavedBool("inTutorial", 1);
         tutorialState = PlayerPrefs.GetInt("tutorialState", 0);
         hasPlayed = GetSavedBool("hasPlayed", 0);
+        TNRstate = PlayerPrefs.GetInt("TNRstate", 0);
     }
     
     public static void ExitGame()
