@@ -15,6 +15,7 @@ public class TNREngine : MonoBehaviour
     [SerializeField] private Transform eventTiles;
     [SerializeField] private GameObject CTAPrefab;
     [SerializeField] private Transform[] spawnPts;
+    public GameObject failDialogue;
     #endregion
 
     #region Variables
@@ -124,7 +125,29 @@ public class TNREngine : MonoBehaviour
             }
 
             ctaList[i] = Instantiate(CTAPrefab, spawnPts[rnd].position, Quaternion.identity, eventTiles);
+
+            CatTrappingArea cta = ctaList[i].GetComponent<CatTrappingArea>();
+            cta.index = i;
+            cta.tNREngine = this.GetComponent<TNREngine>();
         }
+    }
+
+    public void ReplaceCTAIndex(int index)
+    {
+        int rnd = Random.Range(0, spawnPts.Length - 1);
+
+        while (!CheckIfUnique(rnd))
+        {
+            rnd = Random.Range(0, spawnPts.Length - 1);
+        }
+
+        ctaList[index] = Instantiate(CTAPrefab, spawnPts[rnd].position, Quaternion.identity, eventTiles);
+
+        CatTrappingArea cta = ctaList[index].GetComponent<CatTrappingArea>();
+        cta.index = index;
+        cta.tNREngine = this.GetComponent<TNREngine>();
+
+        dialogueEngine.StartDialogue(ref failDialogue);
     }
 
     bool CheckIfUnique(int rnd)

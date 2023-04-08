@@ -5,19 +5,31 @@ using UnityEngine;
 public class CatTrappingArea : MonoBehaviour
 {
     public Animator animator;
-    public RectTransform rect;
+    public RectTransform ctaRect, nonoRect;
+    public int index;
+    public TNREngine tNREngine;
+
+    private Coroutine waitForAnim = null;
 
     private void Update()
     {
         if (StaticItems.TNRstate == 6)
         {
-            if (HasEntered(StaticItems.plrPos))
+            if (HasEntered(StaticItems.plrPos, ctaRect))
             {
                 ToggleUI(true);
             }
             else
             {
                 ToggleUI(false);
+            }
+
+            if (HasEntered(StaticItems.plrPos, nonoRect))
+            {
+                if (waitForAnim == null)
+                {
+                    waitForAnim = StartCoroutine(WaitForAnim());
+                }
             }
         }
     }
@@ -27,7 +39,16 @@ public class CatTrappingArea : MonoBehaviour
         animator.SetBool("isNear", val);
     }
 
-    private bool HasEntered(Vector3 position)
+    IEnumerator WaitForAnim()
+    {
+        animator.SetBool("failing", true);
+        yield return new WaitForSeconds(1.83f);
+        waitForAnim = null;
+        tNREngine.ReplaceCTAIndex(index);
+        Destroy(this.gameObject);
+    }
+
+    public static bool HasEntered(Vector3 position, RectTransform rect)
     {
         if ((position.x > (rect.position.x - (rect.rect.width/2)) && position.x < (rect.position.x + (rect.rect.width / 2)))
             && (position.y > (rect.position.y - (rect.rect.height / 2)) && position.y < (rect.position.y + (rect.rect.height / 2))))

@@ -917,6 +917,7 @@ MonoBehaviour:
   - {fileID: 602095503}
   - {fileID: 938609880}
   - {fileID: 2063792319}
+  failDialogue: {fileID: 1515242942}
 --- !u!4 &197901383
 Transform:
   m_ObjectHideFlags: 0
@@ -936,6 +937,7 @@ Transform:
   - {fileID: 447754894}
   - {fileID: 825002505}
   - {fileID: 2084206255}
+  - {fileID: 1515242943}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18604,6 +18606,68 @@ Transform:
   m_Father: {fileID: 757789738}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1515242942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515242943}
+  - component: {fileID: 1515242944}
+  m_Layer: 0
+  m_Name: Fail Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1515242943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515242942}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 197901383}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1515242944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515242942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00aa788de852464ca6887e2896bd549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playAtEndLevel: 0
+  playAtStart: 0
+  tutorialState: -1
+  nextScene: 
+  NPCMovement: {fileID: 0}
+  showAtStartCanvas: {fileID: 0}
+  showAtEndCanvas: {fileID: 0}
+  waitForInputAtEnd: 
+  backupDialogue: {fileID: 0}
+  names:
+  - You
+  - 
+  sprites:
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  dialogue:
+  - Aww man. I scared it off. I better not get too close next time.
+  - '<i>Hint: Don''t touch the red area.</i>'
 --- !u!1 &1570369230
 GameObject:
   m_ObjectHideFlags: 0
