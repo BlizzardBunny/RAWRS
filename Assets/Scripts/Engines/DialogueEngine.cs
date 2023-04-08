@@ -217,7 +217,10 @@ public class DialogueEngine : MonoBehaviour
 
             if (StaticItems.levelNumber >= 4)
             {
-                StaticItems.TNRstate++;
+                if ((StaticItems.TNRstate != 6) && (StaticItems.TNRstate != 23))
+                {
+                    StaticItems.TNRstate++;
+                }
             }
 
             if (StaticItems.inTutorial)

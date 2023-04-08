@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class TNREngine : MonoBehaviour
 {
+    #region Object References
     [SerializeField] private SceneTransitions sceneTransitions;
     [SerializeField] private TMPro.TextMeshProUGUI nextDay;
     [SerializeField] private Transform player;
     [SerializeField] private Animator playerAnim;
     [SerializeField] private DialogueEngine dialogueEngine;
     public GameObject[] dialogueStates;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
