@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2847876268010897342}
   - component: {fileID: 2847876268010897341}
+  - component: {fileID: 5906569638052592611}
   m_Layer: 5
   m_Name: Cage Door
   m_TagString: Untagged
@@ -168,6 +169,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &5906569638052592611
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847876268010897343}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2847876268297272979
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2847876269048029958}
   - component: {fileID: 2847876269048029956}
+  - component: {fileID: 755782287657151701}
   m_Layer: 5
   m_Name: TrapSpot (1)
   m_TagString: TrapSpot
@@ -815,6 +843,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &755782287657151701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847876269048029959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ad4430477e0074f813d872369f59d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2847876269047220728}
+  direction: 0
 --- !u!1 &2847876269102994318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2847876269533547110}
   - component: {fileID: 2847876269533547035}
+  - component: {fileID: 1612780224604609786}
   m_Layer: 5
   m_Name: TrapSpot
   m_TagString: TrapSpot
@@ -1391,6 +1434,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1612780224604609786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847876269533547111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ad4430477e0074f813d872369f59d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2847876269047220728}
+  direction: 3
 --- !u!1 &2847876269561361715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2847876269678575845}
   - component: {fileID: 2847876269678575771}
+  - component: {fileID: 6888170741582735673}
   m_Layer: 5
   m_Name: TrapSpot (2)
   m_TagString: TrapSpot
@@ -1796,6 +1854,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6888170741582735673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847876269678575846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ad4430477e0074f813d872369f59d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2847876269047220728}
+  direction: 1
 --- !u!1 &2847876269834272183
 GameObject:
   m_ObjectHideFlags: 0
