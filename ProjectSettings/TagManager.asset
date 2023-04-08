@@ -8,6 +8,7 @@ TagManager:
   - TaskStation
   - Wall
   - Grid
+  - TrapSpot
   layers:
   - Default
   - TransparentFX

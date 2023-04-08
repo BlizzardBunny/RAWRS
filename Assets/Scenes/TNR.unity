@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 43486870}
   - component: {fileID: 43486871}
   - component: {fileID: 43486867}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cara
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -423,6 +423,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2028598425563842002, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2028598426035924925, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -439,6 +443,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2028598426283992287, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2028598426303684749, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -467,6 +475,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2028598426811954611, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25.28003
+      objectReference: {fileID: 0}
     - target: {fileID: 3225105632074496438, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -485,6 +497,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3563200172557087931, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675697003456703554, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6856126648829196001, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
@@ -7430,7 +7446,7 @@ GameObject:
   - component: {fileID: 586118646}
   - component: {fileID: 586118649}
   - component: {fileID: 586118648}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Block1
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -7521,7 +7537,7 @@ GameObject:
   - component: {fileID: 687326591}
   - component: {fileID: 687326594}
   - component: {fileID: 687326593}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Block4
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -7610,7 +7626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 757789738}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Event Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7649,7 +7665,7 @@ GameObject:
   - component: {fileID: 788707060}
   - component: {fileID: 788707059}
   - component: {fileID: 788707058}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Theo
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -7910,7 +7926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 829745217}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Blockade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17915,7 +17931,7 @@ GameObject:
   - component: {fileID: 1015708792}
   - component: {fileID: 1015708795}
   - component: {fileID: 1015708794}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Block2
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -18221,7 +18237,7 @@ GameObject:
   - component: {fileID: 1570369231}
   - component: {fileID: 1570369234}
   - component: {fileID: 1570369233}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Block3
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -18312,7 +18328,7 @@ GameObject:
   - component: {fileID: 1826064865}
   - component: {fileID: 1826064868}
   - component: {fileID: 1826064867}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Block5
   m_TagString: NPC
   m_Icon: {fileID: 0}
