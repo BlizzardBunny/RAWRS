@@ -11,8 +11,17 @@ public class TNREngine : MonoBehaviour
     [SerializeField] private Animator playerAnim;
     [SerializeField] private DialogueEngine dialogueEngine;
     public GameObject[] dialogueStates;
+
+    [SerializeField] private Transform eventTiles;
+    [SerializeField] private GameObject CTAPrefab;
+    [SerializeField] private Transform[] spawnPts;
     #endregion
 
+    #region Variables
+    private GameObject[] ctaList = new GameObject[3]; //Length defines spawn number
+    #endregion
+
+    #region Unity Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +48,7 @@ public class TNREngine : MonoBehaviour
             playerAnim.SetInteger("direction", 1);
             dialogueEngine.dialogueCanvas.enabled = true;
             dialogueEngine.StartDialogue(ref dialogueStates[1]);
+            SetupLevel();
         }
         else if (StaticItems.TNRstate == 7)
         {
@@ -96,6 +106,43 @@ public class TNREngine : MonoBehaviour
             StaticItems.TNRstate++;
         }
     }
+    #endregion
+
+    #region Custom Functions
+    void SetupLevel()
+    {
+        for (int i = 0; i < ctaList.Length; i++)
+        {
+            int rnd = Random.Range(0, spawnPts.Length - 1);
+
+            if (i > 0)
+            {
+                while (!CheckIfUnique(rnd))
+                {
+                    rnd = Random.Range(0, spawnPts.Length - 1);
+                }
+            }
+
+            ctaList[i] = Instantiate(CTAPrefab, spawnPts[rnd].position, Quaternion.identity, eventTiles);
+        }
+    }
+
+    bool CheckIfUnique(int rnd)
+    {
+        for (int i = 0; i < ctaList.Length; i++)
+        {
+            if (ctaList[i] != null)
+            {
+                if (ctaList[i].transform.position == spawnPts[rnd].position)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     IEnumerator WaitForFadeIn()
     {
         sceneTransitions.Fade(true);
@@ -125,4 +172,5 @@ public class TNREngine : MonoBehaviour
 
         StaticItems.TNRstate++;
     }
+    #endregion
 }

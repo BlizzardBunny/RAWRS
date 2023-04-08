@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Grid
   - TrapSpot
+  - CTA
   layers:
   - Default
   - TransparentFX
