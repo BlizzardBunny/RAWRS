@@ -16,10 +16,14 @@ public class TNREngine : MonoBehaviour
     [SerializeField] private GameObject CTAPrefab;
     [SerializeField] private Transform[] spawnPts;
     public GameObject failDialogue;
+
+    [SerializeField] private GameObject taskEntryPrefab;
+    [SerializeField] private Transform taskEntryParent;
     #endregion
 
     #region Variables
     private GameObject[] ctaList = new GameObject[3]; //Length defines spawn number
+    private TaskEntry[] taskEntryList = new TaskEntry[3];
     #endregion
 
     #region Unity Functions
@@ -129,7 +133,18 @@ public class TNREngine : MonoBehaviour
             CatTrappingArea cta = ctaList[i].GetComponent<CatTrappingArea>();
             cta.index = i;
             cta.tNREngine = this.GetComponent<TNREngine>();
+
+            GameObject taskEntry = Instantiate(taskEntryPrefab, taskEntryParent);
+            taskEntryList[i] = taskEntry.GetComponent<TaskEntry>();
+            taskEntryList[i].taskStationMarker = cta.markerArrow;
+            taskEntryList[i].taskName.text = "Trap a Cat";
+            taskEntryList[i].taskNumber.text = (i + 1).ToString();
         }
+    }
+
+    public void MarkAsDone(int index)
+    {
+        taskEntryList[index].numberBG.color = Color.green;
     }
 
     public void ReplaceCTAIndex(int index)
@@ -146,6 +161,9 @@ public class TNREngine : MonoBehaviour
         CatTrappingArea cta = ctaList[index].GetComponent<CatTrappingArea>();
         cta.index = index;
         cta.tNREngine = this.GetComponent<TNREngine>();
+
+        taskEntryList[index].taskStationMarker = cta.markerArrow;
+        taskEntryList[index].taskNumber.text = (index + 1).ToString();
 
         dialogueEngine.StartDialogue(ref failDialogue);
     }

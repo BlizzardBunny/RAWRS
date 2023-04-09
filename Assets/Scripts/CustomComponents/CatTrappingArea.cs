@@ -6,6 +6,7 @@ public class CatTrappingArea : MonoBehaviour
 {
     public Animator animator;
     public RectTransform ctaRect, nonoRect;
+    public GameObject markerArrow;
     public int index;
     public TNREngine tNREngine;
 
@@ -28,7 +29,7 @@ public class CatTrappingArea : MonoBehaviour
             {
                 if (waitForAnim == null)
                 {
-                    waitForAnim = StartCoroutine(WaitForAnim());
+                    waitForAnim = StartCoroutine(WaitForFailAnim());
                 }
             }
         }
@@ -39,7 +40,7 @@ public class CatTrappingArea : MonoBehaviour
         animator.SetBool("isNear", val);
     }
 
-    IEnumerator WaitForAnim()
+    IEnumerator WaitForFailAnim()
     {
         animator.SetBool("failing", true);
         yield return new WaitForSeconds(1.83f);
@@ -59,5 +60,33 @@ public class CatTrappingArea : MonoBehaviour
         {            
             return false;
         }
+    }
+
+    public void MarkAsDone()
+    {
+        tNREngine.MarkAsDone(index);
+    }
+
+    public void PlayAnim(int direction)
+    {
+        animator.SetInteger("direction", direction);
+        animator.SetBool("isMoving", true);
+        if (waitForAnim == null)
+        {
+            waitForAnim = StartCoroutine(WaitForPassAnim());
+        }
+    }
+
+    IEnumerator WaitForPassAnim()
+    {
+        yield return new WaitForSeconds(5.66f);
+        StopAnim();
+        MarkAsDone();
+        waitForAnim = null;
+    }
+
+    public void StopAnim()
+    {
+        animator.SetBool("isMoving", false);
     }
 }

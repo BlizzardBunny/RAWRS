@@ -36,7 +36,10 @@ public class TaskEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        taskStationMarker.GetComponentInParent<TaskStationInfo>().isActive = !taskStationMarker.GetComponentInParent<TaskStationInfo>().isActive;
+        if (taskStationMarker.GetComponentInParent<TaskStationInfo>() != null)
+        {
+            taskStationMarker.GetComponentInParent<TaskStationInfo>().isActive = !taskStationMarker.GetComponentInParent<TaskStationInfo>().isActive;
+        }
         taskStationMarker.SetActive(!taskStationMarker.activeSelf);
     }
 
@@ -44,7 +47,8 @@ public class TaskEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (init)
         {
-            defaultSprite = entryBG.sprite;
+            defaultSprite = entryBG.sprite; 
+            taskStationMarker.SetActive(false);
             init = false;
         }
     }
