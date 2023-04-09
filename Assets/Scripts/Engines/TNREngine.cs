@@ -16,7 +16,7 @@ public class TNREngine : MonoBehaviour
     [SerializeField] private Transform eventTiles;
     [SerializeField] private GameObject CTAPrefab;
     [SerializeField] private Transform[] spawnPts;
-    public GameObject failDialogue;
+    public GameObject failTrapDialogue;
 
     [SerializeField] private GameObject taskEntryPrefab;
     [SerializeField] private Transform taskEntryParent;
@@ -24,12 +24,14 @@ public class TNREngine : MonoBehaviour
     public Canvas confirmCanvas;
     public Button confirmTask;
     [SerializeField] private Button cancelTask;
+
+    [SerializeField] private GameObject caraMarker;
     #endregion
 
     #region Variables
     private GameObject[] ctaList = new GameObject[3]; //Length defines spawn number
     private TaskEntry[] taskEntryList = new TaskEntry[3];
-    private int completeTasks = 0;
+    public static int completeTasks = 0;
     #endregion
 
     #region Unity Functions
@@ -38,6 +40,8 @@ public class TNREngine : MonoBehaviour
     {
         nextDay.enabled = false;
         confirmCanvas.enabled = false;
+        caraMarker.SetActive(false);
+        completeTasks = 0;
 
         cancelTask.onClick.AddListener(() => confirmCanvas.enabled = false);
 
@@ -64,6 +68,18 @@ public class TNREngine : MonoBehaviour
             dialogueEngine.dialogueCanvas.enabled = true;
             dialogueEngine.StartDialogue(ref dialogueStates[1]);
             SetupLevel();
+        }
+        else if (StaticItems.TNRstate == 6)
+        {
+            if (completeTasks == 3)
+            {
+                GameObject taskEntry = Instantiate(taskEntryPrefab, taskEntryParent);
+                TaskEntry deets = taskEntry.GetComponent<TaskEntry>();
+                deets.taskStationMarker = caraMarker;
+                deets.taskName.text = "Talk to Cara";
+                deets.taskNumber.text = "4";
+                completeTasks++;
+            }
         }
         else if (StaticItems.TNRstate == 7)
         {
@@ -154,8 +170,11 @@ public class TNREngine : MonoBehaviour
 
     public void MarkAsDone(int index)
     {
-        taskEntryList[index].numberBG.color = Color.green;
-        completeTasks++;
+        if (taskEntryList[index].numberBG.color != Color.green)
+        {
+            taskEntryList[index].numberBG.color = Color.green;
+            completeTasks++;
+        }
     }
 
     public void ReplaceCTAIndex(int index)
@@ -176,7 +195,7 @@ public class TNREngine : MonoBehaviour
         taskEntryList[index].taskStationMarker = cta.markerArrow;
         taskEntryList[index].taskNumber.text = (index + 1).ToString();
 
-        dialogueEngine.StartDialogue(ref failDialogue);
+        dialogueEngine.StartDialogue(ref failTrapDialogue);
     }
 
     bool CheckIfUnique(int rnd)
