@@ -92,7 +92,14 @@ public class ObjectInteractionEngine : MonoBehaviour
             {
                 TrapSpot trapSpot = obj.GetComponent<TrapSpot>();
 
-                trapSpot.ConfirmTrap();
+                if (StaticItems.TNRstate == 6)
+                {
+                    trapSpot.ConfirmTrap();
+                }
+                else if (StaticItems.TNRstate == 23)
+                {
+                    trapSpot.ReleaseCat();
+                }
             }
         }
     }   

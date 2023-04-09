@@ -10,6 +10,7 @@ TagManager:
   - Grid
   - TrapSpot
   - CTA
+  - CageDoor
   layers:
   - Default
   - TransparentFX

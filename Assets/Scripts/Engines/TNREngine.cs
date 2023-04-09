@@ -25,7 +25,7 @@ public class TNREngine : MonoBehaviour
     public Button confirmTask;
     [SerializeField] private Button cancelTask;
 
-    [SerializeField] private GameObject caraMarker;
+    [SerializeField] private GameObject caraMarker, releaseCats;
     #endregion
 
     #region Variables
@@ -41,6 +41,7 @@ public class TNREngine : MonoBehaviour
         nextDay.enabled = false;
         confirmCanvas.enabled = false;
         caraMarker.SetActive(false);
+        releaseCats.SetActive(false);
         completeTasks = 0;
 
         cancelTask.onClick.AddListener(() => confirmCanvas.enabled = false);
@@ -62,7 +63,7 @@ public class TNREngine : MonoBehaviour
         {
             StaticItems.TNRstate++;
             StartCoroutine(WaitForFadeIn()); 
-            StaticItems.plrPos = new Vector3(110.5f, 1.5f, 0.0f);
+            StaticItems.plrPos = new Vector3(109.5f, -6.5f, 0.0f);
             player.position = StaticItems.plrPos;
             playerAnim.SetInteger("direction", 1);
             dialogueEngine.dialogueCanvas.enabled = true;
@@ -124,11 +125,20 @@ public class TNREngine : MonoBehaviour
             nextDay.enabled = false;
             StaticItems.TNRstate++;
             StartCoroutine(WaitForFadeIn());
-            StaticItems.plrPos = new Vector3(110.5f, 1.5f, 0.0f);
+            StaticItems.plrPos = new Vector3(109.5f, -6.5f, 0.0f);
             player.position = StaticItems.plrPos;
             playerAnim.SetInteger("direction", 1);
             dialogueEngine.dialogueCanvas.enabled = true;
             dialogueEngine.StartDialogue(ref dialogueStates[5]);
+            completeTasks = 0;
+            releaseCats.SetActive(true);
+        }
+        else if (StaticItems.TNRstate == 23)
+        {
+            if (completeTasks == 4)
+            {
+                StaticItems.TNRstate++;
+            }
         }
         else if (StaticItems.TNRstate == 24)
         {
