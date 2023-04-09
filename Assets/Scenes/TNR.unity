@@ -1786,9 +1786,9 @@ MonoBehaviour:
   - Doc Jacob<size=50><br>(he/him)</size>
   - Cara<size=50><br>(she/her)</size>
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 498849161, guid: dc8418d6a43f6b849b16c73cee6d8cff, type: 3}
+  - {fileID: -1555602284, guid: dc8418d6a43f6b849b16c73cee6d8cff, type: 3}
+  - {fileID: -1555602284, guid: dc8418d6a43f6b849b16c73cee6d8cff, type: 3}
   - {fileID: -221269525, guid: cb6c266eec88e1a479aa7877d29d883a, type: 3}
   dialogue:
   - Alright, all done!
@@ -10973,6 +10973,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -107, y: 17, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 8
+      m_TileSpriteIndex: 11
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -111, y: 18, z: 0}
     second:
       serializedVersion: 2
@@ -11011,8 +11021,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 094f31c31ca80f24a9d6235bb27f92cb, type: 2}
   - m_RefCount: 165
     m_Data: {fileID: 11400000, guid: 5e4a99ff29430c24eacb5b5c6b4d7005, type: 2}
   - m_RefCount: 2
@@ -11320,8 +11330,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -860670000, guid: 5ca8eca1645e4224c9b575af6981a5b1, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1191259154, guid: 51651395e1c4d6a4f8d6edd74dc72925, type: 3}
   - m_RefCount: 4
@@ -11601,7 +11611,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 372002184, guid: b444c1779b3f1334c849a9878e6319a4, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 818
+  - m_RefCount: 819
     m_Data:
       e00: 1
       e01: 0
@@ -11638,7 +11648,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 819
+  - m_RefCount: 820
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -13038,13 +13048,13 @@ MonoBehaviour:
   - Doc Jacob<size=50><br>(he/him)</size>
   sprites:
   - {fileID: -1865767930, guid: cb6c266eec88e1a479aa7877d29d883a, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -1555602284, guid: dc8418d6a43f6b849b16c73cee6d8cff, type: 3}
+  - {fileID: 498849161, guid: dc8418d6a43f6b849b16c73cee6d8cff, type: 3}
+  - {fileID: -1555602284, guid: dc8418d6a43f6b849b16c73cee6d8cff, type: 3}
+  - {fileID: -1555602284, guid: dc8418d6a43f6b849b16c73cee6d8cff, type: 3}
+  - {fileID: -1555602284, guid: dc8418d6a43f6b849b16c73cee6d8cff, type: 3}
+  - {fileID: 498849161, guid: dc8418d6a43f6b849b16c73cee6d8cff, type: 3}
+  - {fileID: 498849161, guid: dc8418d6a43f6b849b16c73cee6d8cff, type: 3}
   dialogue:
   - Alright, for this part I'll let Doc Jacob explain. He's a local veterinarian
     who's gonna handle neutering the cats.
