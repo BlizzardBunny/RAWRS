@@ -11,6 +11,8 @@ public class CatTrappingArea : MonoBehaviour
     public TNREngine tNREngine;
 
     private Coroutine waitForAnim = null;
+    private int currDirection = -1;
+    private bool isDone = false;
 
     private void Update()
     {
@@ -25,7 +27,7 @@ public class CatTrappingArea : MonoBehaviour
                 ToggleUI(false);
             }
 
-            if (HasEntered(StaticItems.plrPos, nonoRect))
+            if (HasEntered(StaticItems.plrPos, nonoRect) && !isDone)
             {
                 if (waitForAnim == null)
                 {
@@ -62,14 +64,18 @@ public class CatTrappingArea : MonoBehaviour
         }
     }
 
-    public void MarkAsDone()
+    public void ConfirmTrap(int direction)
     {
-        tNREngine.MarkAsDone(index);
+        currDirection = direction;
+        tNREngine.confirmTask.onClick.AddListener(PlayAnim);
+        tNREngine.confirmCanvas.enabled = true;
     }
 
-    public void PlayAnim(int direction)
+    public void PlayAnim()
     {
-        animator.SetInteger("direction", direction);
+        tNREngine.confirmCanvas.enabled = false;
+        isDone = true;
+        animator.SetInteger("direction", currDirection);
         animator.SetBool("isMoving", true);
         if (waitForAnim == null)
         {
@@ -80,13 +86,8 @@ public class CatTrappingArea : MonoBehaviour
     IEnumerator WaitForPassAnim()
     {
         yield return new WaitForSeconds(5.66f);
-        StopAnim();
-        MarkAsDone();
-        waitForAnim = null;
-    }
-
-    public void StopAnim()
-    {
         animator.SetBool("isMoving", false);
+        tNREngine.MarkAsDone(index);
+        waitForAnim = null;
     }
 }

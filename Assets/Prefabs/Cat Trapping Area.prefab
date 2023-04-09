@@ -410,7 +410,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 432454551, guid: da83c900666097940bad4362038a5689, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1113,7 +1113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ad4430477e0074f813d872369f59d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2847876269047220728}
   direction: 0
   parent: {fileID: 286281904867024321}
 --- !u!1 &2847876269102994318
@@ -1615,7 +1614,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -1792499708, guid: 2666b44cb987ccb4897c3215b7aaf9ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1705,7 +1704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ad4430477e0074f813d872369f59d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2847876269047220728}
   direction: 3
   parent: {fileID: 286281904867024321}
 --- !u!1 &2847876269561361715
@@ -2126,7 +2124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ad4430477e0074f813d872369f59d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2847876269047220728}
   direction: 1
   parent: {fileID: 286281904867024321}
 --- !u!1 &2847876269834272183

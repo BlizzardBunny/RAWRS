@@ -92,7 +92,7 @@ public class ObjectInteractionEngine : MonoBehaviour
             {
                 TrapSpot trapSpot = obj.GetComponent<TrapSpot>();
 
-                trapSpot.PlayAnim();
+                trapSpot.ConfirmTrap();
             }
         }
     }   

@@ -7,8 +7,8 @@ public class TrapSpot : MonoBehaviour
     public int direction;
     public CatTrappingArea parent;
 
-    public void PlayAnim()
+    public void ConfirmTrap()
     {
-        parent.PlayAnim(direction);
+        parent.ConfirmTrap(direction);
     }
 }

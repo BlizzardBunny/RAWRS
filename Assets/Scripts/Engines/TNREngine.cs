@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TNREngine : MonoBehaviour
 {
@@ -19,11 +20,16 @@ public class TNREngine : MonoBehaviour
 
     [SerializeField] private GameObject taskEntryPrefab;
     [SerializeField] private Transform taskEntryParent;
+
+    public Canvas confirmCanvas;
+    public Button confirmTask;
+    [SerializeField] private Button cancelTask;
     #endregion
 
     #region Variables
     private GameObject[] ctaList = new GameObject[3]; //Length defines spawn number
     private TaskEntry[] taskEntryList = new TaskEntry[3];
+    private int completeTasks = 0;
     #endregion
 
     #region Unity Functions
@@ -31,6 +37,10 @@ public class TNREngine : MonoBehaviour
     void Start()
     {
         nextDay.enabled = false;
+        confirmCanvas.enabled = false;
+
+        cancelTask.onClick.AddListener(() => confirmCanvas.enabled = false);
+
         StaticItems.LoadGame();
         dialogueEngine.dialogueCanvas.enabled = true;
         dialogueEngine.StartDialogue(ref dialogueStates[0]);
@@ -145,6 +155,7 @@ public class TNREngine : MonoBehaviour
     public void MarkAsDone(int index)
     {
         taskEntryList[index].numberBG.color = Color.green;
+        completeTasks++;
     }
 
     public void ReplaceCTAIndex(int index)
