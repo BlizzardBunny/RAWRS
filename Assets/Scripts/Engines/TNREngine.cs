@@ -67,7 +67,7 @@ public class TNREngine : MonoBehaviour
             playerAnim.SetInteger("direction", 1);
             dialogueEngine.dialogueCanvas.enabled = true;
             dialogueEngine.StartDialogue(ref dialogueStates[1]);
-            SetupLevel();
+            SetupTrappingLevel();
         }
         else if (StaticItems.TNRstate == 6)
         {
@@ -139,8 +139,8 @@ public class TNREngine : MonoBehaviour
     }
     #endregion
 
-    #region Custom Functions
-    void SetupLevel()
+    #region Trapping Functions
+    void SetupTrappingLevel()
     {
         for (int i = 0; i < ctaList.Length; i++)
         {
@@ -166,6 +166,22 @@ public class TNREngine : MonoBehaviour
             taskEntryList[i].taskName.text = "Trap a Cat";
             taskEntryList[i].taskNumber.text = (i + 1).ToString();
         }
+    }
+
+    bool CheckIfUnique(int rnd)
+    {
+        for (int i = 0; i < ctaList.Length; i++)
+        {
+            if (ctaList[i] != null)
+            {
+                if (ctaList[i].transform.position == spawnPts[rnd].position)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public void MarkAsDone(int index)
@@ -197,23 +213,9 @@ public class TNREngine : MonoBehaviour
 
         dialogueEngine.StartDialogue(ref failTrapDialogue);
     }
+    #endregion
 
-    bool CheckIfUnique(int rnd)
-    {
-        for (int i = 0; i < ctaList.Length; i++)
-        {
-            if (ctaList[i] != null)
-            {
-                if (ctaList[i].transform.position == spawnPts[rnd].position)
-                {
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
+    #region Wait for Fades
     IEnumerator WaitForFadeIn()
     {
         sceneTransitions.Fade(true);
