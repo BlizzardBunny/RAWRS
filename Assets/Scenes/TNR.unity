@@ -2499,10 +2499,29 @@ MonoBehaviour:
   backupDialogue: {fileID: 0}
   names:
   - Theo<size=50><br>(they/them)</size>
+  - Theo<size=50><br>(they/them)</size>
+  - Theo<size=50><br>(they/them)</size>
+  - Theo<size=50><br>(they/them)</size>
+  - Theo<size=50><br>(they/them)</size>
+  - Theo<size=50><br>(they/them)</size>
+  - Theo<size=50><br>(they/them)</size>
   sprites:
   - {fileID: -1936989985, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -1936989985, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -1936989985, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
   dialogue:
-  - Hi, /p! What's up?
+  - Hi, /p! What's up? You need some tips?
+  - Trapping is easy!
+  - First, look around the area for some cats.
+  - If you press <color=blue>TAB</color>, the map will guide you on where they are.
+  - Then, you approach the cat's hiding spot and place a trap near there.
+  - Be sure not to get too close, or it'll run away!
+  - And that's pretty much it! Feel free to talk to me if you wanna hear this explanation
+    again.
 --- !u!61 &788707060
 BoxCollider2D:
   m_ObjectHideFlags: 0
