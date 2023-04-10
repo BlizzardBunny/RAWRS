@@ -1393,6 +1393,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6463746763003069222, guid: 05fb6f0db02976640b5ad2e9a7d146eb, type: 3}
+      propertyPath: sceneTransitions
+      value: 
+      objectReference: {fileID: 1269445008}
+    - target: {fileID: 6463746763003069222, guid: 05fb6f0db02976640b5ad2e9a7d146eb, type: 3}
       propertyPath: nextStateDialogueInfo
       value: 
       objectReference: {fileID: 0}
@@ -16158,7 +16162,7 @@ MonoBehaviour:
   playAtEndLevel: 0
   playAtStart: 0
   tutorialState: -1
-  nextScene: 
+  nextScene: EndingScene
   NPCMovement: {fileID: 0}
   showAtStartCanvas: {fileID: 0}
   showAtEndCanvas: {fileID: 0}
@@ -16168,15 +16172,18 @@ MonoBehaviour:
   - Theo<size=50><br>(they/them)</size>
   - Theo<size=50><br>(they/them)</size>
   - Theo<size=50><br>(they/them)</size>
+  - Cara<size=50><br>(she/her)</size>
   sprites:
   - {fileID: -1936989985, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
   - {fileID: -1936989985, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
   - {fileID: -472042450, guid: 269ebc0393997d140adc6edc7fccf58b, type: 3}
+  - {fileID: -221269525, guid: cb6c266eec88e1a479aa7877d29d883a, type: 3}
   dialogue:
   - Alright! We're finally done!
   - That was a long activity if you ask me, but it is a very important thing to do.
   - Not only does it help keep the community cats in check, but it also helps the
     local community.
+  - Alright! Let's wrap up here and head back to the shelter.
 --- !u!1 &2124966995
 GameObject:
   m_ObjectHideFlags: 0

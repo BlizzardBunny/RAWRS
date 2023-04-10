@@ -188,6 +188,11 @@ public class DialogueEngine : MonoBehaviour
         {
             dialogueInfo.showAtStartCanvas.enabled = true;
         }
+
+        if (dialogueInfo.showAtEndCanvas != null)
+        {
+            dialogueInfo.showAtEndCanvas.enabled = false;
+        }
     }
 
     private void ContDialogue()
@@ -238,7 +243,7 @@ public class DialogueEngine : MonoBehaviour
 
             if (dialogueInfo.showAtEndCanvas != null)
             {
-                dialogueInfo.showAtEndCanvas.enabled = true;
+                StartCoroutine(WaitForFade());
             }
 
             if (dialogueInfo.nextScene != "")
@@ -288,4 +293,24 @@ public class DialogueEngine : MonoBehaviour
             }
         }
     }
+
+    #region Wait for Fades
+    IEnumerator WaitForFade()
+    {
+        sceneTransitions.Fade(false);
+        while ((sceneTransitions.canvasGroup.alpha < 1.0f) && (sceneTransitions.canvas.enabled == true))
+        {
+            yield return null;
+        }
+        dialogueInfo.showAtEndCanvas.enabled = true;
+
+        sceneTransitions.Fade(true);
+        while ((sceneTransitions.canvasGroup.alpha > 0.0f) && (sceneTransitions.canvas.enabled == true))
+        {
+            yield return null;
+        }
+    }
+
+    #endregion
+
 }
