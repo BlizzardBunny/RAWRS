@@ -27,8 +27,8 @@ public class TaskEngine : MonoBehaviour
     [SerializeField] private Canvas bathingCat;
     [SerializeField] private Canvas bathingCatDirtSpots, bathingDog, bathingDogDirtspots, checkupCat, checkupDog;
     [SerializeField] private Transform bathCatStates, bathDogStates;
-    [SerializeField] private Image cleaningPoopArea, feedingFoodBag;
-    [SerializeField] private Sprite[] poopAreaSprites, foodBagSprites;
+    [SerializeField] private Image cleaningPoopArea, feedingFoodBag, animalSprite;
+    [SerializeField] private Sprite[] poopAreaSprites, foodBagSprites, animalSprites;
     #endregion
 
     #region Variables
@@ -38,8 +38,8 @@ public class TaskEngine : MonoBehaviour
     public static int checkUpTasksTodo = 3;
 
     public static int tool = -1;
-    public static int taskType;
-    public static bool petType;
+    public static int taskType = 3;
+    public static bool petType = true;
     public static int currStationID = -1;
     #endregion
 
@@ -115,10 +115,12 @@ public class TaskEngine : MonoBehaviour
             if (petType)
             {
                 feedingFoodBag.sprite = foodBagSprites[0];
+                animalSprite.sprite = animalSprites[0];
             }
             else
             {
                 feedingFoodBag.sprite = foodBagSprites[1];
+                animalSprite.sprite = animalSprites[1];
             }
         }
         else if (taskType == 2)
