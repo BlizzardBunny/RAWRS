@@ -29,7 +29,17 @@ public class TasklistEngine : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Tab))
         {
-            ToggleTaskList();
+            if (StaticItems.levelNumber < 4)
+            {
+                ToggleTaskList();
+            }
+            else
+            {
+                if (StaticItems.TNRstate == 6)
+                {
+                    ToggleTaskList();
+                }
+            }
         }
 
         if (StaticItems.isShowingTasks)

@@ -18,15 +18,15 @@ public static class StaticItems
     public static bool hasPlayed = false;
 
     public static int TNRstate = 0;
+
+    public static float MasterVolume = 1.0f;
+    public static float MusicVolume = 1.0f;
+    public static float SFXVolume = 1.0f;
     #endregion
 
     #region Misc Items
     public static bool isPaused = false;
     public static bool isShowingTasks = false;
-
-    public static float MasterVolume = 1.0f;
-    public static float MusicVolume = 1.0f;
-    public static float SFXVolume = 1.0f;
 
     public static Vector3 plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
 
@@ -38,6 +38,7 @@ public static class StaticItems
 
     #endregion
 
+    #region Saving
     private static void SetSavedBool(string key, bool val)
     {
         if (val)
@@ -80,10 +81,16 @@ public static class StaticItems
 
         PlayerPrefs.SetInt("TNRstate", TNRstate);
 
+        PlayerPrefs.SetFloat("MasterVolume", MasterVolume);
+        PlayerPrefs.SetFloat("MusicVolume", MusicVolume);
+        PlayerPrefs.SetFloat("SFXVolume", SFXVolume);
+
         PlayerPrefs.Save();
         Debug.Log("saved");
     }
+    #endregion
 
+    #region Loading
     private static bool GetSavedBool(string key, int defVal)
     {
         return PlayerPrefs.GetInt(key, defVal) == 1;
@@ -122,8 +129,13 @@ public static class StaticItems
         tutorialState = PlayerPrefs.GetInt("tutorialState", 0);
         hasPlayed = GetSavedBool("hasPlayed", 0);
         TNRstate = PlayerPrefs.GetInt("TNRstate", 0);
+
+        MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
+        MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+        SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
     }
-    
+    #endregion
+
     public static void ExitGame()
     {
 #if UNITY_STANDALONE

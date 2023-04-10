@@ -215,11 +215,6 @@ public class DialogueEngine : MonoBehaviour
             dialogueIndex = 1;
             dialogueCanvas.enabled = false;
 
-            if (StaticItems.levelNumber >= 4)
-            {
-                StaticItems.TNRstate++;
-            }
-
             if (StaticItems.inTutorial)
             {
                 StaticItems.tutorialState = dialogueInfo.tutorialState + 1;
@@ -261,6 +256,34 @@ public class DialogueEngine : MonoBehaviour
                 else 
                 {
                     dialogueInfo.NPCMovement.FaceEnd();
+                }
+            }
+
+            if (StaticItems.levelNumber >= 4)
+            {
+                if ((StaticItems.TNRstate != 6) && (StaticItems.TNRstate != 23))
+                {
+                    StaticItems.TNRstate++;
+                }
+                else if (StaticItems.TNRstate == 6)
+                {
+                    if (TNREngine.completeTasks == 4)
+                    {
+                        StaticItems.TNRstate++;
+                    }
+                    else
+                    {
+                        if (dialogueInfo.names[0] == "Cara<size=50><br>(she/her)</size>"
+                            && npcDialogue.text != "Looks like you've still got some cats to trap. Come back when you've trapped <u>3</u> cats.")
+                        {
+                            dialogueInfo.dialogue = new string[1];
+                            dialogueInfo.dialogue[0] = "Looks like you've still got some cats to trap. Come back when you've trapped <u>3</u> cats.";
+
+                            StartDialogue();
+
+                            dialogueInfo.dialogue[0] = "Hi, /p! Are you done? Let's see...";
+                        }
+                    }
                 }
             }
         }
