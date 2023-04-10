@@ -88,6 +88,7 @@ public class CatTrappingArea : MonoBehaviour
         yield return new WaitForSeconds(5.66f);
         animator.SetBool("isMoving", false);
         tNREngine.MarkAsDone(index);
+        markerArrow.SetActive(false);
         waitForAnim = null;
     }
 }
