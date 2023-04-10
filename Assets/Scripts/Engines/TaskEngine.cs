@@ -38,7 +38,7 @@ public class TaskEngine : MonoBehaviour
     public static int checkUpTasksTodo = 3;
 
     public static int tool = -1;
-    public static int taskType = 0;
+    public static int taskType = 3;
     public static bool petType = true;
     public static int currStationID = -1;
     #endregion
