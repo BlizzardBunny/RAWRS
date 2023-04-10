@@ -221,7 +221,14 @@ public class MainMenuEngine : MonoBehaviour
         }
         else
         {
-            sceneTransitions.LoadScene("Overworld");
+            if (StaticItems.levelNumber < 4)
+            {
+                sceneTransitions.LoadScene("Overworld");
+            }
+            else
+            {
+                sceneTransitions.LoadScene("TNR");
+            }
         }
     }
 

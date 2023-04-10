@@ -46,6 +46,7 @@ public class TNREngine : MonoBehaviour
 
         cancelTask.onClick.AddListener(() => confirmCanvas.enabled = false);
         StaticItems.LoadGame();
+        StaticItems.inTutorial = false;
         StaticItems.levelNumber = 4;
         dialogueEngine.dialogueCanvas.enabled = true;
         dialogueEngine.StartDialogue(ref dialogueStates[0]);
