@@ -88,6 +88,19 @@ public class ObjectInteractionEngine : MonoBehaviour
                     confirmTaskCanvas.enabled = true;
                 }
             }
+            else if (hit.transform.tag == "TrapSpot")
+            {
+                TrapSpot trapSpot = obj.GetComponent<TrapSpot>();
+
+                if (StaticItems.TNRstate == 6)
+                {
+                    trapSpot.ConfirmTrap();
+                }
+                else if (StaticItems.TNRstate == 23)
+                {
+                    trapSpot.ReleaseCat();
+                }
+            }
         }
     }   
     

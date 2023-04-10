@@ -188,6 +188,11 @@ public class DialogueEngine : MonoBehaviour
         {
             dialogueInfo.showAtStartCanvas.enabled = true;
         }
+
+        if (dialogueInfo.showAtEndCanvas != null)
+        {
+            dialogueInfo.showAtEndCanvas.enabled = false;
+        }
     }
 
     private void ContDialogue()
@@ -215,11 +220,6 @@ public class DialogueEngine : MonoBehaviour
             dialogueIndex = 1;
             dialogueCanvas.enabled = false;
 
-            if (StaticItems.levelNumber >= 4)
-            {
-                StaticItems.TNRstate++;
-            }
-
             if (StaticItems.inTutorial)
             {
                 StaticItems.tutorialState = dialogueInfo.tutorialState + 1;
@@ -243,7 +243,7 @@ public class DialogueEngine : MonoBehaviour
 
             if (dialogueInfo.showAtEndCanvas != null)
             {
-                dialogueInfo.showAtEndCanvas.enabled = true;
+                StartCoroutine(WaitForFade());
             }
 
             if (dialogueInfo.nextScene != "")
@@ -263,6 +263,54 @@ public class DialogueEngine : MonoBehaviour
                     dialogueInfo.NPCMovement.FaceEnd();
                 }
             }
+
+            if (StaticItems.levelNumber >= 4)
+            {
+                if ((StaticItems.TNRstate != 6) && (StaticItems.TNRstate != 23))
+                {
+                    StaticItems.TNRstate++;
+                }
+                else if (StaticItems.TNRstate == 6)
+                {
+                    if (TNREngine.completeTasks == 4)
+                    {
+                        StaticItems.TNRstate++;
+                    }
+                    else
+                    {
+                        if (dialogueInfo.names[0] == "Cara<size=50><br>(she/her)</size>"
+                            && npcDialogue.text != "Looks like you've still got some cats to trap. Come back when you've trapped <u>3</u> cats.")
+                        {
+                            dialogueInfo.dialogue = new string[1];
+                            dialogueInfo.dialogue[0] = "Looks like you've still got some cats to trap. Come back when you've trapped <u>3</u> cats.";
+
+                            StartDialogue();
+
+                            dialogueInfo.dialogue[0] = "Hi, /p! Are you done? Let's see...";
+                        }
+                    }
+                }
+            }
         }
     }
+
+    #region Wait for Fades
+    IEnumerator WaitForFade()
+    {
+        sceneTransitions.Fade(false);
+        while ((sceneTransitions.canvasGroup.alpha < 1.0f) && (sceneTransitions.canvas.enabled == true))
+        {
+            yield return null;
+        }
+        dialogueInfo.showAtEndCanvas.enabled = true;
+
+        sceneTransitions.Fade(true);
+        while ((sceneTransitions.canvasGroup.alpha > 0.0f) && (sceneTransitions.canvas.enabled == true))
+        {
+            yield return null;
+        }
+    }
+
+    #endregion
+
 }

@@ -51,9 +51,13 @@ public class PauseMenu : MonoBehaviour
         pauseMenuCanvas.enabled = StaticItems.isPaused;
     }
 
-    void ReturnToMain()
+    public void ReturnToMain()
     {
         StaticItems.isPaused = false;
+        if (SceneManager.GetActiveScene().name == "EndingScene")
+        {
+            StaticItems.Reset();
+        }
         sceneTransitions.LoadScene("MainMenu");
     }
     void OpenSettings()
