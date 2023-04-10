@@ -243,7 +243,14 @@ public class DialogueEngine : MonoBehaviour
 
             if (dialogueInfo.showAtEndCanvas != null)
             {
-                StartCoroutine(WaitForFade());
+                if (StaticItems.levelNumber < 4)
+                {
+                    dialogueInfo.showAtEndCanvas.enabled = true;
+                }
+                else
+                {
+                    StartCoroutine(WaitForFade());
+                }
             }
 
             if (dialogueInfo.nextScene != "")
