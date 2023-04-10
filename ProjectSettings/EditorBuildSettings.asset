@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TNR.unity
     guid: 99b85220dc906fd4cbbe3ec8371d6bae
+  - enabled: 1
+    path: Assets/Scenes/EndingScene.unity
+    guid: c1c4c629c6757094ebb94ab61302f880
   m_configObjects: {}

@@ -86,7 +86,6 @@ public static class StaticItems
         PlayerPrefs.SetFloat("SFXVolume", SFXVolume);
 
         PlayerPrefs.Save();
-        Debug.Log("saved");
     }
     #endregion
 
@@ -135,6 +134,27 @@ public static class StaticItems
         SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
     }
     #endregion
+
+    public static void Reset()
+    {
+        playerName = "Player";
+        levelNumber = 0;
+        init = true;
+        isEnding = false;
+        taskCompletion = new bool[levelNumber + 1];
+        entriesData.Clear();
+
+        inTutorial = true;
+        tutorialState = 0;
+        hasPlayed = false;
+        TNRstate = 0;
+
+        plrPos = new Vector3(-5.5f, 6.5f, 0.0f); 
+        isPaused = false;
+        isShowingTasks = false;
+
+        SaveGame();
+    }
 
     public static void ExitGame()
     {
