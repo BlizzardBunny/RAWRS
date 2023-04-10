@@ -6,7 +6,7 @@ public class LevelSetupEngine : MonoBehaviour
 {
     #region Object References
 
-    [SerializeField] private GameObject tasklistEntryPrefab;
+    [SerializeField] private GameObject tasklistEntryPrefab, theoMarker;
     [SerializeField] private Transform entryContainer;
     [SerializeField] private GameObject[] bathingTaskStations;
     [SerializeField] private GameObject[] feedingTaskStations;
@@ -38,6 +38,8 @@ public class LevelSetupEngine : MonoBehaviour
 
     public void Init()
     {
+        theoMarker.SetActive(false);
+
         if (isOverworld)
         {
             StaticItems.inTutorial = false;
@@ -193,6 +195,7 @@ public class LevelSetupEngine : MonoBehaviour
         TaskEntry entryData = entry.GetComponent<TaskEntry>();
         entryData.taskName.text = "Talk to Theo";
         entryData.taskNumber.text = (++numOnList).ToString();
+        entryData.taskStationMarker = theoMarker;
 
         entries.Add(entry);
     }
