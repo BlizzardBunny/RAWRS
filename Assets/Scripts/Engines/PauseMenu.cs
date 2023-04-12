@@ -8,9 +8,10 @@ public class PauseMenu : MonoBehaviour
 {
     #region Object References
 
+    [SerializeField] private SceneTransitions sceneTransitions;
     [SerializeField] private Canvas pauseMenuCanvas, optionsCanvas, confirmCanvas;
     [SerializeField] private Button returnToMainMenu, exitGame, returnButton, saveButton, optionsButton, confirmExitButton, cancelExitButton;
-    [SerializeField] private SceneTransitions sceneTransitions;
+    [SerializeField] private Animator notifAnim;
 
     #endregion
 
@@ -81,6 +82,16 @@ public class PauseMenu : MonoBehaviour
     {
         StaticItems.SaveGame();
 
-        //IMPLEMENT: tell player game is saved
+        if (!notifAnim.GetBool("hasSaved"))
+        {
+            StartCoroutine(SendNotif(notifAnim));
+        }
+    }
+
+    public static IEnumerator SendNotif(Animator notifAnim)
+    {
+        notifAnim.SetBool("hasSaved", true);
+        yield return new WaitForSeconds(3f);
+        notifAnim.SetBool("hasSaved", false);
     }
 }

@@ -10,7 +10,7 @@ public static class StaticItems
     public static int levelNumber = 0;
     public static bool init = true;
     public static bool isEnding = false;
-    public static bool[] taskCompletion;
+    public static bool[] taskCompletion = new bool[levelNumber + 1];
     public static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
 
     public static bool inTutorial = true;

@@ -9,6 +9,7 @@ public class LevelEndEngine : MonoBehaviour
     #region Object References
     [SerializeField] Button nextLvl, restartLvl, endLvl;
     [SerializeField] SceneTransitions sceneTransitions;
+    [SerializeField] Animator notifAnim;
     #endregion
 
     #region Variables
@@ -23,6 +24,8 @@ public class LevelEndEngine : MonoBehaviour
         endLvl.onClick.AddListener(() => sceneTransitions.LoadScene("MainMenu"));
         StaticItems.plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
         StopAllCoroutines();
+        StaticItems.SaveGame();
+        StartCoroutine(PauseMenu.SendNotif(notifAnim));
     }
 
     private void NextLvl()
