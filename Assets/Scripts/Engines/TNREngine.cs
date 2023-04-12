@@ -45,12 +45,20 @@ public class TNREngine : MonoBehaviour
         completeTasks = 0;
 
         cancelTask.onClick.AddListener(() => confirmCanvas.enabled = false);
-        if (StaticItems.playerName.Equals("Player"))
+
+        if (StaticItems.levelNumber != 4)
         {
-            StaticItems.LoadGame();
+            Debug.Log(StaticItems.levelNumber);
             StaticItems.inTutorial = false;
             StaticItems.levelNumber = 4;
         }
+
+//#if UNITY_EDITOR
+//        Debug.Log(StaticItems.levelNumber);
+//        StaticItems.inTutorial = false;
+//        StaticItems.levelNumber = 4;
+//#endif
+
         dialogueEngine.dialogueCanvas.enabled = true;
         dialogueEngine.StartDialogue(ref dialogueStates[0]);
     }
