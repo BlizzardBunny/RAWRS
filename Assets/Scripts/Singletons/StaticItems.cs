@@ -33,7 +33,7 @@ public static class StaticItems
 
     public static string[] petNames =
     {
-        "Cat", "Dog"
+        "Kitty", "Doug"
     };
 
     #endregion
