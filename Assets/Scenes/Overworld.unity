@@ -4052,7 +4052,7 @@ MonoBehaviour:
   checkupTaskStations:
   - {fileID: 537076767}
   - {fileID: 939621288}
-  isOverworld: 1
+  notifAnim: {fileID: 6856126649754303797}
 --- !u!1 &998904510
 GameObject:
   m_ObjectHideFlags: 0
@@ -9406,6 +9406,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+--- !u!95 &6856126649754303797 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6009573737647207115, guid: 33365fdb9defb3d4099167d8dae255c3, type: 3}
+  m_PrefabInstance: {fileID: 6856126649754303796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8629341372272638711
 PrefabInstance:
   m_ObjectHideFlags: 0

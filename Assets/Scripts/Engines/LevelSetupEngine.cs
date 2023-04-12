@@ -12,6 +12,7 @@ public class LevelSetupEngine : MonoBehaviour
     [SerializeField] private GameObject[] feedingTaskStations;
     [SerializeField] private GameObject[] cleaningTaskStations;
     [SerializeField] private GameObject[] checkupTaskStations;
+    [SerializeField] private Animator notifAnim;
 
     #endregion
 
@@ -95,6 +96,9 @@ public class LevelSetupEngine : MonoBehaviour
             StaticItems.isEnding = true;
             MakeEntry();
         }
+
+        StaticItems.SaveGame();
+        PauseMenu.SendNotif(notifAnim);
     }
 
     public void RandomizeTasks(int maxTasks)
