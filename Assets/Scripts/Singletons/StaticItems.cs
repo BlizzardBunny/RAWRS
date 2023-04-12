@@ -66,9 +66,6 @@ public static class StaticItems
             SetSavedBool("taskCompletion" + i.ToString(), taskCompletion[i]);
         }
 
-        //we need this for LoadGame() since entriesData is not a fixed size
-        PlayerPrefs.SetInt("entriesDataCount", entriesData.Count);
-
         for (int i = 0; i < entriesData.Count; i++)
         {
             PlayerPrefs.SetInt("entry" + i.ToString() + "a", entriesData[i].Item1);
@@ -109,10 +106,9 @@ public static class StaticItems
             taskCompletion[i] = GetSavedBool("taskCompletion" + i.ToString(), 0);
         }
 
-        int entriesDataCount = PlayerPrefs.GetInt("entriesDataCount", 0);
         entriesData.Clear();
 
-        for (int i = 0; i < entriesDataCount; i++)
+        for (int i = 0; i < taskCompletion.Length; i++)
         {
             entriesData.Add
             (
@@ -152,8 +148,6 @@ public static class StaticItems
         plrPos = new Vector3(-5.5f, 6.5f, 0.0f); 
         isPaused = false;
         isShowingTasks = false;
-
-        SaveGame();
     }
 
     public static void ExitGame()

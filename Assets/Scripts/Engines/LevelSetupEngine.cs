@@ -40,13 +40,17 @@ public class LevelSetupEngine : MonoBehaviour
         theoMarker.SetActive(false);
 
 #if UNITY_EDITOR
-        StaticItems.inTutorial = false;
+        if (StaticItems.levelNumber > 0)
+        {
+            StaticItems.inTutorial = false;
+        }
 #endif
         
         if (StaticItems.inTutorial && StaticItems.tutorialState <= 1)
         {
             StaticItems.taskCompletion = new bool[1];
             StaticItems.init = false;
+            StaticItems.entriesData.Clear();
             StaticItems.entriesData.Add(new System.Tuple<int, int>(0, 0));
         }
 

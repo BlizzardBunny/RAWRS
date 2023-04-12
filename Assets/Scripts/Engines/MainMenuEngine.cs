@@ -10,15 +10,14 @@ public class MainMenuEngine : MonoBehaviour
     #region Object References
     [Header("Panel Management")]
     [SerializeField] private Canvas mainCanvas;
-    [SerializeField] private Canvas optionsCanvas;
-    [SerializeField] private Canvas creditsCanvas;
+    [SerializeField] private Canvas optionsCanvas, creditsCanvas, confirmNewGamePanel;
 
     [Header("Main Menu")]
     [SerializeField] private Button playButton;
-    [SerializeField] private Button optionsButton, creditsButton, exitButton;
+    [SerializeField] private Button newGameButton, confirmNewGameButton, cancelNewGameButton, optionsButton, creditsButton, exitButton;
 
     [Header("Resolution")]
-    [SerializeField] private Canvas confirmPanel;
+    [SerializeField] private Canvas confirmResolutionPanel;
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Button acceptChanges, cancelChanges;
     [SerializeField] private TMPro.TextMeshProUGUI countdown;
@@ -45,31 +44,29 @@ public class MainMenuEngine : MonoBehaviour
     private int fullscreenIndex = 3;
     private Coroutine confirmCoroutine;
     private bool isCountingDown = false;
-
-    private bool updatedPlayBtn = false;
     #endregion
 
 
     void Start()
     {
+        StaticItems.Reset(); //assures that the static items only follow the PlayerPrefs
         StaticItems.LoadGame();
 
+        optionsCanvas.enabled = false;
+        creditsCanvas.enabled = false;
+        confirmResolutionPanel.enabled = false;
+        confirmNewGamePanel.enabled = false;
+
         currCanvas = mainCanvas;
-
-        if (StaticItems.levelNumber == 0 && StaticItems.tutorialState == 0)
-        {
-            playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
-        }
-        else
-        {
-            playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Continue";
-        }
-
-        updatedPlayBtn = true;
 
         #region Add Listeners
 
         playButton.onClick.AddListener(PlayGame);
+
+        newGameButton.onClick.AddListener(() => confirmNewGamePanel.enabled = true);
+        confirmNewGameButton.onClick.AddListener(NewGame);
+        cancelNewGameButton.onClick.AddListener(() => confirmNewGamePanel.enabled = false);
+
         optionsButton.onClick.AddListener(OpenOptions);
         creditsButton.onClick.AddListener(OpenCredits);
         exitButton.onClick.AddListener(ExitGame);
@@ -83,22 +80,20 @@ public class MainMenuEngine : MonoBehaviour
 
         #endregion
 
+
+        if (StaticItems.levelNumber == 0 && StaticItems.tutorialState == 0)
+        {
+            playButton.gameObject.SetActive(false);
+            newGameButton.onClick.RemoveAllListeners();
+            newGameButton.onClick.AddListener(NewGame);
+        }
+
         FindClosestResolution();
     }
 
     private void Update()
     {
-        if (!updatedPlayBtn)
-        {
-            if (StaticItems.levelNumber == 0)
-            {
-                playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
-            }
-            else
-            {
-                playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Continue";
-            }
-        }
+
     }
 
     #region Resolution
@@ -139,7 +134,7 @@ public class MainMenuEngine : MonoBehaviour
 
         if (i != prevResolution)
         {
-            confirmPanel.enabled = true;
+            confirmResolutionPanel.enabled = true;
             isCountingDown = true;
             confirmCoroutine = StartCoroutine(Countdown());
         }
@@ -168,14 +163,14 @@ public class MainMenuEngine : MonoBehaviour
     {
         prevResolution = resolutionDropdown.value;
         isCountingDown = false;
-        confirmPanel.enabled = false;
+        confirmResolutionPanel.enabled = false;
     }
 
     private void CancelChanges()
     {
         resolutionDropdown.value = prevResolution;
         isCountingDown = false;
-        confirmPanel.enabled = false;
+        confirmResolutionPanel.enabled = false;
     }
 
     #endregion
@@ -205,9 +200,16 @@ public class MainMenuEngine : MonoBehaviour
 
     #endregion
 
+    private void NewGame()
+    {
+        StaticItems.Reset();
+        StaticItems.SaveGame();
+
+        PlayGame();
+    }
+
     private void PlayGame()
     {
-        updatedPlayBtn = false;
         if (StaticItems.inTutorial)
         {
             if (StaticItems.tutorialState == 0)
