@@ -12,6 +12,7 @@ public class LevelSetupEngine : MonoBehaviour
     [SerializeField] private GameObject[] feedingTaskStations;
     [SerializeField] private GameObject[] cleaningTaskStations;
     [SerializeField] private GameObject[] checkupTaskStations;
+    [SerializeField] private Canvas notifCanvas;
     [SerializeField] private Animator notifAnim;
 
     #endregion
@@ -38,8 +39,6 @@ public class LevelSetupEngine : MonoBehaviour
 
     public void Init()
     {
-        theoMarker.SetActive(false);
-
 #if UNITY_EDITOR
         if (StaticItems.levelNumber > 0)
         {
@@ -98,7 +97,7 @@ public class LevelSetupEngine : MonoBehaviour
         }
 
         StaticItems.SaveGame();
-        PauseMenu.SendNotif(notifAnim);
+        StartCoroutine(PauseMenu.SendNotif(notifAnim));
     }
 
     public void RandomizeTasks(int maxTasks)
@@ -245,6 +244,8 @@ public class LevelSetupEngine : MonoBehaviour
 
     private void Start()
     {
+        theoMarker.SetActive(false);
+        notifCanvas.enabled = true;
         Init();
     }
 

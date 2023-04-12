@@ -29,6 +29,7 @@ public class DialogueEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dialogueCanvas.enabled = false;
         if (SceneManager.GetActiveScene().name != "Intro")
         {
             Init();
