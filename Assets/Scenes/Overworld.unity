@@ -1191,9 +1191,9 @@ MonoBehaviour:
   - ???
   - ???
   sprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
   - Heya, need anything?
   - Ahh, you're curious why I'm volunteering? There wasn't really any solid reason
@@ -3141,8 +3141,8 @@ MonoBehaviour:
   - ???
   - ???
   sprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
   - Yo! What's up?
   - Oh, you're curious why I chose to volunteer? I have a lot of free time so I thought
@@ -6271,8 +6271,8 @@ MonoBehaviour:
   - ???
   - ???
   sprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
   - Oh hey! Enjoying your time at the shelter?
   - Hm? Why am I volunteering? Well, it's a fun thing to do honestly. I love cats
@@ -7434,9 +7434,9 @@ MonoBehaviour:
   - ???
   - ???
   sprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
   - Hm?
   - You wanna know why I volunteer? It's a good way to interact with dogs! I grew
@@ -9000,10 +9000,10 @@ MonoBehaviour:
   - ???
   - ???
   sprites:
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
-  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 3}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   dialogue:
   - Hey! You have a question?
   - Ah, you wanna ask why I'm here? Well honestly I also just got dragged in by a
