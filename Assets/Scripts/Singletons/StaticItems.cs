@@ -22,6 +22,9 @@ public static class StaticItems
     public static float MasterVolume = 1.0f;
     public static float MusicVolume = 1.0f;
     public static float SFXVolume = 1.0f;
+
+    public static int ResolutionIndex = 0;
+    public static bool Fullscreen = true;
     #endregion
 
     #region Misc Items
@@ -82,6 +85,9 @@ public static class StaticItems
         PlayerPrefs.SetFloat("MusicVolume", MusicVolume);
         PlayerPrefs.SetFloat("SFXVolume", SFXVolume);
 
+        PlayerPrefs.SetInt("ResolutionIndex", ResolutionIndex);
+        SetSavedBool("Fullscreen", Screen.fullScreen);
+
         PlayerPrefs.Save();
     }
     #endregion
@@ -128,6 +134,9 @@ public static class StaticItems
         MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
         MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
         SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+
+        ResolutionIndex = PlayerPrefs.GetInt("ResolutionIndex", 0);
+        Fullscreen = GetSavedBool("Fullscreen", 1);
     }
     #endregion
 

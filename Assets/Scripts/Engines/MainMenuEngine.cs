@@ -21,6 +21,7 @@ public class MainMenuEngine : MonoBehaviour
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Button acceptChanges, cancelChanges;
     [SerializeField] private TMPro.TextMeshProUGUI countdown;
+    [SerializeField] private Toggle fullscreen;
 
     [Header("Return")]
     [SerializeField] private Button returnButtonOptions, returnButtonCredits;
@@ -32,7 +33,7 @@ public class MainMenuEngine : MonoBehaviour
     #region Variables
     private Canvas currCanvas;
 
-    private Vector2Int[] resolutions = { 
+    public static Vector2Int[] resolutions = { 
         new Vector2Int(720, 480), 
         new Vector2Int(1024, 720),
         new Vector2Int(1280, 1024),
@@ -40,8 +41,8 @@ public class MainMenuEngine : MonoBehaviour
         new Vector2Int(1600, 900),
         new Vector2Int(1920, 1080) };
 
-    private int prevResolution = -1;
-    private int fullscreenIndex = 3;
+    public static int prevResolution = -1;
+    public static int fullscreenIndex = 3;
     private Coroutine confirmCoroutine;
     private bool isCountingDown = false;
     #endregion
@@ -74,6 +75,12 @@ public class MainMenuEngine : MonoBehaviour
         resolutionDropdown.onValueChanged.AddListener((i) => UpdateResolution(ref i));
         acceptChanges.onClick.AddListener(AcceptChanges);
         cancelChanges.onClick.AddListener(CancelChanges);
+        fullscreen.onValueChanged.AddListener((bool b) =>
+        {
+            Screen.fullScreen = b;
+            StaticItems.ResolutionIndex = resolutionDropdown.value;
+            StaticItems.SaveGame();
+        });
 
         returnButtonOptions.onClick.AddListener(ReturnToMainMenu);
         returnButtonCredits.onClick.AddListener(ReturnToMainMenu);
@@ -89,6 +96,9 @@ public class MainMenuEngine : MonoBehaviour
         }
 
         FindClosestResolution();
+        StaticItems.ResolutionIndex = resolutionDropdown.value;
+
+        StaticItems.SaveGame();
     }
 
     private void Update()
@@ -164,6 +174,8 @@ public class MainMenuEngine : MonoBehaviour
         prevResolution = resolutionDropdown.value;
         isCountingDown = false;
         confirmResolutionPanel.enabled = false;
+        StaticItems.ResolutionIndex = resolutionDropdown.value;
+        StaticItems.SaveGame();
     }
 
     private void CancelChanges()
