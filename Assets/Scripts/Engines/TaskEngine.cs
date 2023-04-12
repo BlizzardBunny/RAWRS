@@ -84,6 +84,8 @@ public class TaskEngine : MonoBehaviour
         feedCanvas.enabled = false;
         cleanCanvas.enabled = false;
         checkupCanvas.enabled = false;
+        bathingCatDirtSpots.enabled = false;
+        bathingDogDirtspots.enabled = false;
 
         contBtn.onClick.AddListener(EndScene);
         retryBtn.onClick.AddListener(RetryScene);

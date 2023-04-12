@@ -56,7 +56,7 @@ public class MainMenuEngine : MonoBehaviour
 
         currCanvas = mainCanvas;
 
-        if (StaticItems.levelNumber == 0)
+        if (StaticItems.levelNumber == 0 && StaticItems.tutorialState == 0)
         {
             playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
         }
