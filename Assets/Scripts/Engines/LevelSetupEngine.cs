@@ -12,7 +12,6 @@ public class LevelSetupEngine : MonoBehaviour
     [SerializeField] private GameObject[] feedingTaskStations;
     [SerializeField] private GameObject[] cleaningTaskStations;
     [SerializeField] private GameObject[] checkupTaskStations;
-    [SerializeField] private Canvas notifCanvas;
     [SerializeField] private Animator notifAnim;
 
     #endregion
@@ -245,7 +244,6 @@ public class LevelSetupEngine : MonoBehaviour
     private void Start()
     {
         theoMarker.SetActive(false);
-        notifCanvas.enabled = true;
         Init();
     }
 
