@@ -56,7 +56,7 @@ public class MainMenuEngine : MonoBehaviour
 
         currCanvas = mainCanvas;
 
-        if (StaticItems.playerName.Equals("Player"))
+        if (StaticItems.levelNumber == 0)
         {
             playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
         }
@@ -90,7 +90,7 @@ public class MainMenuEngine : MonoBehaviour
     {
         if (!updatedPlayBtn)
         {
-            if (StaticItems.playerName.Equals("Player"))
+            if (StaticItems.levelNumber == 0)
             {
                 playButton.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "New Game";
             }

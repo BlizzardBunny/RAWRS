@@ -12,7 +12,6 @@ public class LevelSetupEngine : MonoBehaviour
     [SerializeField] private GameObject[] feedingTaskStations;
     [SerializeField] private GameObject[] cleaningTaskStations;
     [SerializeField] private GameObject[] checkupTaskStations;
-    [SerializeField] private bool isOverworld = false;
 
     #endregion
 
@@ -40,10 +39,9 @@ public class LevelSetupEngine : MonoBehaviour
     {
         theoMarker.SetActive(false);
 
-        if (isOverworld)
-        {
-            StaticItems.inTutorial = false;
-        }     
+#if UNITY_EDITOR
+        StaticItems.inTutorial = false;
+#endif
         
         if (StaticItems.inTutorial && StaticItems.tutorialState <= 1)
         {
