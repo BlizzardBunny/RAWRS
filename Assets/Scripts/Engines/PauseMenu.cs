@@ -8,8 +8,8 @@ public class PauseMenu : MonoBehaviour
 {
     #region Object References
 
-    [SerializeField] private Canvas pauseMenuCanvas, optionsCanvas;
-    [SerializeField] private Button returnToMainMenu, exitGame, returnButton, saveButton, optionsButton;
+    [SerializeField] private Canvas pauseMenuCanvas, optionsCanvas, confirmCanvas;
+    [SerializeField] private Button returnToMainMenu, exitGame, returnButton, saveButton, optionsButton, confirmExitButton, cancelExitButton;
     [SerializeField] private SceneTransitions sceneTransitions;
 
     #endregion
@@ -19,9 +19,14 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuCanvas.enabled = false;
         optionsCanvas.enabled = false;
+        confirmCanvas.enabled = false;
 
-        returnToMainMenu.onClick.AddListener(ReturnToMain);
-        exitGame.onClick.AddListener(StaticItems.ExitGame);
+        returnToMainMenu.onClick.AddListener(() => confirmCanvas.enabled = true);
+        returnToMainMenu.onClick.AddListener(() => confirmExitButton.onClick.AddListener(ReturnToMain));
+        exitGame.onClick.AddListener(() => confirmCanvas.enabled = true);
+        exitGame.onClick.AddListener(() => confirmExitButton.onClick.AddListener(StaticItems.ExitGame));
+
+        cancelExitButton.onClick.AddListener(() => confirmCanvas.enabled = false);
 
         saveButton.onClick.AddListener(Save);
         optionsButton.onClick.AddListener(OpenSettings);
