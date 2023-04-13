@@ -42,7 +42,6 @@ public class MainMenuEngine : MonoBehaviour
         new Vector2Int(1920, 1080) };
 
     public static int prevResolution = -1;
-    public static int fullscreenIndex = 3;
     private Coroutine confirmCoroutine;
     private bool isCountingDown = false;
     #endregion
@@ -50,6 +49,11 @@ public class MainMenuEngine : MonoBehaviour
 
     void Start()
     {
+        if (PlayerPrefs.GetString("playerName") == null)
+        {
+            FindClosestResolution();
+        }
+
         StaticItems.Reset(); //assures that the static items only follow the PlayerPrefs
         StaticItems.LoadGame();
 
@@ -72,6 +76,9 @@ public class MainMenuEngine : MonoBehaviour
         creditsButton.onClick.AddListener(OpenCredits);
         exitButton.onClick.AddListener(ExitGame);
 
+        resolutionDropdown.value = StaticItems.ResolutionIndex;
+        fullscreen.isOn = StaticItems.Fullscreen;
+
         resolutionDropdown.onValueChanged.AddListener((i) => UpdateResolution(ref i));
         acceptChanges.onClick.AddListener(AcceptChanges);
         cancelChanges.onClick.AddListener(CancelChanges);
@@ -81,6 +88,7 @@ public class MainMenuEngine : MonoBehaviour
             StaticItems.ResolutionIndex = resolutionDropdown.value;
             StaticItems.SaveGame();
         });
+
 
         returnButtonOptions.onClick.AddListener(ReturnToMainMenu);
         returnButtonCredits.onClick.AddListener(ReturnToMainMenu);
@@ -95,7 +103,6 @@ public class MainMenuEngine : MonoBehaviour
             newGameButton.onClick.AddListener(NewGame);
         }
 
-        FindClosestResolution();
         StaticItems.ResolutionIndex = resolutionDropdown.value;
 
         StaticItems.SaveGame();
@@ -135,7 +142,7 @@ public class MainMenuEngine : MonoBehaviour
 
     private void UpdateResolution(ref int i)
     {
-        Screen.SetResolution(resolutions[i].x, resolutions[i].y, (FullScreenMode)fullscreenIndex);
+        Screen.SetResolution(resolutions[i].x, resolutions[i].y, StaticItems.Fullscreen);
 
         if (confirmCoroutine != null)
         {

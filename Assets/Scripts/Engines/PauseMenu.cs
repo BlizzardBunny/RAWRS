@@ -52,6 +52,9 @@ public class PauseMenu : MonoBehaviour
             Save();
         });
 
+        resolutionDropdown.value = StaticItems.ResolutionIndex;
+        fullscreen.isOn = StaticItems.Fullscreen;
+
         cancelExitButton.onClick.AddListener(() => confirmCanvas.enabled = false);
 
         saveButton.onClick.AddListener(Save);
@@ -124,7 +127,7 @@ public class PauseMenu : MonoBehaviour
 
     private void UpdateResolution(ref int i)
     {
-        Screen.SetResolution(MainMenuEngine.resolutions[i].x, MainMenuEngine.resolutions[i].y, (FullScreenMode)MainMenuEngine.fullscreenIndex);
+        Screen.SetResolution(MainMenuEngine.resolutions[i].x, MainMenuEngine.resolutions[i].y, StaticItems.Fullscreen);
 
         if (confirmCoroutine != null)
         {
