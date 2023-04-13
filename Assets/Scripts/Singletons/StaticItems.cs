@@ -142,6 +142,8 @@ public static class StaticItems
 
     public static void Reset()
     {
+        PlayerPrefs.DeleteAll();
+
         playerName = "Player";
         levelNumber = 0;
         init = true;

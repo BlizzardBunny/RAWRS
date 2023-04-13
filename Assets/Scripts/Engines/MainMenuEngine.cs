@@ -49,13 +49,13 @@ public class MainMenuEngine : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.GetString("playerName") == null)
+        StaticItems.Reset(); //assures that the static items only follow the PlayerPrefs
+        StaticItems.LoadGame();
+
+        if (PlayerPrefs.GetString("playerName") == "")
         {
             FindClosestResolution();
         }
-
-        StaticItems.Reset(); //assures that the static items only follow the PlayerPrefs
-        StaticItems.LoadGame();
 
         optionsCanvas.enabled = false;
         creditsCanvas.enabled = false;
@@ -89,12 +89,10 @@ public class MainMenuEngine : MonoBehaviour
             StaticItems.SaveGame();
         });
 
-
         returnButtonOptions.onClick.AddListener(ReturnToMainMenu);
         returnButtonCredits.onClick.AddListener(ReturnToMainMenu);
 
         #endregion
-
 
         if (StaticItems.levelNumber == 0 && StaticItems.tutorialState == 0)
         {
@@ -102,8 +100,6 @@ public class MainMenuEngine : MonoBehaviour
             newGameButton.onClick.RemoveAllListeners();
             newGameButton.onClick.AddListener(NewGame);
         }
-
-        StaticItems.ResolutionIndex = resolutionDropdown.value;
 
         StaticItems.SaveGame();
     }
@@ -131,12 +127,14 @@ public class MainMenuEngine : MonoBehaviour
                     prevResolution = i - 1;
                 }
                 resolutionDropdown.value = prevResolution;
+                StaticItems.ResolutionIndex = resolutionDropdown.value;
                 return;
             }
         }
 
         prevResolution = resolutions.Length - 1;
         resolutionDropdown.value = prevResolution;
+        StaticItems.ResolutionIndex = resolutionDropdown.value;
         return;
     }
 

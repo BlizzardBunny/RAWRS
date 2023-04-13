@@ -42,6 +42,8 @@ public class PauseMenu : MonoBehaviour
         exitGame.onClick.AddListener(() => confirmCanvas.enabled = true);
         exitGame.onClick.AddListener(() => confirmExitButton.onClick.AddListener(StaticItems.ExitGame));
 
+        resolutionDropdown.value = StaticItems.ResolutionIndex;
+        fullscreen.isOn = StaticItems.Fullscreen;
         resolutionDropdown.onValueChanged.AddListener((int i) => UpdateResolution(ref i));
         acceptChanges.onClick.AddListener(AcceptChanges);
         cancelChanges.onClick.AddListener(CancelChanges);
@@ -52,8 +54,6 @@ public class PauseMenu : MonoBehaviour
             Save();
         });
 
-        resolutionDropdown.value = StaticItems.ResolutionIndex;
-        fullscreen.isOn = StaticItems.Fullscreen;
 
         cancelExitButton.onClick.AddListener(() => confirmCanvas.enabled = false);
 
