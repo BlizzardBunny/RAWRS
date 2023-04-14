@@ -7264,7 +7264,7 @@ RectTransform:
   m_Father: {fileID: 1154848060}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -7289,30 +7289,46 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-PROGRAMMERS-
+  m_text: '<size=55>-PROGRAMMERS-</size>
 
     Li Niko Arceo
 
     Lance Michael Co
 
 
-    -ILLUSTRATORS-
+    <size=55>-ILLUSTRATORS-</size>
 
     @Arzenpai
     (Twitter)
 
 
-    -MUSIC-
+    <size=55>-MUSIC-</size>
 
     @Pixverses (Youtube)
 
 
-    -ASSETS-
+    <size=55>-ASSETS-</size>
 
-    Keyboard
-    Prompts - OpenGameArt
+    @Cougarmint,
+    OpenGameArt
 
-    Sprites - @wht_dragon, OpenGameArt'
+    @Rallix, OpenGameArt
+
+    @wht_dragon, Twitter
+
+    @Shibas,
+    RPGMakerWeb
+
+    @Candacis, RPGMakerWeb
+
+    @Haydeos, RPGMakerWeb
+
+    @Avery,
+    RPGMakerWeb
+
+    @LimeZu, Itch.io
+
+    Kadokawa, RPG Maker'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a8d11de59d254342b562cd7b83b687e, type: 2}
   m_sharedMaterial: {fileID: 1684395246248992988, guid: 3a8d11de59d254342b562cd7b83b687e, type: 2}
@@ -7339,8 +7355,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68
-  m_fontSizeBase: 68
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7375,7 +7391,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 100}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
