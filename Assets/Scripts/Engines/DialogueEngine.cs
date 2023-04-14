@@ -12,7 +12,7 @@ public class DialogueEngine : MonoBehaviour
     [SerializeField] private Image npcPic;
     [SerializeField] private TMPro.TextMeshProUGUI npcName;
     [SerializeField] private TMPro.TextMeshProUGUI npcDialogue;
-    [SerializeField] private Button nextLine;
+    public Button nextLine;
     public SceneTransitions sceneTransitions;
     public NPCDialogueInfo nextStateDialogueInfo;
 
@@ -29,6 +29,7 @@ public class DialogueEngine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dialogueCanvas.enabled = false;
         if (SceneManager.GetActiveScene().name != "Intro")
         {
             Init();
@@ -137,6 +138,11 @@ public class DialogueEngine : MonoBehaviour
     {
         dialogueInfo = obj.GetComponent<NPCDialogueInfo>();
 
+        if (dialogueInfo == null)
+        {
+            dialogueInfo = obj.transform.GetChild(0).GetComponent<NPCDialogueInfo>();
+        }
+
         if (obj.transform.childCount > 0)
         {
             child = obj.transform.GetChild(0).gameObject;
@@ -236,7 +242,7 @@ public class DialogueEngine : MonoBehaviour
                 }
             }
 
-            if (child != null)
+            if (child != null && !child.name.Equals("Text (TMP)"))
             {
                 child.SetActive(false);
             }
@@ -246,6 +252,7 @@ public class DialogueEngine : MonoBehaviour
                 if (StaticItems.levelNumber < 4)
                 {
                     dialogueInfo.showAtEndCanvas.enabled = true;
+                    nextLine.interactable = false;
                 }
                 else
                 {

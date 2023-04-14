@@ -10,7 +10,7 @@ public static class StaticItems
     public static int levelNumber = 0;
     public static bool init = true;
     public static bool isEnding = false;
-    public static bool[] taskCompletion;
+    public static bool[] taskCompletion = new bool[levelNumber + 1];
     public static List<System.Tuple<int, int>> entriesData = new List<System.Tuple<int, int>>();
 
     public static bool inTutorial = true;
@@ -22,6 +22,9 @@ public static class StaticItems
     public static float MasterVolume = 1.0f;
     public static float MusicVolume = 1.0f;
     public static float SFXVolume = 1.0f;
+
+    public static int ResolutionIndex = 0;
+    public static bool Fullscreen = true;
     #endregion
 
     #region Misc Items
@@ -33,7 +36,7 @@ public static class StaticItems
 
     public static string[] petNames =
     {
-        "Cat", "Dog"
+        "Kitty", "Doug"
     };
 
     #endregion
@@ -66,9 +69,6 @@ public static class StaticItems
             SetSavedBool("taskCompletion" + i.ToString(), taskCompletion[i]);
         }
 
-        //we need this for LoadGame() since entriesData is not a fixed size
-        PlayerPrefs.SetInt("entriesDataCount", entriesData.Count);
-
         for (int i = 0; i < entriesData.Count; i++)
         {
             PlayerPrefs.SetInt("entry" + i.ToString() + "a", entriesData[i].Item1);
@@ -84,6 +84,9 @@ public static class StaticItems
         PlayerPrefs.SetFloat("MasterVolume", MasterVolume);
         PlayerPrefs.SetFloat("MusicVolume", MusicVolume);
         PlayerPrefs.SetFloat("SFXVolume", SFXVolume);
+
+        PlayerPrefs.SetInt("ResolutionIndex", ResolutionIndex);
+        SetSavedBool("Fullscreen", Screen.fullScreen);
 
         PlayerPrefs.Save();
     }
@@ -109,10 +112,9 @@ public static class StaticItems
             taskCompletion[i] = GetSavedBool("taskCompletion" + i.ToString(), 0);
         }
 
-        int entriesDataCount = PlayerPrefs.GetInt("entriesDataCount", 0);
         entriesData.Clear();
 
-        for (int i = 0; i < entriesDataCount; i++)
+        for (int i = 0; i < taskCompletion.Length; i++)
         {
             entriesData.Add
             (
@@ -132,11 +134,16 @@ public static class StaticItems
         MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
         MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
         SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+
+        ResolutionIndex = PlayerPrefs.GetInt("ResolutionIndex", 0);
+        Fullscreen = GetSavedBool("Fullscreen", 1);
     }
     #endregion
 
     public static void Reset()
     {
+        PlayerPrefs.DeleteAll();
+
         playerName = "Player";
         levelNumber = 0;
         init = true;
@@ -152,8 +159,6 @@ public static class StaticItems
         plrPos = new Vector3(-5.5f, 6.5f, 0.0f); 
         isPaused = false;
         isShowingTasks = false;
-
-        SaveGame();
     }
 
     public static void ExitGame()

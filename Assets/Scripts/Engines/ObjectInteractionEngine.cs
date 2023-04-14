@@ -34,6 +34,7 @@ public class ObjectInteractionEngine : MonoBehaviour
     {
         if (confirmTaskCanvas != null)
         {
+            confirmTaskCanvas.enabled = false;
             confirmYes.onClick.AddListener(StartTask);
             confirmNo.onClick.AddListener(() => confirmTaskCanvas.enabled = false);
         }

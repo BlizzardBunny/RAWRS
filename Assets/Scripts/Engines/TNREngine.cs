@@ -45,9 +45,12 @@ public class TNREngine : MonoBehaviour
         completeTasks = 0;
 
         cancelTask.onClick.AddListener(() => confirmCanvas.enabled = false);
-        StaticItems.LoadGame();
+
+#if UNITY_EDITOR
         StaticItems.inTutorial = false;
         StaticItems.levelNumber = 4;
+#endif
+
         dialogueEngine.dialogueCanvas.enabled = true;
         dialogueEngine.StartDialogue(ref dialogueStates[0]);
     }

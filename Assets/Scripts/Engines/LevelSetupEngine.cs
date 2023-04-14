@@ -6,13 +6,13 @@ public class LevelSetupEngine : MonoBehaviour
 {
     #region Object References
 
-    [SerializeField] private GameObject tasklistEntryPrefab;
+    [SerializeField] private GameObject tasklistEntryPrefab, theoMarker;
     [SerializeField] private Transform entryContainer;
     [SerializeField] private GameObject[] bathingTaskStations;
     [SerializeField] private GameObject[] feedingTaskStations;
     [SerializeField] private GameObject[] cleaningTaskStations;
     [SerializeField] private GameObject[] checkupTaskStations;
-    [SerializeField] private bool isOverworld = false;
+    [SerializeField] private Animator notifAnim;
 
     #endregion
 
@@ -38,15 +38,18 @@ public class LevelSetupEngine : MonoBehaviour
 
     public void Init()
     {
-        if (isOverworld)
+#if UNITY_EDITOR
+        if (StaticItems.levelNumber > 0)
         {
             StaticItems.inTutorial = false;
-        }     
+        }
+#endif
         
         if (StaticItems.inTutorial && StaticItems.tutorialState <= 1)
         {
             StaticItems.taskCompletion = new bool[1];
             StaticItems.init = false;
+            StaticItems.entriesData.Clear();
             StaticItems.entriesData.Add(new System.Tuple<int, int>(0, 0));
         }
 
@@ -91,6 +94,9 @@ public class LevelSetupEngine : MonoBehaviour
             StaticItems.isEnding = true;
             MakeEntry();
         }
+
+        StaticItems.SaveGame();
+        StartCoroutine(PauseMenu.SendNotif(notifAnim));
     }
 
     public void RandomizeTasks(int maxTasks)
@@ -193,6 +199,7 @@ public class LevelSetupEngine : MonoBehaviour
         TaskEntry entryData = entry.GetComponent<TaskEntry>();
         entryData.taskName.text = "Talk to Theo";
         entryData.taskNumber.text = (++numOnList).ToString();
+        entryData.taskStationMarker = theoMarker;
 
         entries.Add(entry);
     }
@@ -236,6 +243,7 @@ public class LevelSetupEngine : MonoBehaviour
 
     private void Start()
     {
+        theoMarker.SetActive(false);
         Init();
     }
 
