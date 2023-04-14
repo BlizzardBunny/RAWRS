@@ -219,7 +219,7 @@ public class MainMenuEngine : MonoBehaviour
 
     private void NewGame()
     {
-        StaticItems.Reset();
+        StaticItems.ResetCompletely();
         StaticItems.SaveGame();
 
         PlayGame();

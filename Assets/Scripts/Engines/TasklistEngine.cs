@@ -27,7 +27,7 @@ public class TasklistEngine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Tab))
+        if (Input.GetKeyUp(KeyCode.Tab) && !StaticItems.isShowingDialogue)
         {
             if (StaticItems.levelNumber < 4)
             {

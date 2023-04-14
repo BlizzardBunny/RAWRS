@@ -92,6 +92,11 @@ public class DialogueEngine : MonoBehaviour
                 }
             }
         }
+
+        if (StaticItems.isShowingDialogue != dialogueCanvas.enabled)
+        {
+            StaticItems.isShowingDialogue = dialogueCanvas.enabled;
+        }
     }
 
     private string ApplyKeywords(ref string line)

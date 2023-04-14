@@ -30,6 +30,7 @@ public static class StaticItems
     #region Misc Items
     public static bool isPaused = false;
     public static bool isShowingTasks = false;
+    public static bool isShowingDialogue = false;
 
     public static Vector3 plrPos = new Vector3(-5.5f, 6.5f, 0.0f);
 
@@ -142,8 +143,6 @@ public static class StaticItems
 
     public static void Reset()
     {
-        PlayerPrefs.DeleteAll();
-
         playerName = "Player";
         levelNumber = 0;
         init = true;
@@ -159,6 +158,12 @@ public static class StaticItems
         plrPos = new Vector3(-5.5f, 6.5f, 0.0f); 
         isPaused = false;
         isShowingTasks = false;
+    }
+
+    public static void ResetCompletely()
+    {
+        PlayerPrefs.DeleteAll();
+        Reset();
     }
 
     public static void ExitGame()
