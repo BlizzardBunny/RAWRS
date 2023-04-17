@@ -45,7 +45,7 @@ public class BowlState : MonoBehaviour, IPointerClickHandler, IPointerExitHandle
             canvas.alpha -= 0.5f * Time.deltaTime;
         }
 
-        if (canvas.alpha <= 0)
+        if (canvas.alpha <= 0.2f)
         {
             toolAnim.SetBool("isInUse", false);
             

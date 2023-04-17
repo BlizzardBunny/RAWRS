@@ -24,7 +24,7 @@ public class DirtSpot : MonoBehaviour, IPointerEnterHandler
 
     private void Update()
     {
-        if (image.alpha <= 0)
+        if (image.alpha <= 0.2f)
         {
             if (toolSlider != null)
             {
