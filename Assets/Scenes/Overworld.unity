@@ -1163,6 +1163,8 @@ MonoBehaviour:
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
   endLocation: {x: 0, y: 0}
+  offsetPlrOnStuck: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
   isMoving: 0
   iter: 1
 --- !u!114 &202638132
@@ -3493,6 +3495,8 @@ MonoBehaviour:
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
   endLocation: {x: 0, y: 0}
+  offsetPlrOnStuck: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
   isMoving: 0
   iter: 1
 --- !u!114 &741309027
@@ -4380,6 +4384,8 @@ MonoBehaviour:
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
   endLocation: {x: 31.5, y: 6.5}
+  offsetPlrOnStuck: {x: -1, y: 0, z: 0}
+  player: {fileID: 116131421}
   isMoving: 0
   iter: 0
 --- !u!95 &891827750
@@ -5563,6 +5569,8 @@ MonoBehaviour:
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
   endLocation: {x: 20.5, y: 14.5}
+  offsetPlrOnStuck: {x: -1, y: 0, z: 0}
+  player: {fileID: 116131421}
   isMoving: 0
   iter: 0
 --- !u!95 &1000670703
@@ -6086,6 +6094,8 @@ MonoBehaviour:
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
   endLocation: {x: 20.5, y: 14.5}
+  offsetPlrOnStuck: {x: 0, y: -1, z: 0}
+  player: {fileID: 116131421}
   isMoving: 0
   iter: 0
 --- !u!95 &1198672964
@@ -6748,6 +6758,8 @@ MonoBehaviour:
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
   endLocation: {x: 0, y: 0}
+  offsetPlrOnStuck: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
   isMoving: 0
   iter: 1
 --- !u!95 &1316803465
@@ -7852,6 +7864,8 @@ MonoBehaviour:
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
   endLocation: {x: 0, y: 0}
+  offsetPlrOnStuck: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
   isMoving: 0
   iter: 1
 --- !u!114 &1562163579
@@ -9560,6 +9574,8 @@ MonoBehaviour:
   wasdCanvas: {fileID: 0}
   pressKeyCanvas: {fileID: 0}
   endLocation: {x: 0, y: 0}
+  offsetPlrOnStuck: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
   isMoving: 0
   iter: 1
 --- !u!114 &1951458174
