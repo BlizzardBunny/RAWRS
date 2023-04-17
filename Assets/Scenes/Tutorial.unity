@@ -1826,6 +1826,8 @@ MonoBehaviour:
   wasdCanvas: {fileID: 471569673}
   pressKeyCanvas: {fileID: 1860957398}
   endLocation: {x: -7.5, y: 17.5}
+  offsetPlrOnStuck: {x: 1, y: 0, z: 0}
+  player: {fileID: 116131421}
   isMoving: 0
   iter: 0
 --- !u!61 &387884520

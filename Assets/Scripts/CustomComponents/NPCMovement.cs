@@ -19,6 +19,8 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private Canvas wasdCanvas;
     [SerializeField] private Canvas pressKeyCanvas;
     [SerializeField] private Vector2 endLocation;
+    public Vector3 offsetPlrOnStuck;
+    [SerializeField] private Transform player;
 
     #endregion
 
@@ -63,6 +65,10 @@ public class NPCMovement : MonoBehaviour
     void Update()
     {
         this.GetComponent<Collider2D>().enabled = !isMoving;
+        if (!isMoving)
+        {
+            CheckIfStuck();
+        }
     }
 
     public void FaceEnd()
@@ -222,6 +228,25 @@ public class NPCMovement : MonoBehaviour
         else
         {
             distMoved = 1.5f;
+        }
+    }
+
+    private void CheckIfStuck()
+    {
+        if (objRect == null)
+        {
+            return;
+        }
+
+        if ((StaticItems.plrPos.x > objRect.position.x - (objRect.rect.width / 2))
+            && (StaticItems.plrPos.x < objRect.position.x + (objRect.rect.width / 2))
+            && (StaticItems.plrPos.y > objRect.position.y - (objRect.rect.height / 2))
+            && (StaticItems.plrPos.y < objRect.position.y + (objRect.rect.height / 2)))
+        {
+            /*IMPLEMENT: Find nearest clear space and teleport player to it*/
+
+            player.position = transform.position + offsetPlrOnStuck;
+            StaticItems.plrPos = player.position;
         }
     }
 }
