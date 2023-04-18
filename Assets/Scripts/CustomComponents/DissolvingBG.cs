@@ -22,7 +22,14 @@ public class DissolvingBG : MonoBehaviour
         }
         else
         {
-            thisCG.alpha = thatCG.alpha;
+            if (thatCG != null)
+            {
+                thisCG.alpha = thatCG.alpha;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }
