@@ -92,7 +92,15 @@ public class PauseMenu : MonoBehaviour
         {
             StaticItems.Reset();
         }
-        sceneTransitions.LoadScene("MainMenu");
+
+        if (sceneTransitions != null)
+        {
+            sceneTransitions.LoadScene("MainMenu");
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
     void OpenSettings()
     {        
