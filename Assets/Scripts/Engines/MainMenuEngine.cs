@@ -220,6 +220,7 @@ public class MainMenuEngine : MonoBehaviour
     private void NewGame()
     {
         StaticItems.Reset();
+        PlayerPrefs.DeleteAll();
         StaticItems.SaveGame();
 
         PlayGame();
